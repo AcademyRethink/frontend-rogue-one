@@ -35,7 +35,7 @@
   border-radius: 5px;
 }
 .sidebarButton:active {
-  background-color: #697077;
+  background-color: #93989e;
 }
 
 .sidebar {
@@ -50,7 +50,7 @@
 
 .sidebarButtonText {
   font-size: 16px;
-  color: #697077;
+  color: #006064;
   font-weight: 500;
 }
 
