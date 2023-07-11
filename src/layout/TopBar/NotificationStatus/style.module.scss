@@ -1,0 +1,47 @@
+@import '../../../utils/base.scss';
+
+.notificationHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  margin-top: 24px;
+  padding-bottom: 25.5px;
+  border-bottom: 2px black;
+  border-bottom: 1px solid $neutral-color-3;
+}
+
+.notificationHeader {
+  button {
+    padding: 0px;
+    margin: 0;
+    margin-right: 21px;
+  }
+}
+
+.notificationTitle {
+  margin-left: 21px;
+  display: flex;
+  align-items: center;
+  h2 {
+    color: $neutral-color-1;
+    @include h4-font;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+}
+
+.containerNotificationsCards{
+  height: 280px;
+  margin-top: 21px;
+  overflow: auto;
+}
+::-webkit-scrollbar {
+  width: 0px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.0); /* Cor semitransparente para a barra deslizante */
+}

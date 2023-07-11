@@ -7,6 +7,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 
 }
 
@@ -14,12 +15,12 @@
   h1 {
     margin-left: 48px;
     color: $neutral-color-4;
-    @include h1-font;
+    @include h2-font;
   
   }
   p {
     color: $neutral-color-4;
-    font: $h4-font;
+    @include h4-font;
   }
   button{
     padding: 8px;
@@ -46,4 +47,25 @@
 .leftMenu{
     display: flex;
     align-items: center;
+}
+
+.modalWrapper {
+  position: absolute;
+  top:67px;
+  right: 34px;
+  width: 414px;
+  height: 398px;
+  display: flex;
+  justify-content: end;
+  background-color: blue;
+
+
+}
+
+.modalContent {
+  background-color: $neutral-color-4;
+  width: 100%;
+  border-radius: 4px;
+
+  /* Estilos para o conteúdo do modal */
 }
