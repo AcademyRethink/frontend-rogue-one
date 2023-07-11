@@ -17,12 +17,67 @@ $success-color: #47b881;
 $emphasis-color: #3b82f6;
 
 $font-family: 'Roboto', sans-serif;
-$h1-font: $font-family normal 700 32px/120%;
-$h2-font: $font-family normal 700 25px/120%;
-$h3-font: $font-family normal 700 18px/120%;
-$h4-font: $font-family normal 500 16px/120%;
-$h5-font: $font-family normal 500 14px/120%;
-$normal-text-font: $font-family normal 400 14px/120%;
-$normal-text-bold-font: $font-family normal 700 14px/120%;
-$subtitle-font: normal 400 12px/120% $font-family;
-$subtitle-bold-font: normal 700 12px/120% $font-family;
+@mixin h1-font {
+  font-family: $font-family;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+@mixin h2-font {
+  font-family: $font-family;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+@mixin h3-font {
+  font-family: $font-family;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
+@mixin h4-font {
+  font-family: $font-family;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+@mixin h5-font {
+  font-family: $font-family;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 120%;
+}
+@mixin normal-text-font {
+  font-family: $font-family;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+@mixin normal-text-bold-font {
+  font-family: $font-family;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%;
+}
+@mixin subtitle-font {
+  font-family: $font-family;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 120%;
+}
+@mixin subtitle-bold-font {
+  font-family: $font-family;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%;
+}
