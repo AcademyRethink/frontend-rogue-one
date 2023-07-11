@@ -1,0 +1,49 @@
+@import '../../utils/base.scss';
+
+.topBarContainer {
+  background-color: $primary-color-2;
+  width: 100vw;
+  height: 87px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.topBarContainer {
+  h1 {
+    margin-left: 48px;
+    color: $neutral-color-4;
+    @include h1-font;
+  
+  }
+  p {
+    color: $neutral-color-4;
+    font: $h4-font;
+  }
+  button{
+    padding: 8px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 30px;
+    outline:none;  
+  }
+  button:hover{         
+    border-radius: 4px;
+    background: rgba(66, 66, 66, 0.32); 
+  }
+  button:focus{
+    border-radius: 4px;
+    border: 2px solid $neutral-color-1;
+
+  }
+  .topBarDivider{
+    margin: 0;
+    padding: 14px;
+  }
+}
+.leftMenu{
+    display: flex;
+    align-items: center;
+}
