@@ -1,0 +1,95 @@
+@use '../../utils/base';
+
+.container {
+  width: fit-content;
+  height: fit-content;
+}
+.selectContainer {
+  @include base.subtitle-font;
+  border-radius: 4px;
+  background-color: base.$neutral-color-4;
+  color: base.$neutral-color-3;
+
+  width: fit-content;
+  height: fit-content;
+  padding: 8px;
+  gap: 8px;
+
+  display: flex;
+  flex: row;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+  cursor: pointer;
+
+  select {
+    display: none;
+    // appearance: none;
+    // @include base.subtitle-font;
+    // border: none;
+    // outline: none;
+    // border-radius: 4px;
+    // background-color: base.$neutral-color-4;
+    // color: base.$neutral-color-3;
+    // padding: 8px 32px;
+    // width: 100%;
+    // display: flex;
+    // flex: row;
+    // align-items: center;
+
+    // option {
+    //   @include base.subtitle-font;
+    //   color: base.$neutral-color-2;
+    //   background-color: base.$neutral-color-5;
+    // }
+  }
+
+  svg {
+    width: 18px;
+    height: 18px;
+    color: base.$neutral-color-2;
+    pointer-events: none;
+  }
+
+  .frontSymbol {
+    font-size: 18px;
+    pointer-events: none;
+    color: base.$neutral-color-2;
+  }
+
+  input {
+    @include base.subtitle-font;
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
+  + .selectItems {
+    margin-top: 4px;
+  }
+}
+
+.selectItems {
+  width: 100%;
+  @include base.subtitle-font;
+  border-radius: 4px;
+  background-color: base.$neutral-color-4;
+  color: base.$neutral-color-3;
+  cursor: pointer;
+
+  ul {
+    width: 100%;
+  }
+
+  .unorderedListItem {
+    padding: 7px 13px;
+    list-style-type: none;
+    + .unorderedListItem {
+      border-top: 1px solid base.$neutral-color-3;
+    }
+  }
+}
+
+.none {
+  display: none;
+}
