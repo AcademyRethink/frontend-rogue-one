@@ -1,45 +1,89 @@
-import { useState } from 'react';
-import './styles.css';
 import insert_chart from '../../assets/insert_chart.svg';
-import settings from '../../assets/settings.svg';
-import person from '../../assets/person.svg';
+import logo from '../../assets/logo.svg';
+import sair from '../../assets/sair.svg';
+import closeButton from '../../assets/closeButton.svg';
+import openButton from '../../assets/openButton.svg';
+
+import pessoa from '../../assets/pessoa.svg';
+import report from '../../assets/report.svg';
 import Sufix from '../../assets/sufix.svg';
+import { useState } from 'react';
+import SidebarRoute from './SidebarRoute';
+import styles from './styles.module.scss';
+
+import { NavLink } from 'react-router-dom';
 
 const Sidebar = (open: any) => {
   const [opened, setOpened] = useState(open);
+  const [display, setDisplay] = useState(false);
 
   const handleClosingSidebar = () => {
     setOpened(!opened);
+    setDisplay(!display);
+  };
+
+  const logOut = () => {
+    //fazer logica de logOut
   };
 
   return (
     <div
-      className={`${opened ? 'opened' : 'closed'} sidebar`}
-      // onClick={handleClosingSidebar}
+      className={`${opened ? styles.opened : styles.closed} ${styles.sidebar} `}
     >
-      <div className="sidebarTitles">
-        <span className="menuSidebartext">Farma </span>
-        <span className="sidebarView">View </span>
+      <button
+        className={styles.sidebarOpenButton}
+        onClick={handleClosingSidebar}
+      >
+        {opened ? <img src={closeButton}></img> : <img src={openButton}></img>}
+      </button>
+      <div className={styles.sidebarTitles}>
+        <img className={display ? styles.logo : ''} src={logo}></img>
       </div>
-      <img className="sufix" src={Sufix}></img>
-      {/* <span className="">View </span> */}
-      <div className="sidebarRoutes">
-        <div className="sidebarPage">
-          <img src={insert_chart}></img>
-          <span>Visão geral</span>
-        </div>
-        <div className="sidebarPage">
-          <img src={settings}></img>
-          <span>Configurações</span>
-        </div>
-        <div className="sidebarPage">
-          <img src={person}></img>
-          <span>Meu perfil</span>
-        </div>
+      <img
+        className={opened ? styles.sufix : styles.sufixClosed}
+        src={Sufix}
+      ></img>
+      <div className={styles.sidebarRoutes}>
+        <NavLink
+          to="/home"
+          className={({ isActive }) =>
+            isActive ? styles.activeRoute : styles.inactiveRoute
+          }
+        >
+          <SidebarRoute
+            title="Visão geral"
+            icon={insert_chart}
+            display={display}
+          />
+        </NavLink>
+        <NavLink
+          to="/my_profile"
+          className={({ isActive }) =>
+            isActive ? styles.activeRoute : styles.inactiveRoute
+          }
+        >
+          <SidebarRoute title="Relatório PCP" icon={report} display={display} />
+        </NavLink>
+        <NavLink
+          to="/report"
+          className={({ isActive }) =>
+            isActive ? styles.activeRoute : styles.inactiveRoute
+          }
+        >
+          <SidebarRoute title="Meu perfil" icon={pessoa} display={display} />
+        </NavLink>
       </div>
-      <div className="sidebarButtonDiv">
-        <button className="sidebarButton">
-          <span className="sidebarButtonText">Sair da conta</span>
+      <div
+        className={`${styles.sidebarButtonDiv} ${
+          opened ? styles.logoutButtonOpened : styles.logoutButtonClosed
+        }`}
+      >
+        <button
+          className={`${styles.sidebarButton} ${styles.logoutButton} ${styles.sidebarButtonText}`}
+          onClick={logOut}
+        >
+          <img src={sair}></img>
+          <span className={styles.buttonText}>Sair da conta</span>
         </button>
       </div>
     </div>
