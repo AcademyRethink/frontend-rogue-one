@@ -1,10 +1,12 @@
+
 interface Notification {
-  notification_id: number;
-  message: string;
-}
+    notification_id: number;
+    message: string;
+  }
 
-interface TopBarProps {
-  updateDate: string;
-}
+  interface TopBarProps {
+    updateDate: string;
+  }
 
-export type { Notification, TopBarProps };
+
+  export type { Notification, TopBarProps };

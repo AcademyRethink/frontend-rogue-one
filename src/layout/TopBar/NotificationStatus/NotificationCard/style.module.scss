@@ -3,12 +3,12 @@
 .cardNotification{
     margin:  0px 21px 8px 21px;
     padding: 14px;
-    background: $neutral-color-3;
+    background: $neutral-color-4;
     border-radius: 4px;
     position: relative;
 
     p{
-        color:$neutral-color-1;
-        @include h5-font
+        color:$neutral-color-2;
+        @include subtitle-bold-font
     }
 }
