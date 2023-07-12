@@ -1,16 +1,20 @@
+import { useState, useEffect } from 'react';
 import styles from './style.module.scss';
 import notification from '../../../assets/notificationMenu.svg';
 import info from '../../../assets/infoButton.svg';
 import NotificationCard from './NotificationCard/NotificationCard';
-import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
+import { Notification } from '../../../types/notificationsTypes';
+
 const NotificationStatus = () => {
-  const notifications = [
-    { id: 1, message: ' DIPIRONA SODICA MG GOTAS 500MG 20ML x 1 /ML, produto que está entre os mais vendidos no mercado de acordo com a ultima atualização, atingiu a quantidade mínima pré estabelecida em seu estoque.' },
-    { id: 2, message: 'Mensagem 2' },
-    { id: 3, message: 'Mensagem 3' },
- 
-  ];
+  const [notifications, setNotifications] = useState<Notification[]>([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8080/unresolved-notifications')
+      .then((response) => response.json())
+      .then((data) => setNotifications(data))
+      .catch((error) => console.log(error));
+  }, []);
   return (
     <div className={styles.modalContainer}>
       <div className={styles.notificationHeader}>
@@ -20,16 +24,17 @@ const NotificationStatus = () => {
         </div>
 
         <button>
-          <img src={info} alt="" />
+          <img src={info} alt="Informações sobre as notificações" />
         </button>
       </div>
       <div className={styles.containerNotificationsCards}>
-       {/*  teste barra de rolagem */}
-       {notifications.map(notification => (
-          <NotificationCard key={notification.id} message={notification.message} />
+        {notifications.map((notification) => (
+          <NotificationCard
+            notification_id={notification.notification_id}
+            message={notification.message}
+          />
         ))}
       </div>
-      
     </div>
   );
 };

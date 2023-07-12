@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import styles from './style.module.scss';
 import notification from '../../assets/notifications.svg';
 import NotificationStatus from './NotificationStatus/NotificationStatus';
+import { TopBarProps } from '../../types/notificationsTypes';
 
-
-const TopBar = (props: any) => {
+const TopBar = (props: TopBarProps) => {
   const { updateDate } = props;
   const [showModal, setShowModal] = useState(false);
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
-
-
-
 
   return (
     <div className={styles.topBarContainer}>
@@ -34,9 +31,8 @@ const TopBar = (props: any) => {
           </div>
         </div>
       )}
-        </div>
+    </div>
   );
 };
 
 export default TopBar;
-
