@@ -6,8 +6,10 @@ function App() {
 
   return (
     <>
-   {/*  <Playground /> */}
-    <TopBar updateDate="12/01/2023"/>
+    <div className="container">
+      <Playground /> 
+      <TopBar updateDate="12/01/2023"/>
+    </div>
     </>
   )
 }
