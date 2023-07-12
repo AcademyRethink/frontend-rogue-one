@@ -9,12 +9,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tippyjs/react": "^4.2.6",
     "axios": "^1.4.0",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.14.1",
+    "react-tooltip": "^5.18.0",
     "sass": "^1.63.6"
   },
   "devDependencies": {

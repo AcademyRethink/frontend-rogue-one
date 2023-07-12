@@ -1,11 +1,13 @@
 import Playground from "./view/playground/index"
 import './App.css'
+import TopBar from "./layout/TopBar/TopBar"
 
 function App() {
 
   return (
     <>
-    <Playground />
+   {/*  <Playground /> */}
+    <TopBar updateDate="12/01/2023"/>
     </>
   )
 }
