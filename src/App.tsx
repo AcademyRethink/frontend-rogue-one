@@ -11,7 +11,7 @@ function App() {
         <Sidebar>
           <Routes>
             <Route path="/" />
-            <Route path="/dashboard" element={<Home />} />
+            <Route path="/home" element={<Home />} />
           </Routes>
         </Sidebar>
       </BrowserRouter>
