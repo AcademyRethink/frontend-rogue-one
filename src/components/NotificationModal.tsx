@@ -6,12 +6,14 @@ const socket = socketIOClient('http://localhost:3050');
 
 const NotificationModal = () => {
   const [message, setMessage] = useState('');
-  const [isOpen, setIsOpen] = useState(true);
+  const [notificationId, setnotificationId] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     socket.on('productNotification', (data: any) => {
       console.log('Evento productNotification recebido:', data);
       setMessage(data.message);
+      setnotificationId(data.notification_id);
       setIsOpen(true);
     });
 
@@ -20,22 +22,10 @@ const NotificationModal = () => {
     };
   }, []);
 
- /*  const handleClose = () => {
-    setIsOpen(false);
-    // Enviar solicitação para atualizar a coluna "viewed" no backend
-    axios.patch('/api/notifications/viewed', { message })
-      .then(response => {
-        console.log('Coluna "viewed" atualizada com sucesso:', response.data);
-      })
-      .catch(error => {
-        console.error('Erro ao atualizar a coluna "viewed":', error);
-      });
-  };
- */
   const handleClose = async () => {
     setIsOpen(false);
     // Enviar solicitação para atualizar a coluna "viewed" no backend
-    const notificationId = 19986;
+  
     try {
       await updateNotificationViewed(notificationId);
       console.log('Coluna "viewed" atualizada com sucesso');
@@ -46,7 +36,7 @@ const NotificationModal = () => {
 
   const updateNotificationViewed = async (notificationId: any) => {
     try {
-      await axios.patch(`/notifications/${notificationId}/viewed`);
+      await axios.patch(`http://localhost:3050/notifications/${notificationId}/viewed`);
     } catch (error) {
       console.error('Erro ao atualizar a coluna "viewed":', error);
       throw error;
