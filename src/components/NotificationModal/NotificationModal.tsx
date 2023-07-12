@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 import axios from "axios";
 
-const socket = socketIOClient('http://localhost:3050');
+const socket = socketIOClient('http://localhost:8080');
 
 const NotificationModal = () => {
   const [message, setMessage] = useState('');
   const [notificationId, setnotificationId] = useState('');
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
     socket.on('productNotification', (data: any) => {
@@ -36,7 +36,7 @@ const NotificationModal = () => {
 
   const updateNotificationViewed = async (notificationId: any) => {
     try {
-      await axios.patch(`http://localhost:3050/notifications/${notificationId}/viewed`);
+      await axios.patch(`http://localhost:8080/notifications/${notificationId}/viewed`);
     } catch (error) {
       console.error('Erro ao atualizar a coluna "viewed":', error);
       throw error;
