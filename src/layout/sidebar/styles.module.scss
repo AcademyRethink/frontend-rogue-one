@@ -29,6 +29,12 @@
   background:rgb(0 96 100 / 50%);
 }
 
+.activeRoute:focus, .inactiveRoute:focus{
+  border: 2px solid base.$neutral-color-2;
+  border-radius: 4px;
+  outline: none;
+}
+
 
 .sidebarOpenButton{
   width: 40px;
@@ -44,10 +50,16 @@
   border-radius: 4px;
   background: base.$secondary-color-4;
   margin-bottom: 10px;  
+
+  z-index: 1;
 }
 
 .sidebarOpenButton:hover{
   background: base.$secondary-color-1;
+}
+
+.sidebarOpenButton:focus{
+ border: 2px solid base.$neutral-color-2;
 }
 
 
@@ -69,7 +81,13 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
-  white-space: nowrap;}
+  white-space: nowrap;
+}
+
+.logoutButton:focus{
+  border: 2px solid base.$neutral-color-2;
+  border-radius: 4px;
+}
 
 .logo{
   width: 79px;
@@ -83,7 +101,7 @@
   overflow: hidden;
 }
 .logoutButton:hover{
-  background-color : base.$neutral-color-3;
+  background-color : base.$neutral-color-4;
 }
 
 

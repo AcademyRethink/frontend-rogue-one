@@ -6,9 +6,8 @@ import openButton from '../../assets/openButton.svg';
 
 import pessoa from '../../assets/pessoa.svg';
 import report from '../../assets/report.svg';
-import Sufix from '../../assets/sufix.svg';
 import { useState } from 'react';
-import SidebarRoute from './SidebarRoute';
+import SidebarRoute from './SidebarRoute/SidebarRoute';
 import styles from './styles.module.scss';
 
 import { NavLink } from 'react-router-dom';
@@ -36,15 +35,16 @@ const Sidebar = (open: any) => {
         }`}
         onClick={handleClosingSidebar}
       >
-        {opened ? <img src={closeButton}></img> : <img src={openButton}></img>}
+        {opened ? (
+          <img className={styles.black} src={closeButton}></img>
+        ) : (
+          <img src={openButton}></img>
+        )}
       </button>
       <div className={styles.sidebarTitles}>
         <img className={display ? styles.logo : ''} src={logo}></img>
       </div>
-      <img
-        className={opened ? styles.sufix : styles.sufixClosed}
-        src={Sufix}
-      ></img>
+      <hr className={opened ? styles.sufix : styles.sufixClosed}></hr>
       <div className={styles.sidebarRoutes}>
         <NavLink
           to="/home"
@@ -67,7 +67,7 @@ const Sidebar = (open: any) => {
           <SidebarRoute title="Relatório PCP" icon={report} display={display} />
         </NavLink>
         <NavLink
-          to="/my_profile"
+          to="/my-profile"
           className={({ isActive }) =>
             isActive ? styles.activeRoute : styles.inactiveRoute
           }
