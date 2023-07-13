@@ -8,6 +8,12 @@
   width: 120px;
 }
 
+.sidebarOpenButton, .logoutButton{
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
 .activeRoute{
   button{
     span:first-child{    
