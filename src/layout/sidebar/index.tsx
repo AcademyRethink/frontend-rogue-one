@@ -31,7 +31,9 @@ const Sidebar = (open: any) => {
       className={`${opened ? styles.opened : styles.closed} ${styles.sidebar} `}
     >
       <button
-        className={styles.sidebarOpenButton}
+        className={`${styles.sidebarOpenButton} ${
+          opened ? '' : styles.gapAtClosedSidebar
+        }`}
         onClick={handleClosingSidebar}
       >
         {opened ? <img src={closeButton}></img> : <img src={openButton}></img>}
@@ -57,7 +59,7 @@ const Sidebar = (open: any) => {
           />
         </NavLink>
         <NavLink
-          to="/my_profile"
+          to="/report"
           className={({ isActive }) =>
             isActive ? styles.activeRoute : styles.inactiveRoute
           }
@@ -65,7 +67,7 @@ const Sidebar = (open: any) => {
           <SidebarRoute title="Relatório PCP" icon={report} display={display} />
         </NavLink>
         <NavLink
-          to="/report"
+          to="/my_profile"
           className={({ isActive }) =>
             isActive ? styles.activeRoute : styles.inactiveRoute
           }
