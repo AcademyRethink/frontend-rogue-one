@@ -1,0 +1,22 @@
+.loginContainer{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: blue;
+}
+.leftLogin{
+    img{
+        height: 100%;
+    }
+    
+}
+.rightLogin{
+    flex:1;
+    background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.formLogin{
+    background-color: purple;
+}

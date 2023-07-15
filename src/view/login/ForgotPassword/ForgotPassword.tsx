@@ -1,8 +1,10 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from 'react-router-dom';
 const ForgotPassword = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -14,13 +16,21 @@ const ForgotPassword = () => {
     try {
       await axios.post('http://localhost:8080/auth/forgot-password', { email });
       console.log('Email de recuperação de senha enviado com sucesso!');
+      navigate('/warning-send-password');
     } catch (error) {
       console.log('Erro ao enviar email de recuperação de senha:', error);
     }
   };
 
+  const handleBackClick = () => {
+    navigate(-1);
+  };
+
   return (
     <div>
+      <button type="button" onClick={handleBackClick}>
+          voltar
+      </button>
       <h1>Recuperação de Senha</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -33,7 +43,9 @@ const ForgotPassword = () => {
             placeholder="Insira aqui seu email"
           />
         </div>
-        <button type="submit">Enviar</button>
+        <button type="submit" disabled={!email}>
+          Enviar
+        </button>
       </form>
     </div>
   );
