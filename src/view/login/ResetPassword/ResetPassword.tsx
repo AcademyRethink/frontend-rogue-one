@@ -1,12 +1,16 @@
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import  { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import loginPills from '../../../assets/login/login-pills.png';
+import logoInline from '../../../assets/logoInline.svg';
+import styles from './style.module.scss';
+import InputWithLabel from '../../../components/InputWithLabel/InputWithLabel';
+import ButtonLogin from '../../../components/ButtonLogin/ButtonLogin';
+import TitleSubtitleLogin from '../../../components/TitleSubtitleLogin/TitleSubtitleLogin';
 
 const ResetPassword = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const navigate = useNavigate();
 
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
@@ -32,13 +36,48 @@ const ResetPassword = () => {
     }
   };
 
-  const handleGoBack = () => {
-    navigate('/forgot-password');
-  };
 
   return (
-    <div>
-      <h1>Redefinir Senha</h1>
+    <div className={styles.resetPasswordContainer}>
+ <div className={styles.leftResetPassword}>
+        <img src={loginPills} alt="" />
+      </div>
+      <div className={styles.rightResetPassword}>
+        <div className={styles.formResetPassword}>
+          <img src={logoInline} alt="" />
+          <form onSubmit={handleSubmit}>
+            <div className={styles.titleSubtitle}>
+            <TitleSubtitleLogin title="Nova senha"/>
+            </div>
+            
+            <div className={styles.InputWithLabel}>
+              <InputWithLabel
+                title="Nova senha"
+                type="password"
+                value={password}
+                onChange={handlePasswordChange}
+                placeholder="Insira aqui sua nova senha"
+                required
+              />
+            </div>
+            <div className={styles.InputWithLabel}>
+            <InputWithLabel
+                title="Confirmar Senha"
+                type="password"
+                value={confirmPassword}
+                onChange={handleConfirmPasswordChange}
+                placeholder="Confirme sua nova senha"
+                required
+              />
+             
+              
+            </div>
+            <ButtonLogin type="submit" title="Entrar" />
+          </form>
+        </div>
+      </div>
+
+      {/* <h1>Redefinir Senha</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label>Nova Senha:</label>
@@ -62,7 +101,7 @@ const ResetPassword = () => {
         </div>
         <button type="submit">Enviar</button>
       </form>
-      <button onClick={handleGoBack}>Voltar</button>
+ */}
     </div>
   );
 };

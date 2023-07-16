@@ -1,10 +1,16 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import TitleSubtitleLogin from '../../../components/TitleSubtitleLogin/TitleSubtitleLogin';
+import styles from './style.module.scss';
+import loginPills from '../../../assets/login/login-pills.png';
+import backLogin from '../../../assets/login/backLogin.svg';
+import InputWithLabel from '../../../components/InputWithLabel/InputWithLabel';
+import ButtonLogin from '../../../components/ButtonLogin/ButtonLogin';
+import logoInline from '../../../assets/logoInline.svg';
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
-  
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -27,26 +33,45 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div>
-      <button type="button" onClick={handleBackClick}>
-          voltar
-      </button>
-      <h1>Recuperação de Senha</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
-          <br />
-          <input
-            type="email"
-            value={email}
-            onChange={handleEmailChange}
-            placeholder="Insira aqui seu email"
-          />
-        </div>
-        <button type="submit" disabled={!email}>
-          Enviar
+    <div className={styles.forgotPasswordContainer}>
+      <div className={styles.leftForgotPassword}>
+        <img src={loginPills} alt="" />
+      </div>
+      
+      <div className={styles.rightForgotPassword}>
+      
+    
+        <div className={styles.formForgotPassword}>
+        <button type="button" onClick={handleBackClick} className={styles.backLogin}>
+          <img src={backLogin} alt=""/>
         </button>
-      </form>
+        <img className={styles.logoInline} src={logoInline} alt="" />
+          <TitleSubtitleLogin
+            title="Redefinição de senha"
+            subtitle={<>
+            Insira seu e-mail no campo abaixo
+            <br />
+            para redefinir sua senha.
+          </>}
+          />
+          <form onSubmit={handleSubmit}>
+            <div>
+              <div className={styles.InputWithLabel}>
+                <InputWithLabel
+                  title="Email:"
+                  type="email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  placeholder="Insira aqui seu email"
+                  required
+                />
+              </div>
+            </div>
+            <ButtonLogin type="submit" title="Entrar" disabled={!email}  />
+
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

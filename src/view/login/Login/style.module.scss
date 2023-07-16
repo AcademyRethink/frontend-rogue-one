@@ -1,8 +1,10 @@
+@import '../../../utils/base.scss';
 .loginContainer{
     display: flex;
     width: 100vw;
     height: 100vh;
-    background: blue;
+    background: $neutral-color-5;
+    overflow: hidden; //Encontrar solução 
 }
 .leftLogin{
     img{
@@ -12,11 +14,56 @@
 }
 .rightLogin{
     flex:1;
-    background-color: red;
+    
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .formLogin{
-    background-color: purple;
+    img{
+        margin-bottom: 64px;
+    }
+    h2{
+        color: $neutral-color-2;
+        @include h2-font;
+        margin:0;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    .InputWithLabel{
+        margin-top:44px;
+    }
+    form{
+        button{
+            margin-top: 32px
+        }
+    }
+       
 }
+.rightLogin{
+    .linkLogin{ 
+       
+          
+        margin-top: 16px;
+        display: flex;
+        justify-content: flex-end
+
+    }
+    .linkText{  
+        @include h5-font;
+        color:$neutral-color-2;         
+        padding: 8px;
+        border: 2px solid transparent;
+        border-radius: 4px;
+    }
+    .linkText:hover{
+        color:$secondary-color-2;
+    }
+    .linkText:focus{
+        
+        
+        border: 2px solid $neutral-color-2;
+        outline: none;
+    }
+}
+
