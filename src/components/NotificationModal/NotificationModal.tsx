@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 import axios from "axios";
+import style from './styles.module.scss'
+import info from '../../assets/info.svg'
 
 const socket = socketIOClient('http://localhost:8080');
 
@@ -45,11 +47,14 @@ const NotificationModal = () => {
   return (
     <>
       {isOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <h3>Alerta</h3>
-            <p>{message}</p>
+        <div className={style.modalContainer}>
+          <div className={style.modalContent}>
+            <div className={style.notificationHeader}><img src={info} alt="" /><h3>Alerta</h3></div>
+            
+            <p>{/* {message} */}“Dipirona sódica Gotas 500mg 20ml x 1ml Neo Química”, produto que está entre os mais vendidos no mercado de acordo com a ultima atualização, atingiu a quantidade mínima pré estabelecida em seu estoque.</p>
+            <div className={style.buttonContainer}>
             <button onClick={handleClose}>Ok</button>
+            </div>
           </div>
         </div>
       )}

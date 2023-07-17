@@ -1,0 +1,39 @@
+@import '../../utils/base.scss';
+
+.modalContent {
+    background-color: #ffffff;
+    width: 723px;
+    height: 418px;
+    border-radius: 4px;
+    padding: 96px 32px 36px 75px;
+    
+  h3 {
+    margin-left: 16px;
+    @include h1-font;
+    color: $neutral-color-2;
+  }
+  p {
+    @include h4-font;
+    color: $neutral-color-1;
+    line-height: 28.381px;
+    letter-spacing: 0.722px;
+    margin-bottom:54px;
+    margin-right: 108px;
+  }
+  button{
+    width: 135px;
+    height: 37px;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+  }
+  .buttonContainer{
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+.notificationHeader{
+    display: flex;
+    margin-bottom:43px;
+}
+
