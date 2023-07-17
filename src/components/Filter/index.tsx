@@ -1,4 +1,3 @@
-import styles from './styles.module.scss';
 import './styles.scss';
 import {
   MdKeyboardArrowDown,
@@ -22,6 +21,7 @@ const CustomSelect = ({
   symbol,
   symbolClass,
   data,
+  widthMin,
   onChangeFunction,
 }: {
   Icon?: React.ElementType;
@@ -34,7 +34,7 @@ const CustomSelect = ({
   return (
     <div>
       {data && (
-        <Space className="selectContainer" style={{ gap: 0 }}>
+        <Space className="selectContainer">
           {Icon && <Icon className="frontIcon" />}
           {symbol && (
             <span className={`${symbolClass} frontSymbol`}>{symbol}</span>
@@ -47,9 +47,13 @@ const CustomSelect = ({
             bordered={false}
             className="customAntdSelect"
             popupClassName="customAntdSelectPopup"
-            style={{
-              minWidth: 130,
-            }}
+            style={
+              widthMin
+                ? {
+                    minWidth: widthMin,
+                  }
+                : {}
+            }
             popupMatchSelectWidth={true}
             placement="bottomRight"
           ></Select>

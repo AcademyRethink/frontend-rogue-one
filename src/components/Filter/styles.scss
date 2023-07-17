@@ -116,6 +116,7 @@
 
     .ant-select-selector {
       width: fit-content;
+      padding: 0px 11px 0px 0px;
       .ant-select-selection-item {
         width: fit-content;
         color: base.$neutral-color-3;
@@ -129,6 +130,7 @@
   background-color: base.$neutral-color-5;
   box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.2);
   color: base.$neutral-color-2;
+  padding-top: 4px;
   .ant-select-dropdown {
     width: fit-content;
     .rc-virtual-list {
