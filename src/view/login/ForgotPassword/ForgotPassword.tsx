@@ -8,9 +8,11 @@ import backLogin from '../../../assets/login/backLogin.svg';
 import InputWithLabel from '../../../components/InputWithLabel/InputWithLabel';
 import ButtonLogin from '../../../components/ButtonLogin/ButtonLogin';
 import logoInline from '../../../assets/logoInline.svg';
+import infoError from '../../../assets/login/infoError.svg';
 const ForgotPassword = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
@@ -18,7 +20,10 @@ const ForgotPassword = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
+    if (!email) {
+      setEmailError('Email é obrigatório');
+      return;
+    }
     try {
       await axios.post('http://localhost:8080/auth/forgot-password', { email });
       console.log('Email de recuperação de senha enviado com sucesso!');
@@ -45,6 +50,9 @@ const ForgotPassword = () => {
         <button type="button" onClick={handleBackClick} className={styles.backLogin}>
           <img src={backLogin} alt=""/>
         </button>
+        <div className={styles.formForgotMasterPassword}>
+
+
         <img className={styles.logoInline} src={logoInline} alt="" />
           <TitleSubtitleLogin
             title="Redefinição de senha"
@@ -66,10 +74,15 @@ const ForgotPassword = () => {
                   required
                 />
               </div>
-            </div>
-            <ButtonLogin type="submit" title="Entrar" disabled={!email}  />
-
+                {emailError && (
+                  <div className={styles.errorMessage}>
+                    <img src={infoError} alt="" /> {emailError}
+                  </div>
+                )}
+              </div>
+            <ButtonLogin type="submit" title="Enviar" disabled={!email}  />
           </form>
+        </div>
         </div>
       </div>
     </div>

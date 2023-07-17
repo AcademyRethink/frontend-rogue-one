@@ -14,7 +14,7 @@
 .rightWarningSendPassword {
   flex: 1;
   display: flex;
-  justify-content: center;
+
   align-items: center;
   flex-direction: column;
 }
@@ -26,14 +26,14 @@
     width: 204px;
   }
   .backLogin {
-    margin-bottom: 122px;
-    transform: translateX(-8px);
+    margin-top:5vh;
+    transform: translateX(-18px);
     width: 48px;
     height: 48px;
     background: transparent;
     border: none;
     outline: none;
-    float: left;
+  
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -48,29 +48,28 @@
     border: 2px solid $neutral-color-2;
   }
 }
-.rightWarningSendPassword{
-    .linkLogin{ 
-       
-          
-        margin-top: 24px;
-        display: flex;
-        justify-content: flex-start
+.rightWarningSendPassword {
+  .linkLogin {
+    margin-top: 24px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .linkText {
+    @include h5-font;
+    color: $neutral-color-2;
 
-    }
-    .linkText{  
-        @include h5-font;
-        color:$neutral-color-2;         
-        
-        border: 2px solid transparent;
-        border-radius: 4px;
-    }
-    .linkText:hover{
-        color:$secondary-color-2;
-    }
-    .linkText:focus{
-        
-        
-        border: 2px solid $neutral-color-2;
-        outline: none;
-    }
+    border: 2px solid transparent;
+    border-radius: 4px;
+  }
+  .linkText:hover {
+    color: $secondary-color-2;
+  }
+  .linkText:focus {
+    border: 2px solid $neutral-color-2;
+    outline: none;
+  }
+}
+.formWarningSendMasterPassword {
+  margin-top: 9vh;
+  width: 481px;
 }

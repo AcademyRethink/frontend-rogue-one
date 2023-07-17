@@ -19,7 +19,7 @@ function App() {
             path="/warning-send-password"
             element={<WarningSendPassword />}
           />
-          <Route path="/reset-password" element={<ResetPassword />} />
+          <Route path='/reset-password' element={<ResetPassword />} />
           <Route path="/dashboard" element={<Sidebar />} />
         </Routes>
       </div>

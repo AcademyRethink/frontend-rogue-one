@@ -1,41 +1,67 @@
 @import '../../../utils/base.scss';
-.resetPasswordContainer{
-    display: flex;
-    width: 100vw;
-    height: 100vh;
-    background: $neutral-color-5;
-    overflow: hidden; //Encontrar solução 
+.resetPasswordContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: $neutral-color-5;
+  overflow: hidden; //Encontrar solução
 }
-.leftResetPassword{
-    img{
-        height: 100%;
-    }
-    
+.leftResetPassword {
+  img {
+    height: 100%;
+  }
 }
-.rightResetPassword{
-    flex:1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.rightResetPassword {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.formResetPassword {
+  margin-top: 20vh;
+  height: 519px;
+  .LogoResetPassword {
+    margin-bottom: 112px;
+  }
+  h2 {
+    color: $neutral-color-2;
+    @include h2-font;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .InputWithLabel {
+    margin-bottom: 56px;
+  }
+  .titleSubtitle {
+    margin-bottom: 32px;
+  }
+}
 
+.inputTypeConfirmPassword {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  .passwordToggle {
+    margin: 0;
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    right: 15px;
+    bottom: 70px;
+  }
 }
-.formResetPassword{
-    img{
-        margin-bottom: 112px;
+
+.inputTypePassword {
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    .passwordToggle {
+      margin: 0;
+      height: 18px;
+      width: 18px;
+      position: absolute;
+      right: 15px;
+      bottom: 70px;
     }
-    h2{
-        color: $neutral-color-2;
-        @include h2-font;
-        margin:0;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-    .InputWithLabel{
-        margin-bottom:56px;
-    }
-    .titleSubtitle{
-        margin-bottom: 56px;
-    }
-    
-       
-}
+  }
+  

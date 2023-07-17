@@ -25,6 +25,7 @@ const ForgotPassword = () => {
           >
             <img src={backLogin} alt="" />
           </button>
+          <div className={styles.formWarningSendMasterPassword}>
           <img className={styles.logoInline} src={logoInline} alt="" />
           <TitleSubtitleLogin
             title="Redefinição de senha"
@@ -38,6 +39,7 @@ const ForgotPassword = () => {
 
            <div className={styles.linkLogin}>
               <Link to="/" className={styles.linkText}>Voltar para a tela de login</Link>
+              </div>
               </div>
         </div>
       </div>

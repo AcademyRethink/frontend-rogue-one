@@ -1,69 +1,87 @@
 @import '../../../utils/base.scss';
-.loginContainer{
+.loginContainer {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background: $neutral-color-5;
+  overflow: hidden; //Encontrar solução
+}
+.leftLogin {
+  img {
+    height: 100%;
+  }
+}
+.rightLogin {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.formLogin {
+  margin-top: 20vh;
+  height: 519px;
+  img {
+    margin-bottom: 64px;
+  }
+  h2 {
+    color: $neutral-color-2;
+    @include h2-font;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  .InputWithLabel {
+    margin-top: 44px;
+  }
+  form {
+    button {
+      margin-top: 32px;
+    }
+  }
+}
+.rightLogin {
+  .linkLogin {
+    margin-top: 16px;
     display: flex;
-    width: 100vw;
-    height: 100vh;
-    background: $neutral-color-5;
-    overflow: hidden; //Encontrar solução 
-}
-.leftLogin{
-    img{
-        height: 100%;
-    }
-    
-}
-.rightLogin{
-    flex:1;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.formLogin{
-    img{
-        margin-bottom: 64px;
-    }
-    h2{
-        color: $neutral-color-2;
-        @include h2-font;
-        margin:0;
-        padding: 0;
-        margin-bottom: 20px;
-    }
-    .InputWithLabel{
-        margin-top:44px;
-    }
-    form{
-        button{
-            margin-top: 32px
-        }
-    }
-       
-}
-.rightLogin{
-    .linkLogin{ 
-       
-          
-        margin-top: 16px;
-        display: flex;
-        justify-content: flex-end
-
-    }
-    .linkText{  
-        @include h5-font;
-        color:$neutral-color-2;         
-        padding: 8px;
-        border: 2px solid transparent;
-        border-radius: 4px;
-    }
-    .linkText:hover{
-        color:$secondary-color-2;
-    }
-    .linkText:focus{
-        
-        
-        border: 2px solid $neutral-color-2;
-        outline: none;
-    }
+    justify-content: flex-end;
+  }
+  .linkText {
+    @include h5-font;
+    color: $neutral-color-2;
+    padding: 8px;
+    border: 2px solid transparent;
+    border-radius: 4px;
+  }
+  .linkText:hover {
+    color: $secondary-color-2;
+  }
+  .linkText:focus {
+    border: 2px solid $neutral-color-2;
+    outline: none;
+  }
 }
 
+.inputTypePassword {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  .passwordToggle {
+    height: 18px;
+    width: 18px;
+    margin-bottom: 16px;
+    position: absolute;
+    right: 15px;
+  }
+}
+.errorMessage{
+  display: flex;
+  margin: auto;
+  padding: auto;
+  img{
+    margin:0;
+    padding: 0;
+    margin-right: 4px;
+  }
+  margin-top:8px;
+  color: $error-color;
+  @include subtitle-font;
+}
