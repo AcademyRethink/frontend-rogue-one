@@ -80,7 +80,7 @@ const ForgotPassword = () => {
                   </div>
                 )}
               </div>
-            <ButtonLogin type="submit" title="Enviar" disabled={!email}  />
+            <ButtonLogin type="submit" title="Enviar"  />
           </form>
         </div>
         </div>

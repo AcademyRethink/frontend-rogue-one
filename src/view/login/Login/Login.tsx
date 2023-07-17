@@ -16,6 +16,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [isPasswordNotEmpty, setIsPasswordNotEmpty] = useState(false);
 
   const navigate = useNavigate();
 
@@ -25,6 +26,7 @@ const Login = () => {
 
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
+    setIsPasswordNotEmpty(event.target.value.trim().length > 0);
   };
 
   const handleShowPassword = () => {
@@ -50,7 +52,7 @@ const Login = () => {
         console.log('Bem-vindo');
         // Armazenar o token no localStorage ou em algum estado global, como o Redux, para uso posterior
         const token = response.data.token;
-        console.log('esse é o token:', token);
+       
         localStorage.setItem('token', token);
         // Navegar para a rota "/dashboard" após o login bem-sucedido
         navigate('/dashboard');
@@ -99,8 +101,7 @@ const Login = () => {
                     
                   />
                 </div>
-
-                <div
+                {isPasswordNotEmpty && ( <div
                   className={styles.passwordToggle}
                   onClick={handleShowPassword}
                 >
@@ -108,7 +109,8 @@ const Login = () => {
                     src={showPassword ? eyeHidePassword : eyeShowPassword}
                     alt=""
                   />
-                </div>
+                </div>)}
+                
               </div>
               {passwordError && (
                 <div className={styles.errorMessage}> <img src={infoError} alt="" /> {passwordError}</div>

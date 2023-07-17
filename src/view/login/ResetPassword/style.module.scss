@@ -30,10 +30,13 @@
     margin-bottom: 20px;
   }
   .InputWithLabel {
-    margin-bottom: 56px;
+    margin-top: 44px;
   }
   .titleSubtitle {
-    margin-bottom: 32px;
+    margin-bottom: 12px;
+  }
+  button{
+    margin-top:44px;
   }
 }
 
@@ -52,8 +55,8 @@
 }
 
 .inputTypePassword {
-    display: flex;
-    align-items: flex-end;
+    
+   
     position: relative;
     .passwordToggle {
       margin: 0;
@@ -61,7 +64,23 @@
       width: 18px;
       position: absolute;
       right: 15px;
-      bottom: 70px;
+      bottom: 16px
     }
   }
-  
+  .errorMessage{
+    display: flex;
+    margin: auto;
+    padding: auto;
+    img{
+      margin:0;
+      padding: 0;
+      margin-right: 4px;
+    }
+    margin-top:8px;
+    color: $error-color;
+    @include subtitle-font;
+  }
+  .teste{
+    display: flex;
+    flex-direction: column;
+  }
