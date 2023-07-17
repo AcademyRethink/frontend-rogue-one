@@ -1,6 +1,10 @@
 export type Prop = string | JSX.Element | JSX.Element[];
 
 export type SelectData = {
-  description: string;
+  label: string;
   value: string;
+};
+
+export type categoriesResponse = {
+  category: string;
 };

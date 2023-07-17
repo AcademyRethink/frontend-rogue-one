@@ -1,34 +1,16 @@
-import FilterContainer from './components/FiltersContainer';
-import { SelectData } from './types/types';
-import { Select } from './components/Filter';
-import { MdTrendingUp } from 'react-icons/md';
-
-import './App.css';
-
-const data: SelectData[] = [
-  { description: 'Maiores Vendas', value: 'desc' },
-  { description: 'Menores Vendas', value: 'asc' },
-];
+import SellFilter from './components/SellFilters';
+import EvolutionFilter from './components/EvolutionFilter';
+import ChartTitle from './components/ChartTitle';
+import ChartRightText from './components/ChartRightText';
 
 function App() {
   return (
     <>
-      <FilterContainer>
-        <Select
-          Icon={MdTrendingUp}
-          defaultValue={data[0].value}
-          selectId="orderSort"
-          selectName="orderSort"
-          data={data}
-        />
-        <Select
-          Icon={MdTrendingUp}
-          defaultValue={data[0].value}
-          selectId="orderSort"
-          selectName="orderSort"
-          data={data}
-        />
-      </FilterContainer>
+      <ChartTitle title="Maiores vendas" subtitle="Top produtos do mercado" />
+
+      <ChartRightText />
+      <SellFilter />
+      <EvolutionFilter />
     </>
   );
 }

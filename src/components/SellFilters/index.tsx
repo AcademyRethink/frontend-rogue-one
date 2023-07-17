@@ -1,60 +1,57 @@
 import FilterContainer from '../FiltersContainer';
 import { SelectData } from '../../types/types';
-import { Select, Date } from '../Filter';
-import {
-  MdTrendingUp,
-  MdApartment,
-  MdGridView,
-  MdOutlineCalendarMonth,
-} from 'react-icons/md';
+import { CustomSelect, CustomDatePicker } from '../Filter';
+import { MdTrendingUp, MdApartment, MdGridView } from 'react-icons/md';
+import { useEffect, useState } from 'react';
+
+import { getCategories } from '../../services/categories';
 
 const dataBestSeller: SelectData[] = [
-  { description: 'Maiores Vendas', value: 'desc' },
-  { description: 'Menores Vendas', value: 'asc' },
+  { label: 'Maiores Vendas', value: 'desc' },
+  { label: 'Menores Vendas', value: 'asc' },
 ];
 
 const dataRanking: SelectData[] = [
-  { description: 'Ranking mercado', value: 'sale_competitors_month' },
-  { description: 'Ranking loja', value: 'sale_' },
+  { label: 'Ranking mercado', value: 'sale_competitors_month' },
+  { label: 'Ranking loja', value: 'sale_' },
 ];
-
-const dataCategory: SelectData[] = [
-  { description: 'MIP genérico', value: 'MIP_GENERICO' },
-  { description: 'MIP marca', value: 'MIP_MARCA' },
-];
-
 
 const SellFilter = () => {
+  const [categories, setCategories] = useState<SelectData[]>();
+
+  useEffect(() => {
+    getCategories()
+      .then((resp) =>
+        resp.map((el) => {
+          return {
+            label: el.category.split('_').join(' '),
+            value: el.category,
+          };
+        })
+      )
+      .then((result) => setCategories(result))
+      .then()
+      .catch((error) => alert(error));
+  }, []);
   return (
     <>
       <FilterContainer>
-        <Select
+        <CustomSelect
           Icon={MdTrendingUp}
-          defaultValue={dataBestSeller[0].value}
-          selectId="orderSort"
-          selectName="orderSort"
           data={dataBestSeller}
+          onChangeFunction={() => {}}
         />
-        <Select
+        <CustomSelect
           Icon={MdApartment}
-          defaultValue={dataRanking[0].value}
-          selectId="orderField"
-          selectName="orderField"
           data={dataRanking}
+          onChangeFunction={() => {}}
         />
-        <Select
+        <CustomSelect
           Icon={MdGridView}
-          defaultValue={dataCategory[0].value}
-          selectId="category"
-          selectName="category"
-          data={dataCategory}
+          data={categories}
+          onChangeFunction={() => {}}
         />
-        <Date
-          Icon={MdOutlineCalendarMonth}
-          defaultValue={dataRanking[0].value}
-          selectId="period"
-          selectName="period"
-        />
+        <CustomDatePicker />
       </FilterContainer>
     </>
   );
