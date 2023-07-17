@@ -15,5 +15,11 @@
 }
 .value{
     @include h4-font;
-   
+    margin-right: 20%;
+}
+.titleContainer{
+    width: 50%;
+}
+.valueContainer{
+    width: 50%;
 }
