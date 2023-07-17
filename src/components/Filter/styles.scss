@@ -118,8 +118,10 @@
       width: fit-content;
       padding: 0px 11px 0px 0px;
       .ant-select-selection-item {
+        @include base.subtitle-font;
         width: fit-content;
         color: base.$neutral-color-3;
+        margin: auto;
       }
     }
   }
@@ -131,23 +133,21 @@
   box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.2);
   color: base.$neutral-color-2;
   padding-top: 4px;
-  .ant-select-dropdown {
-    width: fit-content;
-    .rc-virtual-list {
-      .rc-virtual-list-holder {
-        .rc-virtual-list-holder-inner {
-          .ant-select-item .ant-select-item-option {
-            background-color: red;
-            :hover {
-              background-color: base.$neutral-color-4;
-            }
-          }
+  // .ant-select-dropdown {
+  //   .rc-virtual-list {
+  //     .rc-virtual-list-holder {
+  //       .rc-virtual-list-holder-inner {
+  //         .ant-select-item .ant-select-item-option {
+  //           :hover {
+  //             background-color: base.$neutral-color-4;
+  //           }
+  //         }
 
-          .ant-select-item-option-selected .ant-select-item-option-active {
-            background-color: base.$neutral-color-5;
-          }
-        }
-      }
-    }
-  }
+  //         .ant-select-item-option-selected .ant-select-item-option-active {
+  //           background-color: base.$neutral-color-5;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }

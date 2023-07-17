@@ -6,11 +6,18 @@ import ChartContainer from './components/ChartContainer';
 function App() {
   return (
     <>
-      <ChartTitle title="Maiores vendas" subtitle="Top produtos do mercado" />
+      <ChartContainer
+        showDetails={true}
+        showFilter={true}
+        showInfo={true}
+        chartSubTitle="Top produtos do mercado"
+        chartTitle="Maiores vendas"
+        filter={<SellFilter />}
+      >
+        teste
+      </ChartContainer>
 
-      <ChartContainer />
-      <SellFilter />
-      <EvolutionFilter />
+      {/* <EvolutionFilter /> */}
     </>
   );
 }

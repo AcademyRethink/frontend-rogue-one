@@ -54,7 +54,7 @@ const CustomSelect = ({
                   }
                 : {}
             }
-            popupMatchSelectWidth={true}
+            popupMatchSelectWidth={false}
             placement="bottomRight"
           ></Select>
         </Space>
