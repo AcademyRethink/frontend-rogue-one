@@ -29,7 +29,7 @@ const MyProfile = () => {
       <LineTable title="País ou região" value={profileData.country}/>
       <LineTable title="Tipo de conta" value={profileData.typeAccount}/>
       <LineTable title="E-mail" value={profileData.email}/>
-      <LineTable title="Senha" value={profileData.password}/>
+     
       </div>
       <button>Redefinir senha</button>
     </div>

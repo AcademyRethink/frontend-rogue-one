@@ -15,10 +15,17 @@
         outline: none;
         cursor: pointer;
         background-color: $primary-color-1;
+       
 
 
         @include h2-font;
         color: $neutral-color-5
+    }
+    button:hover{
+      background-color: $primary-color-2;
+    }
+    button:focus{   
+      border: 2px solid $neutral-color-2
     }
   
 }
