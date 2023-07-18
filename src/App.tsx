@@ -1,3 +1,4 @@
+
 import Playground from "./view/playground/index"
 import './App.css'
 import NotificationModal from "./components/NotificationModal/NotificationModal"
@@ -10,6 +11,6 @@ function App() {
     <NotificationModal/>
     </>
   )
-}
+  }
 
-export default App
+export default App;

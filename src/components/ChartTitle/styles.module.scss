@@ -1,0 +1,10 @@
+@use '../../utils/base.scss';
+
+.chartTitle {
+  @include base.h2-font;
+  color: base.$neutral-color-2;
+}
+.chartSubtitle {
+  @include base.h2-font;
+  color: base.$neutral-color-3;
+}
