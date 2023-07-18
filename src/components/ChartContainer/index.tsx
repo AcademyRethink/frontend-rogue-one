@@ -69,7 +69,7 @@ const ChartContainer = ({
           {showDetails && <p onClick={toggleModal}>Mais detalhes</p>}
         </div>
       </div>
-      <div className={styles.chartContent}>{children}</div>
+      <div>{children}</div>
 
       <div
         style={
