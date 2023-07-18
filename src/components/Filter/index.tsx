@@ -41,7 +41,6 @@ const CustomSelect = ({
           )}
           <Select
             options={data}
-            defaultValue={data[0].value}
             suffixIcon={<MdKeyboardArrowDown />}
             size="middle"
             bordered={false}
@@ -56,6 +55,7 @@ const CustomSelect = ({
             }
             popupMatchSelectWidth={false}
             placement="bottomRight"
+            onChange={onChangeFunction}
           ></Select>
         </Space>
       )}
@@ -63,9 +63,15 @@ const CustomSelect = ({
   );
 };
 
-const CustomDatePicker = ({onChangeFunction}: {onChangeFunction: ((value: dayjs.Dayjs | null, dateString: string) => void) | undefined}) => {
-  const [yearMonth, setYearMonth] = useState<Dayjs | null>(dayjs(new Date()));
-
+const CustomDatePicker = ({
+  onChangeFunction,
+  yearMonth,
+}: {
+  yearMonth: Dayjs | null;
+  onChangeFunction:
+    | ((value: dayjs.Dayjs | null, dateString: string) => void)
+    | undefined;
+}) => {
   return (
     <div className="selectContainer">
       <MdOutlineCalendarMonth />
