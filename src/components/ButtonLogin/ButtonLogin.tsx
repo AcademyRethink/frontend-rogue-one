@@ -1,11 +1,13 @@
 import styles from './style.module.scss';
+import { ButtonLoginProps } from '../../types/loginTypes';
 
-
-const ButtonLogin = (props: any) => {
-    const{type, disabled, title} = props
+const ButtonLogin: React.FC<ButtonLoginProps> = (props) => {
+  const { type, disabled, title } = props;
   return (
-    <button className={ styles.buttonContainer}type={type} disabled={disabled}>{title}</button>
-  )
-}
+    <button className={styles.buttonContainer} type={type} disabled={disabled}>
+      {title}
+    </button>
+  );
+};
 
-export default ButtonLogin
+export default ButtonLogin;

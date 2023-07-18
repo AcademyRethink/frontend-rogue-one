@@ -1,5 +1,6 @@
 import styles from './style.module.scss';
-const InputWithLabel = (props: any) => {
+import { InputWithLabelProps } from '../../types/loginTypes';
+const InputWithLabel: React.FC<InputWithLabelProps>  = (props) => {
     const {title, type, value, onChange, placeholder, onFocus, onBlur} = props
   return (
     <div className={styles.InputWithLabel}>

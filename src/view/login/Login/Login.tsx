@@ -33,7 +33,7 @@ const Login = () => {
     setShowPassword((prevState) => !prevState);
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!email) {
@@ -52,13 +52,26 @@ const Login = () => {
         console.log('Bem-vindo');
         // Armazenar o token no localStorage ou em algum estado global, como o Redux, para uso posterior
         const token = response.data.token;
-       
+
         localStorage.setItem('token', token);
         // Navegar para a rota "/dashboard" após o login bem-sucedido
         navigate('/dashboard');
       })
       .catch((error) => {
-        setPasswordError('Dados incorretos');
+        if (error.response && error.response.data) {
+          const errorMessage = error.response.data.message;
+          console.log(errorMessage);
+          if (
+            errorMessage ===
+            'Assinatura suspensa por inadimplência. A plataforma será liberada após o pagamento.'
+          ) {
+            setPasswordError(errorMessage);
+          } else {
+            setPasswordError('Dados incorretos');
+          }
+        } else {
+          setPasswordError('Erro desconhecido');
+        }
       });
   };
 
@@ -83,11 +96,13 @@ const Login = () => {
                 value={email}
                 onChange={handleEmailChange}
                 placeholder="Insira aqui seu email"
-               
               />
             </div>
             {emailError && (
-              <div className={styles.errorMessage}> <img src={infoError} alt="" /> {emailError}</div>
+              <div className={styles.errorMessage}>
+                {' '}
+                <img src={infoError} alt="" /> {emailError}
+              </div>
             )}
             <div className={styles.inputTypePasswordIfError}>
               <div className={styles.inputTypePassword}>
@@ -98,22 +113,25 @@ const Login = () => {
                     value={password}
                     onChange={handlePasswordChange}
                     placeholder="Insira aqui sua senha"
-                    
                   />
                 </div>
-                {isPasswordNotEmpty && ( <div
-                  className={styles.passwordToggle}
-                  onClick={handleShowPassword}
-                >
-                  <img
-                    src={showPassword ? eyeHidePassword : eyeShowPassword}
-                    alt=""
-                  />
-                </div>)}
-                
+                {isPasswordNotEmpty && (
+                  <div
+                    className={styles.passwordToggle}
+                    onClick={handleShowPassword}
+                  >
+                    <img
+                      src={showPassword ? eyeHidePassword : eyeShowPassword}
+                      alt=""
+                    />
+                  </div>
+                )}
               </div>
               {passwordError && (
-                <div className={styles.errorMessage}> <img src={infoError} alt="" /> {passwordError}</div>
+                <div className={styles.errorMessage}>
+                  {' '}
+                  <img src={infoError} alt="" /> {passwordError}
+                </div>
               )}
             </div>
             <div className={styles.linkLogin}>

@@ -9,33 +9,30 @@
 .leftLogin {
   img {
     height: 100%;
+    width: 50vw;
   }
 }
 .rightLogin {
+  width: 50vw;
   flex: 1;
   display: flex;
   justify-content: center;
 }
 .formLogin {
-  margin-top: 20vh;
+  margin-top: 18vh;
   height: 519px;
   img {
-    margin-bottom: 64px;
+    margin-bottom: 6.35vh;
   }
   h2 {
     color: $neutral-color-2;
     @include h2-font;
     margin: 0;
     padding: 0;
-    margin-bottom: 20px;
+    margin-bottom: 6.25vh;
   }
   .InputWithLabel {
-    margin-top: 44px;
-  }
-  form {
-    button {
-      margin-top: 32px;
-    }
+    margin-top: 4.30vh;//aqui
   }
 }
 .rightLogin {
@@ -47,7 +44,7 @@
   .linkText {
     @include h5-font;
     color: $neutral-color-2;
-    padding: 8px;
+    margin-bottom: 24px;
     border: 2px solid transparent;
     border-radius: 4px;
   }

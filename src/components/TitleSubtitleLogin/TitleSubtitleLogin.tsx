@@ -1,5 +1,6 @@
 import styles from './style.module.scss';
-const TitleSubtitleLogin = (props: any) => {
+import { TitleSubtitleProps } from '../../types/loginTypes';
+const TitleSubtitleLogin: React.FC<TitleSubtitleProps> = (props) => {
   const { title, subtitle } = props;
   return (
     <div className={styles.titleSubtitleContainer}>

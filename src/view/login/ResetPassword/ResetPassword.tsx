@@ -1,11 +1,9 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
-import loginPills from '../../../assets/login/login-pills.png';
 import logoInline from '../../../assets/logoInline.svg';
 import styles from './style.module.scss';
 import InputWithLabel from '../../../components/InputWithLabel/InputWithLabel';
 import ButtonLogin from '../../../components/ButtonLogin/ButtonLogin';
-import TitleSubtitleLogin from '../../../components/TitleSubtitleLogin/TitleSubtitleLogin';
 import { useLocation } from 'react-router-dom';
 import eyeShowPassword from '../../../assets/login/eyeShowPassword.svg';
 import eyeHidePassword from '../../../assets/login/eyeHidePassword.svg';
@@ -75,15 +73,13 @@ const ResetPassword: React.FC = () => {
 
   return (
     <div className={styles.resetPasswordContainer}>
-      <div className={styles.leftResetPassword}>
-        <img src={loginPills} alt="" />
-      </div>
+      <div className={styles.leftResetPassword}></div>
       <div className={styles.rightResetPassword}>
         <div className={styles.formResetPassword}>
           <img src={logoInline} alt="" className={styles.LogoResetPassword} />
           <form onSubmit={handleSubmit}>
             <div className={styles.titleSubtitle}>
-              <TitleSubtitleLogin title="Nova senha" />
+              <h2>Nova senha</h2>
             </div>
 
             <div className={styles.inputTypePassword}>
@@ -95,7 +91,7 @@ const ResetPassword: React.FC = () => {
                     value={password}
                     onChange={handlePasswordChange}
                     placeholder="Insira aqui sua nova senha"
-                    required
+                    required={true}
                   />
                   {isPasswordNotEmpty && (
                     <div
@@ -126,7 +122,7 @@ const ResetPassword: React.FC = () => {
                   value={confirmPassword}
                   onChange={handleConfirmPasswordChange}
                   placeholder="Confirme sua nova senha"
-                  required
+                  required={true}
                 />
                 {isConfirmPasswordNotEmpty && (
                   <div
@@ -149,7 +145,7 @@ const ResetPassword: React.FC = () => {
                 <img src={infoError} alt="" /> {passwordConfirmError}
               </div>
             )}
-            <ButtonLogin type="submit" title="Entrar" />
+            <ButtonLogin type="submit" title="Confirmar" />
           </form>
         </div>
       </div>
