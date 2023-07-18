@@ -84,9 +84,9 @@ const Login = () => {
         <div className={styles.formLogin}>
           <img src={logoInline} alt="" />
           <h2>
-            Boas vindas,
+            Boas vindas!
             <br />
-            Entre com seus dados!
+            Entre com seus dados.
           </h2>
           <form onSubmit={handleSubmit}>
             <div className={styles.InputWithLabel}>

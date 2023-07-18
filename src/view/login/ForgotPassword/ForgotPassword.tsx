@@ -65,7 +65,7 @@ const ForgotPassword = () => {
               <div>
                 <div className={styles.InputWithLabel}>
                   <InputWithLabel
-                    title="Email:"
+                    title="Seu e-mail:"
                     type="email"
                     value={email}
                     onChange={handleEmailChange}

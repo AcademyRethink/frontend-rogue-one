@@ -1,16 +1,17 @@
+import React from 'react';
 import { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import logoInline from '../../../assets/logoInline.svg';
 import styles from './style.module.scss';
 import InputWithLabel from '../../../components/InputWithLabel/InputWithLabel';
 import ButtonLogin from '../../../components/ButtonLogin/ButtonLogin';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
+
 import eyeShowPassword from '../../../assets/login/eyeShowPassword.svg';
 import eyeHidePassword from '../../../assets/login/eyeHidePassword.svg';
 import infoError from '../../../assets/login/infoError.svg';
 
 const ResetPassword: React.FC = () => {
-  /* const { token } = useParams<{ token: string }>(); */
   const urlParams = new URLSearchParams(useLocation().search);
   const token = urlParams.get('token');
   const [password, setPassword] = useState('');
@@ -42,9 +43,10 @@ const ResetPassword: React.FC = () => {
   const handleConfirmShowPassword = () => {
     setShowConfirmPassword((prevState) => !prevState);
   };
-
+  const navigate = useNavigate()
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
 
     if (!password) {
       setPasswordError('Senha é obrigatória');
@@ -60,15 +62,19 @@ const ResetPassword: React.FC = () => {
       return;
     }
 
+   
+
     try {
       await axios.post(
         `http://localhost:8080/auth/reset-password?token=${token}`,
         { password }
       );
       console.log('Senha enviada com sucesso!');
+      navigate('/');
     } catch (error) {
       console.log('Erro ao enviar senha:', error);
     }
+    
   };
 
   return (
@@ -117,7 +123,7 @@ const ResetPassword: React.FC = () => {
             <div className={styles.inputTypeConfirmPassword}>
               <div className={styles.InputWithLabel}>
                 <InputWithLabel
-                  title="Confirmar Senha"
+                  title="Confirmar nova senha"
                   type={showConfirmPassword ? 'text' : 'password'}
                   value={confirmPassword}
                   onChange={handleConfirmPasswordChange}
@@ -145,7 +151,9 @@ const ResetPassword: React.FC = () => {
                 <img src={infoError} alt="" /> {passwordConfirmError}
               </div>
             )}
-            <ButtonLogin type="submit" title="Confirmar" />
+           
+              <ButtonLogin type="submit" title="Confirmar" />
+           
           </form>
         </div>
       </div>
