@@ -63,7 +63,7 @@ const CustomSelect = ({
   );
 };
 
-const CustomDatePicker = () => {
+const CustomDatePicker = ({onChangeFunction}: {onChangeFunction: ((value: dayjs.Dayjs | null, dateString: string) => void) | undefined}) => {
   const [yearMonth, setYearMonth] = useState<Dayjs | null>(dayjs(new Date()));
 
   return (
@@ -82,9 +82,7 @@ const CustomDatePicker = () => {
           placement="bottomRight"
           value={yearMonth}
           format={'MMMM YYYY'}
-          onChange={(date) => {
-            setYearMonth(date);
-          }}
+          onChange={onChangeFunction}
         />
       </ConfigProvider>
     </div>

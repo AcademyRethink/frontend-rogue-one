@@ -2,9 +2,10 @@ import FilterContainer from '../FiltersContainer';
 import { SelectData } from '../../types/types';
 import { CustomSelect, CustomDatePicker } from '../Filter';
 import { MdTrendingUp, MdApartment, MdGridView } from 'react-icons/md';
-import { useEffect, useState } from 'react';
+import { ChangeEventHandler, useEffect, useState } from 'react';
 
 import { getCategories } from '../../services/categories';
+import dayjs from 'dayjs';
 
 const dataBestSeller: SelectData[] = [
   { label: 'Maiores Vendas', value: 'desc' },
@@ -16,7 +17,19 @@ const dataRanking: SelectData[] = [
   { label: 'Ranking loja', value: 'sale_' },
 ];
 
-const SellFilter = () => {
+const SellFilter = ({
+  onChangeOrderField,
+  onChangeOrderSort,
+  onChangeCategories,
+  onChangeDate,
+}: {
+  onChangeOrderSort: ChangeEventHandler;
+  onChangeOrderField: ChangeEventHandler;
+  onChangeCategories: ChangeEventHandler;
+  onChangeDate:
+    | ((value: dayjs.Dayjs | null, dateString: string) => void)
+    | undefined;
+}) => {
   const [categories, setCategories] = useState<SelectData[]>();
 
   useEffect(() => {
@@ -39,19 +52,19 @@ const SellFilter = () => {
         <CustomSelect
           Icon={MdTrendingUp}
           data={dataBestSeller}
-          onChangeFunction={() => {}}
+          onChangeFunction={onChangeOrderSort}
         />
         <CustomSelect
           Icon={MdApartment}
           data={dataRanking}
-          onChangeFunction={() => {}}
+          onChangeFunction={onChangeOrderField}
         />
         <CustomSelect
           Icon={MdGridView}
           data={categories}
-          onChangeFunction={() => {}}
+          onChangeFunction={onChangeCategories}
         />
-        <CustomDatePicker />
+        <CustomDatePicker onChangeFunction={onChangeDate} />
       </FilterContainer>
     </>
   );
