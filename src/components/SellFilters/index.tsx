@@ -43,7 +43,6 @@ const SellFilter = ({
         })
       )
       .then((result) => setCategories(result))
-      .then()
       .catch((error) => alert(error));
   }, []);
   return (
