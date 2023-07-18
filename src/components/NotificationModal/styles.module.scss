@@ -44,7 +44,11 @@
 }
 .notificationHeader {
   display: flex;
+  align-items: center;
   margin-bottom: 64px;
+  .InfoIconContainer{
+   margin-left: 16px;
+}
 }
 
 .headerWithMessage {

@@ -5,6 +5,7 @@ import style from './styles.module.scss';
 import alert from '../../assets/alert.svg';
 import info from '../../assets/info.svg';
 import closeIcon from '../../assets/close.svg';
+import InfoIcon from '../InfoIcon';
 
 const socket = socketIOClient('http://localhost:8080');
 
@@ -62,7 +63,10 @@ const NotificationModal = () => {
               <div className={style.notificationHeader}>
                 <img src={alert} alt="" />
                 <h3>Alerta</h3>
-                <img className={style.notificationIcon} src={info} alt="" />
+                <div className={style.InfoIconContainer}>
+                <InfoIcon title="A quantidade mínima foi estabelecida no sistema padrão da sua farmácia." placement='leftTop'/>
+
+                </div>
               </div>
 
               <p>
