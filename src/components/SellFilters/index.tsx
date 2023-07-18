@@ -27,9 +27,9 @@ const SellFilter = ({
   category,
   yearMonth,
 }: {
-  orderSort?:ChangeEvent<Element>,
-  orderField?:ChangeEvent<Element>,
-  category?:ChangeEvent<Element>,
+  orderSort?: ChangeEvent<Element>;
+  orderField?: ChangeEvent<Element>;
+  category?: ChangeEvent<Element>;
   yearMonth: dayjs.Dayjs | null;
   onChangeOrderSort: ChangeEventHandler;
   onChangeOrderField: ChangeEventHandler;

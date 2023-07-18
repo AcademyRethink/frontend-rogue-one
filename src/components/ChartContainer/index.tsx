@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import { Prop } from '../../types/types';
 
@@ -14,6 +14,7 @@ const ChartContainer = ({
   chartSubTitle,
   children,
   filter,
+  infoText,
 }: {
   showInfo: boolean;
   showFilter: boolean;
@@ -22,22 +23,50 @@ const ChartContainer = ({
   chartSubTitle: string;
   children: Prop;
   filter: Prop;
+  infoText: string;
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [containerWidth, setContainerWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const [yPosition, setYPosition] = useState(0);
   const [XPosition, setXPosition] = useState(0);
   const filterRef = useRef<HTMLInputElement>(null);
+  const filterContainerRef = useRef<HTMLInputElement>(null);
+  const [screenSize, setScreenSize] = useState(getCurrentDimension());
+
+  function getCurrentDimension() {
+    return {
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  }
+
+  useEffect(() => {
+    const updateDimension = () => {
+      setScreenSize(getCurrentDimension());
+    };
+    window.addEventListener('resize', updateDimension);
+
+    return () => {
+      window.removeEventListener('resize', updateDimension);
+    };
+  }, [screenSize]);
 
   useEffect(() => {
     if (filterRef.current) {
-      setHeight(filterRef.current.getBoundingClientRect().height);
-      setYPosition(filterRef.current.getBoundingClientRect().bottom);
-      setXPosition(filterRef.current.getBoundingClientRect().right);
+      setHeight(filterRef.current.offsetHeight);
+      setYPosition(filterRef.current.offsetTop);
+      setXPosition(filterRef.current.offsetLeft);
     }
   }, []);
+
+  useLayoutEffect(() => {
+    if (filterContainerRef.current) {
+      setContainerWidth(filterContainerRef.current.offsetWidth);
+    }
+  }, [isFilterOpen]);
 
   const toggleFilter = () => {
     setIsFilterOpen((prev) => !prev);
@@ -51,12 +80,7 @@ const ChartContainer = ({
       <div className={styles.chartHeader}>
         <ChartTitle title={chartTitle} subtitle={chartSubTitle} />
         <div className={styles.rightContent}>
-          {showInfo && (
-            <InfoIcon
-              title="Média de unidades vendidas por loja concorrente"
-              placement="right"
-            />
-          )}
+          {showInfo && <InfoIcon title={infoText} placement="right" />}
           {showFilter && (
             <div
               className={styles.filterIcon}
@@ -74,14 +98,21 @@ const ChartContainer = ({
       <div
         style={
           isFilterOpen
-            ? {
-                display: 'block',
-                position: 'absolute',
-                top: yPosition - height / 2,
-                right: XPosition,
-              }
+            ? XPosition + containerWidth < screenSize.width
+              ? {
+                  display: 'block',
+                  position: 'absolute',
+                  top: yPosition + height,
+                  left: XPosition,
+                }
+              : {
+                  display: 'block',
+                  position: 'absolute',
+                  top: yPosition + height,
+                }
             : { display: 'none' }
         }
+        ref={filterContainerRef}
       >
         {filter}
       </div>

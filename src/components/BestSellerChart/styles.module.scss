@@ -1,0 +1,11 @@
+.bestSellerList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 100%;
+  padding-top: 10%;
+  li {
+    width: 100%;
+  }
+}
