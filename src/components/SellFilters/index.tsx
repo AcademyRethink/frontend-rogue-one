@@ -14,7 +14,7 @@ const dataBestSeller = [
 
 const dataRanking = [
   { label: 'Ranking mercado', value: 'sale_competitors_month' },
-  { label: 'Ranking loja', value: 'sale_' },
+  { label: 'Ranking loja', value: 'sale_pharmacy_month' },
 ];
 
 const SellFilter = ({
