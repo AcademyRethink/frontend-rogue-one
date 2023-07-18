@@ -8,7 +8,7 @@ import {
 import 'material-symbols/outlined.css';
 
 import { SelectData } from '../../types/types';
-import { ChangeEventHandler, useState } from 'react';
+import { ChangeEvent, ChangeEventHandler, useState } from 'react';
 
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/pt-br';
@@ -23,13 +23,15 @@ const CustomSelect = ({
   data,
   widthMin,
   onChangeFunction,
+  selectValue,
 }: {
   Icon?: React.ElementType;
   symbol?: string;
   symbolClass?: string;
   widthMin?: number;
-  data?: SelectData[];
+  data?: any;
   onChangeFunction: ChangeEventHandler;
+  selectValue?: ChangeEvent<Element>;
 }) => {
   return (
     <div>
@@ -56,6 +58,7 @@ const CustomSelect = ({
             popupMatchSelectWidth={false}
             placement="bottomRight"
             onChange={onChangeFunction}
+            value={selectValue ? selectValue : data[0]}
           ></Select>
         </Space>
       )}
