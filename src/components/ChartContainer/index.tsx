@@ -43,16 +43,6 @@ const ChartContainer = ({
     setIsFilterOpen((prev) => !prev);
   };
 
-  useEffect(() => {
-    const handleClickOutside = () => {
-      setIsFilterOpen(false);
-    };
-
-    if (isFilterOpen) {
-      document.addEventListener('click', handleClickOutside, true);
-    }
-  }, [isFilterOpen]);
-
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
@@ -79,7 +69,7 @@ const ChartContainer = ({
           {showDetails && <p onClick={toggleModal}>Mais detalhes</p>}
         </div>
       </div>
-      <div className={styles.chartContent}>{children}</div>
+      <div>{children}</div>
 
       <div
         style={

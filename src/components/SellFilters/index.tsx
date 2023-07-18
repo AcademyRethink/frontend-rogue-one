@@ -22,7 +22,9 @@ const SellFilter = ({
   onChangeOrderSort,
   onChangeCategories,
   onChangeDate,
+  yearMonth,
 }: {
+  yearMonth: dayjs.Dayjs | null;
   onChangeOrderSort: ChangeEventHandler;
   onChangeOrderField: ChangeEventHandler;
   onChangeCategories: ChangeEventHandler;
@@ -63,7 +65,10 @@ const SellFilter = ({
           data={categories}
           onChangeFunction={onChangeCategories}
         />
-        <CustomDatePicker onChangeFunction={onChangeDate} />
+        <CustomDatePicker
+          onChangeFunction={onChangeDate}
+          yearMonth={yearMonth}
+        />
       </FilterContainer>
     </>
   );
