@@ -7,14 +7,14 @@
   padding: 8px;
   font-size: 24px;
   color: base.$neutral-color-3;
-
-  :hover {
-    border-radius: 4px;
-    background: rgba(66, 66, 66, 0.32);
-  }
-  :focus {
-    border-radius: 4px;
-    border: 2px solid base.$neutral-color-1;
-  }
-
+  border: 2px solid transparent;
+  background-color: transparent;
+}
+.infoIcon:hover {
+  border-radius: 4px;
+  background: rgba(66, 66, 66, 0.32);
+}
+.button:focus {
+  border-radius: 4px;
+  border: 2px solid base.$neutral-color-1;
 }
