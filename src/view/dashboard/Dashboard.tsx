@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
+
+
 const Dashboard = () => {
   const [userData, setUserData] = useState(null);
 
@@ -8,8 +10,9 @@ const Dashboard = () => {
     // Função para buscar os dados da área de trabalho no backend
     const fetchDashboardData = async () => {
       try {
-        const token = localStorage.getItem('token');
-        if (token) {
+        const session = localStorage.getItem('session');
+        const {token} = JSON.parse(session || '')
+        if (session) {
           const response = await axios.get('http://localhost:8080/dashboard', {
             headers: {
               Authorization: `Bearer ${token}`, // Adicione o token no cabeçalho da requisição

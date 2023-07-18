@@ -52,8 +52,9 @@ const Login = () => {
         console.log('Bem-vindo');
         // Armazenar o token no localStorage ou em algum estado global, como o Redux, para uso posterior
         const token = response.data.token;
+        console.log(response.data)
 
-        localStorage.setItem('token', token);
+        localStorage.setItem('session', JSON.stringify(response.data));
         // Navegar para a rota "/dashboard" após o login bem-sucedido
         navigate('/dashboard');
       })
