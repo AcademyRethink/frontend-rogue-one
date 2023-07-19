@@ -1,0 +1,25 @@
+@import '../../../utils/base.module.scss';
+
+:export {
+  // For evolution graph
+  color_1: $secondary-color-3;
+  color_2: $primary-color-3;
+  color_3: $primary-color-2;
+  gridLine: $neutral-color-2;
+
+  fontFamily: $font-family;
+  font-config: h1
+}
+
+.LineChartContainer {
+  // min-width: 720px;
+  box-sizing: border-box;
+  padding: 24px;
+
+  width: 720px;
+  height: 360px;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

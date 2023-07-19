@@ -7,8 +7,7 @@ const Playground = () => {
     <>
       <div>
         {/* <Sidebar /> */}
-        <LineChart />
-        <h1>Teste</h1>
+        <LineChart className={""}/>
       </div>
     </>
   );
