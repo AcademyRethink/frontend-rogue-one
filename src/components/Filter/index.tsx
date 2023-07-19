@@ -58,7 +58,7 @@ const CustomSelect = ({
             popupMatchSelectWidth={false}
             placement="bottomRight"
             onChange={onChangeFunction}
-            value={selectValue ? selectValue : data[0]}
+            value={selectValue}
           ></Select>
         </Space>
       )}
@@ -90,7 +90,7 @@ const CustomDatePicker = ({
           popupClassName="datePickerPopUpClass"
           placement="bottomRight"
           value={yearMonth}
-          format={'MMMM YYYY'}
+          format={'MMMM/YYYY'}
           onChange={onChangeFunction}
         />
       </ConfigProvider>

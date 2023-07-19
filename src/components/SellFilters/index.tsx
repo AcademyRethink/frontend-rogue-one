@@ -26,11 +26,17 @@ const SellFilter = ({
   orderField,
   category,
   yearMonth,
+  dataCategories,
+  dataOrderField,
+  dataOrderSort,
 }: {
   orderSort?:ChangeEvent<Element>,
   orderField?:ChangeEvent<Element>,
   category?:ChangeEvent<Element>,
   yearMonth: dayjs.Dayjs | null;
+  dataCategories: any;
+  dataOrderField: any;
+  dataOrderSort: any;
   onChangeOrderSort: ChangeEventHandler;
   onChangeOrderField: ChangeEventHandler;
   onChangeCategories: ChangeEventHandler;
@@ -58,19 +64,19 @@ const SellFilter = ({
       <FilterContainer>
         <CustomSelect
           Icon={MdTrendingUp}
-          data={dataBestSeller}
+          data={dataOrderSort}
           onChangeFunction={onChangeOrderSort}
           selectValue={orderSort}
         />
         <CustomSelect
           Icon={MdApartment}
-          data={dataRanking}
+          data={dataOrderField}
           onChangeFunction={onChangeOrderField}
           selectValue={orderField}
         />
         <CustomSelect
           Icon={MdGridView}
-          data={categories}
+          data={dataCategories}
           onChangeFunction={onChangeCategories}
           selectValue={category}
         />
