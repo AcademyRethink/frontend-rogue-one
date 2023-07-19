@@ -1,25 +1,26 @@
 @import '../../../utils/base.scss';
 
-.lineContainer{
-    width: 1073px;
-    img{
-        margin-bottom: 48px;
-    }
+.lineContainer {
+  width: 1073px;
+  img {
+    margin-top: 19px;
+    margin-bottom: 48px;
+  }
 }
-.lineInformation{
- display: flex;
+.lineInformation {
+  display: flex;
 }
-.title{
-    @include h2-font;
-    margin-left: 47.5px;
+.title {
+  @include h2-font;
+  margin-left: 47.5px;
 }
-.value{
-    @include h4-font;
-    margin-right: 20%;
+.value {
+  @include h4-font;
+  margin-right: 20%;
 }
-.titleContainer{
-    width: 50%;
+.titleContainer {
+  width: 50%;
 }
-.valueContainer{
-    width: 50%;
+.valueContainer {
+  width: 50%;
 }

@@ -25,10 +25,9 @@ const ForgotPassword = () => {
     }
     try {
       await axios.post('http://localhost:8080/auth/forgot-password', { email });
-      console.log('Email de recuperação de senha enviado com sucesso!');
       navigate('/warning-send-password');
     } catch (error) {
-      console.log('Erro ao enviar email de recuperação de senha:', error);
+      console.error('Erro ao enviar email de recuperação de senha:', error);
     }
   };
 

@@ -49,10 +49,9 @@ const Login = () => {
     axios
       .post('http://localhost:8080/auth/login', { email, password })
       .then((response) => {
-        console.log('Bem-vindo');
         // Armazenar o token no localStorage ou em algum estado global, como o Redux, para uso posterior
         const token = response.data.token;
-        console.log(response.data)
+        
 
         localStorage.setItem('session', JSON.stringify(response.data));
         // Navegar para a rota "/dashboard" após o login bem-sucedido
@@ -61,7 +60,7 @@ const Login = () => {
       .catch((error) => {
         if (error.response && error.response.data) {
           const errorMessage = error.response.data.message;
-          console.log(errorMessage);
+          console.error(errorMessage);
           if (
             errorMessage ===
             'Assinatura suspensa por inadimplência. A plataforma será liberada após o pagamento.'

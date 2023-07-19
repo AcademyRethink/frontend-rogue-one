@@ -1,37 +1,62 @@
 import LineTable from './LineTable/LineTable';
-import style from './style.module.scss'
-
-import { useState } from 'react';
+import style from './style.module.scss';
+import { useEffect, useState } from 'react';
+import { format } from 'date-fns';
+import ResetPasswordMyProfile from './ResetPasswordMyProfile/ResetPasswordMyProfile';
+import ModalMyProfile from './ModalMyProfile/ModalMyProfile';
+import { UserData } from '../../types/myProfileTypes';
 
 const MyProfile = () => {
-  const [passwordVisible, setPasswordVisible] = useState(false);
+  const [profileData, setProfileData] = useState<UserData>({} as UserData);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const profileData = {
-    name: 'Luana Lima de Oliveira',
-    cnpj: '000000000-00',
-    birthDate: '20/02/1985',
-    country: 'Brasil',
-    typeAccount: 'admin',
-    email: 'luana@luana.com',
-    password: 'asdasa', // Senha em asteriscos inicialmente
+  useEffect(() => {
+    const sessionData = localStorage.getItem('session');
+    if (sessionData) {
+      const userData = JSON.parse(sessionData);
+      const formattedBirthDate = format(
+        new Date(userData.birth_date),
+        'dd/MM/yyyy'
+      );
+
+      setProfileData({
+        ...userData,
+        birth_date: formattedBirthDate,
+      });
+    } else {
+      setProfileData({
+        name: '',
+        cnpj: '',
+        birth_date: '',
+        country: '',
+        account_type: '',
+        email: '',
+      });
+    }
+  }, []);
+
+  const openModalResetPassword = () => {
+    setIsModalOpen(true);
   };
 
-  const handlePasswordToggle = () => {
-    setPasswordVisible((prev) => !prev);
+  const closeModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
     <div className={style.myProfileContainer}>
       <div className={style.tableContainer}>
-      <LineTable title="Nome" value={profileData.name}/>
-      <LineTable title="CNPJ" value={profileData.cnpj}/>
-      <LineTable title="Data de nascimento" value={profileData.birthDate}/>
-      <LineTable title="País ou região" value={profileData.country}/>
-      <LineTable title="Tipo de conta" value={profileData.typeAccount}/>
-      <LineTable title="E-mail" value={profileData.email}/>
-     
+        <LineTable title="Nome" value={profileData.name} />
+        <LineTable title="CNPJ" value={profileData.cnpj} />
+        <LineTable title="Data de nascimento" value={profileData.birth_date} />
+        <LineTable title="País ou região" value={profileData.country} />
+        <LineTable title="Tipo de conta" value={profileData.account_type} />
+        <LineTable title="E-mail" value={profileData.email} />
       </div>
-      <button>Redefinir senha</button>
+      <button onClick={openModalResetPassword}>Redefinir senha</button>
+      <ModalMyProfile isOpen={isModalOpen} onClose={closeModal}>
+        <ResetPasswordMyProfile />
+      </ModalMyProfile>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import { ChangeEvent, FocusEvent, ReactNode } from 'react';
 
 interface TitleSubtitleProps {
     title: string;
-    subtitle: string | ReactNode;
+    subtitle?: string | ReactNode;
 }
 
 interface ButtonLoginProps {
@@ -15,7 +15,7 @@ interface ButtonLoginProps {
   interface InputWithLabelProps {
     title: string;
     type: string;
-    value: string;
+    value?: string;
     onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
     placeholder?: string;
     onFocus?: (event: FocusEvent<HTMLInputElement>) => void;

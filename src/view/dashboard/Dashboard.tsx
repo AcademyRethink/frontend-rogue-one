@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import MyProfile from '../myProfile/MyProfile';
 
 
 
@@ -21,7 +22,7 @@ const Dashboard = () => {
           setUserData(response.data);
         }
       } catch (error) {
-        console.log('Erro ao buscar dados da área de trabalho:', error);
+        console.error('Erro ao buscar dados da área de trabalho:', error);
       }
     };
 
@@ -32,9 +33,7 @@ const Dashboard = () => {
     <div>
       {userData ? (
         <div>
-          <h1>Dashboard</h1>
-          <p>Olá, seja bem-vindo à sua área de trabalho</p>
-          {/* Renderize os dados da área de trabalho aqui usando o estado "userData" */}
+          <MyProfile/>
         </div>
       ) : (
         <div>

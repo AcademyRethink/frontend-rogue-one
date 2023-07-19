@@ -43,10 +43,9 @@ const ResetPassword: React.FC = () => {
   const handleConfirmShowPassword = () => {
     setShowConfirmPassword((prevState) => !prevState);
   };
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
 
     if (!password) {
       setPasswordError('Senha é obrigatória');
@@ -62,19 +61,15 @@ const ResetPassword: React.FC = () => {
       return;
     }
 
-   
-
     try {
       await axios.post(
         `http://localhost:8080/auth/reset-password?token=${token}`,
         { password }
       );
-      console.log('Senha enviada com sucesso!');
       navigate('/');
     } catch (error) {
-      console.log('Erro ao enviar senha:', error);
+      console.error('Erro ao enviar senha:', error);
     }
-    
   };
 
   return (
@@ -89,28 +84,26 @@ const ResetPassword: React.FC = () => {
             </div>
 
             <div className={styles.inputTypePassword}>
-              <div>
-                <div className={styles.InputWithLabel}>
-                  <InputWithLabel
-                    title="Nova senha"
-                    type={showPassword ? 'text' : 'password'}
-                    value={password}
-                    onChange={handlePasswordChange}
-                    placeholder="Insira aqui sua nova senha"
-                    required={true}
-                  />
-                  {isPasswordNotEmpty && (
-                    <div
-                      className={styles.passwordToggle}
-                      onClick={handleShowPassword}
-                    >
-                      <img
-                        src={showPassword ? eyeHidePassword : eyeShowPassword}
-                        alt=""
-                      />
-                    </div>
-                  )}
-                </div>
+              <div className={styles.InputWithLabel}>
+                <InputWithLabel
+                  title="Nova senha"
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={handlePasswordChange}
+                  placeholder="Insira aqui sua nova senha"
+                  required={true}
+                />
+                {isPasswordNotEmpty && (
+                  <div
+                    className={styles.passwordToggle}
+                    onClick={handleShowPassword}
+                  >
+                    <img
+                      src={showPassword ? eyeHidePassword : eyeShowPassword}
+                      alt=""
+                    />
+                  </div>
+                )}
               </div>
             </div>
             {passwordError && (
@@ -151,9 +144,8 @@ const ResetPassword: React.FC = () => {
                 <img src={infoError} alt="" /> {passwordConfirmError}
               </div>
             )}
-           
-              <ButtonLogin type="submit" title="Confirmar" />
-           
+
+            <ButtonLogin type="submit" title="Confirmar" />
           </form>
         </div>
       </div>
