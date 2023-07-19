@@ -1,6 +1,9 @@
+import CloseButton from "./components/CloseButton";
 
 function App() {
-  return <></>;
+  return <>
+  <CloseButton handleClose={() => {}}/>
+  </>;
 
 }
 
