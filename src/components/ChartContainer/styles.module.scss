@@ -23,9 +23,14 @@
   align-items: center;
   justify-content: center;
 
-  p {
+  .showMore {
     @include base.h3-font;
     color: base.$secondary-color-2;
+  }
+  button {
+    background-color: base.$neutral-color-5;
+    border: none;
+    outline: none;
     height: fit-content;
     cursor: pointer;
   }
