@@ -1,4 +1,3 @@
-import MyProfile from "./view/myProfile/MyProfile"
 import './App.css';
 import Login from './view/login/Login/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -11,7 +10,6 @@ import Dashboard from './view/dashboard/Dashboard';
 
 function App() {
   return (
-
     <BrowserRouter>
       <div className="App" style={{ flex: 1 }}>
         <Routes>
