@@ -15,10 +15,17 @@ import { ChangeEvent } from 'react';
 import styles from './styles.module.scss';
 const BestSellerCard = ({
   orderField,
+  position,
+  productName,
+  productLaboratory,
+  productUnitys,
 }: {
   orderField?: ChangeEvent<Element>;
+  position: number
+  productName: string;
+  productLaboratory: string;
+  productUnitys: number;
 }) => {
-  console.log(orderField);
   return (
     <div className={styles.bestSellerChartCard}>
       <div
@@ -29,15 +36,15 @@ const BestSellerCard = ({
             : styles.sale_pharmacy_month_scheme
         }
       >
-        1
+        {position}
       </div>
       <div className={styles.productDetails}>
-        <h5>{mock.product_name}</h5>
-        <p>{mock.laboratory}</p>
+        <h5>{productName}</h5>
+        <p>{productLaboratory}</p>
       </div>
       <div className={styles.productQuantity}>
         <h5>Unidades</h5>
-        <p>{mock.sale_competitors_month}</p>
+        <p>{productUnitys}</p>
       </div>
     </div>
   );

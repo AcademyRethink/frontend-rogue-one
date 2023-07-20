@@ -1,11 +1,25 @@
-.bestSellerList {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  width: 100%;
+.bestSellerListContainer {
   padding-top: 10%;
-  li {
+  max-width: 456px;
+  .bestSellerList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     width: 100%;
+    max-height: 180px;
+
+    overflow: auto;
+
+    li {
+      width: 100%;
+    }
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0);
   }
 }

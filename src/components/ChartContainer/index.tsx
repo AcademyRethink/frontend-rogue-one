@@ -83,12 +83,6 @@ const ChartContainer = ({
     }
   }, []);
 
-  useLayoutEffect(() => {
-    if (filterContainerRef.current) {
-      setContainerWidth(filterContainerRef.current.offsetWidth);
-    }
-  }, [isFilterOpen]);
-
   const toggleFilter = () => {
     setIsFilterOpen((prev) => !prev);
   };
@@ -108,7 +102,6 @@ const ChartContainer = ({
 
     const isDropdownClicked = (target: EventTarget): boolean => {
       if (target instanceof HTMLElement) {
-        console.log(target.classList);
         return (
           target.classList.value.includes('ant-picker') ||
           target.classList.value.includes('ant-select')
@@ -169,7 +162,6 @@ const ChartContainer = ({
                 }
             : { display: 'none' }
         }
-        ref={filterContainerRef}
       >
         {filter}
       </div>
