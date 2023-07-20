@@ -16,6 +16,9 @@
     "@mui/x-data-grid": "^6.10.0",
     "@mui/x-date-pickers": "^6.10.0",
     "antd": "^5.7.0",
+
+    "@tippyjs/react": "^4.2.6",
+
     "axios": "^1.4.0",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.9",
@@ -27,9 +30,14 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.1",
-    "sass": "^1.63.6",
+
+ 
     "socket.io": "^4.7.1",
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+
+    "react-tooltip": "^5.18.0",
+    "sass": "^1.63.6"
+
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.2",
