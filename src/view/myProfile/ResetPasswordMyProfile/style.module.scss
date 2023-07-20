@@ -1,0 +1,59 @@
+@import '../../../utils/base.scss';
+
+.resetPasswordMyProfileContainer {
+  display: flex;
+  width: auto;
+  height: auto;
+  flex-direction: column;
+  justify-content: center;
+  background-color: $neutral-color-5;
+
+  .resetPasswordMyProfileButton {
+    width: 481px;
+    padding: 16px 120px 16px 120px;
+    margin: 0;
+    margin-top: 42px;
+    border-radius: 4px;
+    background: #00838f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $neutral-color-5;
+    @include h2-font;
+    border: none;
+  }
+  .resetPasswordMyProfileButton:hover {
+    background-color: $primary-color-2;
+  }
+  .resetPasswordMyProfileButton:focus {
+    border: 2px solid $neutral-color-2;
+  }
+  .inputWithLabel {
+    margin-top: 5.47vh;
+  }
+}
+.errorMessage {
+  display: flex;
+  align-items: center;
+  img {
+    margin: 0;
+    padding: 0;
+    margin-right: 4px;
+  }
+  margin-top: 8px;
+  color: $error-color;
+  @include subtitle-font;
+}
+
+.inputWithLabel {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  .passwordToggle {
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    right: 15px;
+    margin-bottom: 16px;
+  }
+}

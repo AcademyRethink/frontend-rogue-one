@@ -1,0 +1,24 @@
+@import '../../utils/base.scss';
+
+.InputWithLabel{
+    label{
+        @include h3-font;
+        color:$neutral-color-2;
+        
+    }
+    input{
+        margin-top: 8px;
+        width: 481px;
+        height: 49px;
+        border-radius: 4px;
+        border: 1px solid $neutral-color-1;
+        background: $neutral-color-5;
+        color: $neutral-color-2;
+       
+        flex-direction: column;
+        align-items: flex-start;
+     
+        @include h4-font;
+        padding-left:16px
+    }
+}

@@ -1,0 +1,31 @@
+@import '../../utils/base.scss';
+
+.myProfileContainer {
+  background: $neutral-color-5;
+  margin: 33px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 1248px;
+  .buttonResetPassword {
+    width: 326px;
+    height: 55px;
+    border-radius: 4px;
+    margin: 0px 32px 32px 0px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: $primary-color-1;
+    @include h2-font;
+    color: $neutral-color-5;
+  }
+  .buttonResetPassword:hover {
+    background-color: $primary-color-2;
+  }
+  .buttonResetPassword:focus {
+    border: 2px solid $neutral-color-2;
+  }
+}
+.tableContainer {
+  margin: 79px 27.5px 89px 27.5px;
+}
