@@ -1,5 +1,6 @@
 import styles from './styles.module.scss';
 import theme from './styles.module.scss';
+import getSalesChartData from '../../services/chartService';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,8 +21,6 @@ ChartJS.register(
   Tooltip,
   Legend
 );
-
-const axisWidth = 2.175;
 
 const options: ChartOptions<'bar'> = {
   responsive: true,
@@ -128,7 +127,11 @@ export const data = {
 const BarChart = () => {
   return (
     <div className={styles.barChart}>
-      <Bar options={options} data={data} />
+      <Bar
+        aria-label="Gráfico de maiores vendas"
+        options={options}
+        data={data}
+      />
     </div>
   );
 };
