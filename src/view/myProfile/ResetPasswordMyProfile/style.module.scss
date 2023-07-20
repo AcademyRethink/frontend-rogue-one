@@ -6,7 +6,7 @@
   height: auto;
   flex-direction: column;
   justify-content: center;
-  background-color: #ffff;
+  background-color: $neutral-color-5;
 
   .resetPasswordMyProfileButton {
     width: 481px;
@@ -18,6 +18,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: $neutral-color-5;
+    @include h2-font;
+    border: none;
+  }
+  .resetPasswordMyProfileButton:hover {
+    background-color: $primary-color-2;
+  }
+  .resetPasswordMyProfileButton:focus {
+    border: 2px solid $neutral-color-2;
   }
   .inputWithLabel {
     margin-top: 5.47vh;

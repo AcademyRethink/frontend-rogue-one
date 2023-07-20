@@ -53,7 +53,7 @@ const MyProfile = () => {
         <LineTable title="Tipo de conta" value={profileData.account_type} />
         <LineTable title="E-mail" value={profileData.email} />
       </div>
-      <button onClick={openModalResetPassword}>Redefinir senha</button>
+      <button className={style.buttonResetPassword} onClick={openModalResetPassword}>Redefinir senha</button>
       <ModalMyProfile isOpen={isModalOpen} onClose={closeModal}>
         <ResetPasswordMyProfile />
       </ModalMyProfile>

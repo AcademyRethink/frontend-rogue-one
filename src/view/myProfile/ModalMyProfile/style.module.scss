@@ -16,7 +16,13 @@
 
 .modalContainer {
   background-color: $neutral-color-5;
-  padding: 60px 5vw;
+  padding: 24px 24px; 
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  .formContainer{
+    margin: 36px 52px
+  }
 }

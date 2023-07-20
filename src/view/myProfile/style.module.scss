@@ -1,12 +1,13 @@
 @import '../../utils/base.scss';
 
 .myProfileContainer {
-  background: #ffffff;
+  background: $neutral-color-5;
   margin: 33px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  button {
+  width: 1248px;
+  .buttonResetPassword {
     width: 326px;
     height: 55px;
     border-radius: 4px;
@@ -18,10 +19,10 @@
     @include h2-font;
     color: $neutral-color-5;
   }
-  button:hover {
+  .buttonResetPassword:hover {
     background-color: $primary-color-2;
   }
-  button:focus {
+  .buttonResetPassword:focus {
     border: 2px solid $neutral-color-2;
   }
 }
