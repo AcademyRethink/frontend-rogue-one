@@ -26,14 +26,14 @@ const ChartContainer = ({
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
   const [yPosition, setYPosition] = useState(0);
   const [XPosition, setXPosition] = useState(0);
   const filterRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     if (filterRef.current) {
-      setWidth(filterRef.current.getBoundingClientRect().width);
+      setHeight(filterRef.current.getBoundingClientRect().height);
       setYPosition(filterRef.current.getBoundingClientRect().bottom);
       setXPosition(filterRef.current.getBoundingClientRect().right);
     }
@@ -42,16 +42,6 @@ const ChartContainer = ({
   const toggleFilter = () => {
     setIsFilterOpen((prev) => !prev);
   };
-
-  useEffect(() => {
-    const handleClickOutside = () => {
-      setIsFilterOpen(false);
-    };
-
-    if (isFilterOpen) {
-      document.addEventListener('click', handleClickOutside, true);
-    }
-  }, [isFilterOpen]);
 
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
@@ -79,7 +69,7 @@ const ChartContainer = ({
           {showDetails && <p onClick={toggleModal}>Mais detalhes</p>}
         </div>
       </div>
-      <div className={styles.chartContent}>{children}</div>
+      <div>{children}</div>
 
       <div
         style={
@@ -87,7 +77,7 @@ const ChartContainer = ({
             ? {
                 display: 'block',
                 position: 'absolute',
-                top: yPosition - width / 2,
+                top: yPosition - height / 2,
                 right: XPosition,
               }
             : { display: 'none' }

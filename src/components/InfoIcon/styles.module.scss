@@ -1,7 +1,18 @@
 @use '../../utils//base';
 
 .infoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 8px;
   font-size: 24px;
   color: base.$neutral-color-3;
+  :hover {
+    border-radius: 4px;
+    background: rgba(66, 66, 66, 0.32);
+  }
+  :focus {
+    border-radius: 4px;
+    border: 2px solid base.$neutral-color-1;
+  }
 }
