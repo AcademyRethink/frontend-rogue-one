@@ -1,4 +1,3 @@
-
 import './App.css';
 import Login from './view/login/Login/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -9,16 +8,14 @@ import Dashboard from './view/dashboard/Dashboard';
 import DashboardLayout from './layout/DashboardLayout';
 import MyProfile from './view/myProfile/MyProfile';
 
-
 function App() {
-  
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} /> 
+        <Route path="/" element={<Login />} />
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" index element={<Dashboard />} />
-         {/*  <Route path='/my-profile' element={<MyProfile/>}/> */}
+          {/*  <Route path='/my-profile' element={<MyProfile/>}/> */}
         </Route>
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route

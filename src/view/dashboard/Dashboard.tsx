@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from '../../axios.config';
 import React from 'react';
+import BestSellerChart from '../../components/BestSellerChart';
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -9,15 +10,17 @@ const Dashboard = () => {
       try {
         const result = await axios.get(
           'http://localhost:8080/dashboard/categories',
-         { params: {
-            cnpj: '00111222000133',
-          },}
+          {
+            params: {
+              cnpj: '00111222000133',
+            },
+          }
         );
         console.log(result);
 
         setIsLoading(false);
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     };
     fetchDashboardData();
@@ -29,11 +32,10 @@ const Dashboard = () => {
   } else {
     return (
       <div style={{ margin: 'auto' }}>
-        {/* Render your dashboard content here */}
+        <BestSellerChart />
       </div>
     );
   }
-
 };
 
 export default React.memo(Dashboard);
