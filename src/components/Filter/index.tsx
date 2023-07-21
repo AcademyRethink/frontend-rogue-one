@@ -7,8 +7,7 @@ import {
 } from 'react-icons/md';
 import 'material-symbols/outlined.css';
 
-import { SelectData } from '../../types/types';
-import { ChangeEvent, ChangeEventHandler, useState } from 'react';
+import { ChangeEvent, ChangeEventHandler } from 'react';
 
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/pt-br';
