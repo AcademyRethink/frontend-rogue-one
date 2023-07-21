@@ -1,6 +1,8 @@
 import styles from './styles.module.scss';
 import theme from './styles.module.scss';
+import ChartContainer from '../ChartContainer';
 import getSalesChartData from '../../services/chartService';
+import SellFilter from '../SellFilters';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -127,11 +129,19 @@ export const data = {
 const BarChart = () => {
   return (
     <div className={styles.barChart}>
-      <Bar
-        aria-label="Gráfico de maiores vendas"
-        options={options}
-        data={data}
-      />
+      <ChartContainer
+        showDetails={true}
+        showInfo={true}
+        showFilter={true}
+        chartTitle="Vendas"
+        chartSubTitle="Top produtos do mercado x minha loja"
+      >
+        <Bar
+          aria-label="Gráfico de maiores vendas"
+          options={options}
+          data={data}
+        />
+      </ChartContainer>
     </div>
   );
 };

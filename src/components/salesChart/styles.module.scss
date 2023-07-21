@@ -13,8 +13,9 @@
 
 .barChart{
     display: flex;
-    width: 1250px;   
-    height: 490px;
+    flex-direction: column;
+    max-width: 1250px;   
+    max-height: 450px;
     background-color: white;
     font-weight: bold;
 }
