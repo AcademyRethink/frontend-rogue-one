@@ -92,8 +92,8 @@ const ChartContainer = ({
       if (
         filterContainerRef.current &&
         !filterContainerRef.current.contains(event.target as Node) &&
-        chartContainerRef.current &&
-        !chartContainerRef.current.contains(event.target as Node) &&
+        filterRef.current &&
+        !filterRef.current.contains(event.target as Node) &&
         !isDropdownClicked(event.target!)
       ) {
         setIsFilterOpen(false);

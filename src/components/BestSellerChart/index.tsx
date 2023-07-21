@@ -85,9 +85,6 @@ const BestSellerChart = () => {
         .catch((error) => alert(error));
   }, [orderSort, orderField, category, yearMonth]);
 
-  useEffect(() => {
-    console.log(bestSellerContent);
-  }, [bestSellerContent]);
   return (
     <div>
       <ChartContainer
