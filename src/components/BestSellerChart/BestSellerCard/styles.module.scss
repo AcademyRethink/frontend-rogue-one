@@ -1,0 +1,62 @@
+@use '../../../utils/base.scss';
+
+.bestSellerChartCard {
+  width: 100%;
+  height: fit-content;
+  border-radius: 4px;
+  padding: 8px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+  background-color: base.$background-color;
+  @mixin productRanking {
+    @include base.h2-font;
+    color: base.$neutral-color-5;
+    width: fit-content;
+    height: fit-content;
+    width: 41px;
+    height: 41px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .sale_competitors_month_scheme {
+    background-color: base.$secondary-color-1;
+    @include productRanking();
+  }
+  .sale_pharmacy_month_scheme {
+    background-color: base.$primary-color-3;
+    @include productRanking();
+  }
+
+  .productDetails {
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+    flex: 1;
+    h5 {
+      @include base.h5-font;
+      color: base.$neutral-color-2;
+    }
+    p {
+      @include base.subtitle-font;
+      color: base.$neutral-color-2;
+    }
+  }
+
+  .productQuantity {
+    color: base.$neutral-color-2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h5 {
+      @include base.h5-font;
+    }
+    p {
+      @include base.h6-font;
+    }
+  }
+}
