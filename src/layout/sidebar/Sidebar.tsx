@@ -10,7 +10,8 @@ import { useState } from 'react';
 import SidebarRoute from './SidebarRoute/SidebarRoute';
 import styles from './styles.module.scss';
 
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate } from 'react-router-dom';
+import MyProfile from '../../view/myProfile/MyProfile';
 
 const Sidebar = (open: any) => {
   const [opened, setOpened] = useState(open);
@@ -70,7 +71,9 @@ const Sidebar = (open: any) => {
           to="/my-profile"
           className={({ isActive }) =>
             isActive ? styles.activeRoute : styles.inactiveRoute
+      
           }
+          
         >
           <SidebarRoute title="Meu perfil" icon={pessoa} display={display} />
         </NavLink>

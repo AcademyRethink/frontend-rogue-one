@@ -1,16 +1,18 @@
 import axios from 'axios';
 
 
-const sessionData = localStorage.getItem('session');
-const token = sessionData ? JSON.parse(sessionData).token : '';
+/* const sessionData = localStorage.getItem('session');
+const token = sessionData ? JSON.parse(sessionData).token : ''; */
 /* const cnpj = sessionData ? JSON.parse(sessionData).cnpj : ''; */
 
 
-axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+/* axios.defaults.headers.common['Authorization'] = `Bearer ${token}`; */
 
 
 axios.interceptors.request.use(
   (config) => {
+    const sessionData = localStorage.getItem('session');
+    const token = sessionData ? JSON.parse(sessionData).token : '';
     config.headers['Authorization'] = `Bearer ${token}`;
 /*     config.headers['CNPJ'] = cnpj; */
     return config;

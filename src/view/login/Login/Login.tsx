@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from 'react';
+import { useState, ChangeEvent, useEffect } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss';
@@ -49,13 +49,16 @@ const Login = () => {
     axios
       .post('http://localhost:8080/auth/login', { email, password })
       .then((response) => {
-        // Armazenar o token no localStorage ou em algum estado global, como o Redux, para uso posterior
+    
         const token = response.data.token;
         
 
         localStorage.setItem('session', JSON.stringify(response.data));
+        console.log(response.data.token)
         // Navegar para a rota "/dashboard" após o login bem-sucedido
-        navigate('/dashboard');
+        if(token){
+          navigate('/dashboard');
+        }
       })
       .catch((error) => {
         if (error.response && error.response.data) {
@@ -74,6 +77,7 @@ const Login = () => {
         }
       });
   };
+
 
   return (
     <div className={styles.loginContainer}>
@@ -96,6 +100,7 @@ const Login = () => {
                 value={email}
                 onChange={handleEmailChange}
                 placeholder="Insira aqui seu email"
+                autoComplete="email"
               />
             </div>
             {emailError && (
@@ -113,6 +118,7 @@ const Login = () => {
                     value={password}
                     onChange={handlePasswordChange}
                     placeholder="Insira aqui sua senha"
+                    autoComplete="current-password"
                   />
                 </div>
                 {isPasswordNotEmpty && (
@@ -139,8 +145,10 @@ const Login = () => {
                 Esqueci minha senha
               </Link>
             </div>
+            
             <ButtonLogin type="submit" title="Entrar" />
           </form>
+          
         </div>
       </div>
     </div>

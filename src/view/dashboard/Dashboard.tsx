@@ -1,48 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import MyProfile from '../myProfile/MyProfile';
-
-
-
+import { useEffect, useState } from 'react';
+import axios from '../../axios.config';
+import React from 'react';
 const Dashboard = () => {
-  const [userData, setUserData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Função para buscar os dados da área de trabalho no backend
     const fetchDashboardData = async () => {
       try {
-        const session = localStorage.getItem('session');
-        const {token} = JSON.parse(session || '')
-        if (session) {
-          const response = await axios.get('http://localhost:8080/dashboard', {
-            headers: {
-              Authorization: `Bearer ${token}`, // Adicione o token no cabeçalho da requisição
-            },
-          });
-          setUserData(response.data);
-        }
+        const result = await axios.get(
+          'http://localhost:8080/dashboard/categories',
+         { params: {
+            cnpj: '00111222000133',
+          },}
+        );
+        console.log(result);
+
+        setIsLoading(false);
       } catch (error) {
-        console.error('Erro ao buscar dados da área de trabalho:', error);
+        console.log(error)
       }
     };
-
     fetchDashboardData();
   }, []);
+  console.log('render');
+  // Check if userData is available and user is logged in
+  if (isLoading) {
+    return <div>Loading...</div>;
+  } else {
+    return (
+      <div style={{ margin: 'auto' }}>
+        {/* Render your dashboard content here */}
+      </div>
+    );
+  }
 
-  return (
-    <div>
-      {userData ? (
-        <div>
-          <MyProfile/>
-        </div>
-      ) : (
-        <div>
-          <h1>Acesso não autorizado</h1>
-          <p>Você não tem permissão para acessar esta página. Faça o login para continuar.</p>
-        </div>
-      )}
-    </div>
-  );
 };
 
-export default Dashboard;
+export default React.memo(Dashboard);

@@ -20,7 +20,8 @@ interface ButtonLoginProps {
     placeholder?: string;
     onFocus?: (event: FocusEvent<HTMLInputElement>) => void;
     onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-    required?: boolean
+    required?: boolean;
+    autoComplete: string;
   }
 
 
