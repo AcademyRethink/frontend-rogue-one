@@ -16,7 +16,7 @@ const NotificationStatus = () => {
     axios
       .get('http://localhost:8080/unresolved-notifications')
       .then((response) => setNotifications(response.data))
-      .catch((error) => console.log(error));
+      .catch((error) => console.error(error));
 
       if (buttonRef.current) {
         tippy(buttonRef.current, {

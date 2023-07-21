@@ -30,9 +30,9 @@ const SellFilter = ({
   dataOrderField,
   dataOrderSort,
 }: {
-  orderSort?:ChangeEvent<Element>,
-  orderField?:ChangeEvent<Element>,
-  category?:ChangeEvent<Element>,
+  orderSort?: ChangeEvent<Element>;
+  orderField?: ChangeEvent<Element>;
+  category?: ChangeEvent<Element>;
   yearMonth: dayjs.Dayjs | null;
   dataCategories: any;
   dataOrderField: any;

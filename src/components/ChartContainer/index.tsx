@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import { Prop } from '../../types/types';
 
@@ -20,6 +20,7 @@ const ChartContainer = ({
   chartSubTitle,
   children,
   filter,
+  infoText,
 }: {
   showInfo: boolean;
   showFilter: boolean;
@@ -28,6 +29,7 @@ const ChartContainer = ({
   chartSubTitle: string;
   children: Prop;
   filter: Prop;
+  infoText: string;
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -90,8 +92,8 @@ const ChartContainer = ({
       if (
         filterContainerRef.current &&
         !filterContainerRef.current.contains(event.target as Node) &&
-        chartContainerRef.current &&
-        !chartContainerRef.current.contains(event.target as Node) &&
+        filterRef.current &&
+        !filterRef.current.contains(event.target as Node) &&
         !isDropdownClicked(event.target!)
       ) {
         setIsFilterOpen(false);
@@ -100,7 +102,6 @@ const ChartContainer = ({
 
     const isDropdownClicked = (target: EventTarget): boolean => {
       if (target instanceof HTMLElement) {
-        console.log(target.classList);
         return (
           target.classList.value.includes('ant-picker') ||
           target.classList.value.includes('ant-select')
@@ -123,12 +124,7 @@ const ChartContainer = ({
       <div className={styles.chartHeader}>
         <ChartTitle title={chartTitle} subtitle={chartSubTitle} />
         <div className={styles.rightContent}>
-          {showInfo && (
-            <InfoIcon
-              title="Média de unidades vendidas por loja concorrente"
-              placement="right"
-            />
-          )}
+          {showInfo && <InfoIcon title={infoText} placement="right" />}
           {showFilter && (
             <button
               className={styles.filterIcon}
