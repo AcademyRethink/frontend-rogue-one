@@ -8,6 +8,7 @@ import ResetPassword from './view/login/ResetPassword/ResetPassword';
 import Dashboard from './view/dashboard/Dashboard';
 import DashboardLayout from './layout/DashboardLayout';
 import MyProfile from './view/myProfile/MyProfile';
+import PcpReport from './view/pcpReport/PcpReport';
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
          <Route element={<DashboardLayout />}>
           <Route path="/dashboard" index element={<Dashboard />} />
           <Route path="/home" index element={<Dashboard />} />
-          <Route path="/report" index element={<><h1>RELATÓRIO PCP</h1></>} />
+          <Route path="/report" index element={<PcpReport/>} />
           <Route path="/my-profile" index element={<MyProfile />} />
         </Route>
 
