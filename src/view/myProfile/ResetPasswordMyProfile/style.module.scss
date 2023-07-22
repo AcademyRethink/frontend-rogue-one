@@ -12,7 +12,7 @@
     width: 481px;
     padding: 16px 120px 16px 120px;
     margin: 0;
-    margin-top: 42px;
+    margin-top: 6%;
     border-radius: 4px;
     background: #00838f;
     display: flex;
@@ -29,8 +29,17 @@
     border: 2px solid $neutral-color-2;
   }
   .inputWithLabel {
-    margin-top: 5.47vh;
-  }
+    margin-top: 2.47vh;
+    display: flex;
+    align-items: flex-end;
+    position: relative;
+    .passwordToggle {
+      height: 18px;
+      width: 18px;
+      position: absolute;
+      right: 15px;
+      margin-bottom: 16px;
+    }
 }
 .errorMessage {
   display: flex;
@@ -45,15 +54,5 @@
   @include subtitle-font;
 }
 
-.inputWithLabel {
-  display: flex;
-  align-items: flex-end;
-  position: relative;
-  .passwordToggle {
-    height: 18px;
-    width: 18px;
-    position: absolute;
-    right: 15px;
-    margin-bottom: 16px;
-  }
+
 }
