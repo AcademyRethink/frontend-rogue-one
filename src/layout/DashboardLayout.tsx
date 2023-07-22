@@ -23,12 +23,11 @@ const DashboardLayout = () => {
           <aside className={style.dashboardLayoutSideBar}>
             <Sidebar />
           </aside>
+          <main className={style.dashboardContent}>
+            <Outlet />
+          </main>
         </>
       ) : null}
-      <Outlet />
-      <main className={style.dashboardContent}>
-        <Outlet />
-      </main>
     </div>
   );
 };

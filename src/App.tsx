@@ -16,10 +16,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} /> 
-        <Route element={<DashboardLayout />}>
+       
+         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" index element={<Dashboard />} />
-         {/*  <Route path='/my-profile' element={<MyProfile/>}/> */}
+          <Route path="/home" index element={<Dashboard />} />
+          <Route path="/report" index element={<><h1>RELATÓRIO PCP</h1></>} />
+          <Route path="/my-profile" index element={<MyProfile />} />
         </Route>
+
+       
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route
           path="/warning-send-password"

@@ -13,7 +13,6 @@ const LineTable = (props: MyProfileData) => {
           <h4 className={style.value}>{value}</h4>
         </div>
       </div>
-      <img src={dividerMyProfile} alt="" />
     </div>
   );
 };

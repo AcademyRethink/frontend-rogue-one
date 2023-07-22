@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from '../../axios.config';
 import React from 'react';
+import style from './style.module.scss'
+import BestSellerCard from '../../components/BestSellerChart/BestSellerCard';
+import BestSellerChart from '../../components/BestSellerChart';
 const Dashboard = () => {
-  const [isLoading, setIsLoading] = useState(true);
+ /*  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchDashboardData = async () => {
@@ -19,21 +22,23 @@ const Dashboard = () => {
       } catch (error) {
         console.log(error)
       }
-    };
-    fetchDashboardData();
-  }, []);
+    }; */
+ /*    fetchDashboardData(); */
+ /*  }, []);
   console.log('render');
-  // Check if userData is available and user is logged in
+  Check if userData is available and user is logged in
   if (isLoading) {
     return <div>Loading...</div>;
-  } else {
+  } else { */
     return (
-      <div style={{ margin: 'auto' }}>
-        {/* Render your dashboard content here */}
+      <div className={style.dashboardLayout}>
+        <div className={style.graph1}>gráfico 1</div>
+        <div className={style.graph2}>gráfico 2</div>
+        <div className={style.graph3}>gráfico 3</div>
       </div>
     );
   }
 
-};
+
 
 export default React.memo(Dashboard);
