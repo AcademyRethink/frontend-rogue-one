@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import ModalMyProfile from '../myProfile/ModalMyProfile/ModalMyProfile';
 import style from './style.module.scss';
 import axios from '../../axios.config';
+import {ReportItem} from '../../types/pcpReportTypes'
+
 
 const truncateMolecule = (molecule: string, numberOfWords: number) => {
   const words = molecule.split('|');
@@ -11,19 +13,6 @@ const truncateMolecule = (molecule: string, numberOfWords: number) => {
 const formatNumber = (number: number) => {
   return number.toLocaleString('pt-BR', { minimumFractionDigits: 2 });
 };
-interface ReportItem {
-  report_id: number;
-  cnpj: string;
-  molecule: string;
-  laboratory: string;
-  ean: string;
-  product_name: string;
-  category: string;
-  sale_pharmacy_month: number;
-  sale_competitors_month: number;
-  month_year: string;
-  competitors_unity_price: number;
-}
 
 const PcpReport = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
