@@ -21,7 +21,7 @@ const BestSellerCard = ({
   productUnitys,
 }: {
   orderField?: ChangeEvent<Element>;
-  position: number
+  position: number;
   productName: string;
   productLaboratory: string;
   productUnitys: number;
@@ -39,7 +39,7 @@ const BestSellerCard = ({
         {position}
       </div>
       <div className={styles.productDetails}>
-        <h5>{productName}</h5>
+        <h5 title={productName}>{productName}</h5>
         <p>{productLaboratory}</p>
       </div>
       <div className={styles.productQuantity}>

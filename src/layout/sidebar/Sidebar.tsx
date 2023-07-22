@@ -49,7 +49,7 @@ const Sidebar = (open: any) => {
       <hr className={opened ? styles.sufix : styles.sufixClosed}></hr>
       <div className={styles.sidebarRoutes}>
         <NavLink
-          to="/home"
+          to="/dashboard"
           className={({ isActive }) =>
             isActive ? styles.activeRoute : styles.inactiveRoute
           }
@@ -72,9 +72,7 @@ const Sidebar = (open: any) => {
           to="/my-profile"
           className={({ isActive }) =>
             isActive ? styles.activeRoute : styles.inactiveRoute
-      
           }
-          
         >
           <SidebarRoute title="Meu perfil" icon={pessoa} display={display} />
         </NavLink>
