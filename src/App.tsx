@@ -1,6 +1,7 @@
+import EvolutionChart from "./components/graphs/EvolutionChart";
 
 function App() {
-  return <></>;
+  return <EvolutionChart className=""/>
 
 }
 

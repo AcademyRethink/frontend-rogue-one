@@ -24,14 +24,16 @@ const CustomSelect = ({
   widthMin,
   onChangeFunction,
   selectValue,
+  parentId,
 }: {
   Icon?: React.ElementType;
   symbol?: string;
   symbolClass?: string;
   widthMin?: number;
   data?: any;
-  onChangeFunction: ChangeEventHandler;
-  selectValue?: ChangeEvent<Element>;
+  onChangeFunction?: (value: string) => void; // ChangeEventHandler;
+  selectValue?: string; //ChangeEvent<Element>;
+  parentId: string;
 }) => {
   return (
     <div>
@@ -48,6 +50,9 @@ const CustomSelect = ({
             bordered={false}
             className="customAntdSelect"
             popupClassName="customAntdSelectPopup"
+            getPopupContainer={() =>
+              parentId ? document.getElementById(parentId)! : document.body
+            }
             style={
               widthMin
                 ? {
@@ -57,6 +62,7 @@ const CustomSelect = ({
             }
             popupMatchSelectWidth={false}
             placement="bottomRight"
+            // onChange={(e) => console.log(e)}
             onChange={onChangeFunction}
             value={selectValue ? selectValue : data[0]}
           ></Select>

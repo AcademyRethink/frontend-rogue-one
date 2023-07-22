@@ -1,5 +1,5 @@
 // import Sidebar from '../../layout/sidebar/index';
-import { LineChart } from '../../components/graphs/LineChart';
+import { EvolutionChart } from '../../components/graphs/EvolutionChart';
 import './styles.css';
 
 const Playground = () => {
@@ -7,7 +7,7 @@ const Playground = () => {
     <>
       <div>
         {/* <Sidebar /> */}
-        <LineChart className={""}/>
+        <EvolutionChart className={""}/>
       </div>
     </>
   );

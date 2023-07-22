@@ -14,6 +14,7 @@ const ChartContainer = ({
   chartSubTitle,
   children,
   filter,
+  onClickDetails,
 }: {
   showInfo: boolean;
   showFilter: boolean;
@@ -22,6 +23,7 @@ const ChartContainer = ({
   chartSubTitle: string;
   children: Prop;
   filter: Prop;
+  onClickDetails: () => void;
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -66,7 +68,7 @@ const ChartContainer = ({
               <MdOutlineFilterAlt />
             </div>
           )}
-          {showDetails && <p onClick={toggleModal}>Mais detalhes</p>}
+          {showDetails && <p onClick={/*toggleModal*/ onClickDetails}>Mais detalhes</p>}
         </div>
       </div>
       <div>{children}</div>

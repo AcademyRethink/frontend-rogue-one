@@ -19,10 +19,17 @@ import { Line as ChartType } from 'react-chartjs-2';
 import theme from './styles.module.scss';
 
 //Modal related imports
-import { Box, Button, Modal } from '@mui/material';
+import { Box, Modal, Button } from '@mui/material';
 
 //Services
 import { fetchEvolutionGraph } from '../../../services/graphServices';
+
+//aria-labels
+import labels from './aria-labels.json';
+
+//components
+import ChartContainer from '../../ChartContainer';
+import EvolutionFilter from '../../EvolutionFilter';
 
 ChartJS.register(
   CategoryScale,
@@ -51,8 +58,6 @@ const addColorConfig = (data: any) => {
 };
 
 type LineChartProps = {
-  // title: string;
-  // subtitle: string;
   className: string;
 };
 export const EvolutionChart = ({
@@ -80,11 +85,13 @@ export const EvolutionChart = ({
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setProductName(event.currentTarget.value);
+  const handleChange = (value: string) => {
+    setProductName(value);
+  };
 
-  const handleModalChange = (event: React.ChangeEvent<HTMLInputElement>) =>
-    setModalProductName(event.currentTarget.value);
+  const handleModalChange = (value: string) => {
+    setModalProductName(value);
+  };
 
   useEffect(() => {
     fetchEvolutionGraph(productName)
@@ -93,7 +100,7 @@ export const EvolutionChart = ({
   }, [productName]);
 
   useEffect(() => {
-    fetchEvolutionGraph(modalProductName)
+    fetchEvolutionGraph(modalProductName) //modalProductName
       .then((json) => setModalData(addColorConfig(json)))
       .catch(console.error);
   }, [modalProductName]);
@@ -102,10 +109,8 @@ export const EvolutionChart = ({
     if (data.datasets.length) setLoading(false);
   }, [data]);
 
-  const axisWidth = 2.175;
-
   const options: ChartOptions<'line'> = {
-    responsive: true,
+    // responsive: true,
     plugins: {
       legend: {
         align: 'end',
@@ -135,7 +140,6 @@ export const EvolutionChart = ({
         },
         beginAtZero: true,
         grid: {
-          borderWidth: axisWidth,
           borderColor: theme.gridLine,
           tickColor: 'white',
         },
@@ -149,7 +153,6 @@ export const EvolutionChart = ({
           },
         },
         grid: {
-          borderWidth: axisWidth,
           borderColor: theme.gridLine,
           tickColor: 'white',
         },
@@ -157,8 +160,26 @@ export const EvolutionChart = ({
     },
   };
 
+  const modalBoxId = 'evolution-chart-modal-box';
+
   return (
-    <div className={`${styles.LineChartContainer} ${className}`}>
+    <ChartContainer
+      chartTitle="Evolução"
+      chartSubTitle="Vendas e estoque"
+      showFilter={true}
+      key={1}
+      filter={
+        <EvolutionFilter
+          onChangeProductName={handleChange}
+          key={1}
+          selectedProduct={productName}
+          parentId=""
+        />
+      }
+      showInfo={false}
+      showDetails={true}
+      onClickDetails={handleOpen}
+    >
       {loading ? (
         <Loader
           height="100"
@@ -168,17 +189,17 @@ export const EvolutionChart = ({
           ariaLabel="Carregando"
         />
       ) : (
-        <ChartType options={options} data={data} />
+        <ChartType
+          options={options}
+          data={data}
+          aria-label="Grafico de evolução das vendas e do estoque"
+        />
       )}
+      <Button title="Relatorio PCP" onClick={() => console.log('Teste')} />
 
-      <Button onClick={handleOpen}>Open modal</Button>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
+      <Modal open={open} onClose={handleClose} aria-label={labels.Chart}>
         <Box
+          id={modalBoxId}
           sx={{
             position: 'absolute' as 'absolute',
             top: '50%',
@@ -186,21 +207,28 @@ export const EvolutionChart = ({
             transform: 'translate(-50%, -50%)',
             width: 400,
             bgcolor: 'background.paper',
-            border: '2px solid #000',
             boxShadow: 24,
             p: 4,
           }}
         >
-          <ChartType options={options} data={modalData} />
-          ,
-          <input
-            type="text"
-            value={modalProductName}
-            onChange={handleModalChange}
+          <Button variant="contained" onClick={() => console.log('Teste')}>
+            Relatório PCP
+          </Button>
+          <EvolutionFilter
+            onChangeProductName={handleModalChange}
+            key={1}
+            selectedProduct={modalProductName}
+            parentId={modalBoxId}
           />
+          <ChartType
+            options={options}
+            data={modalData}
+            aria-label={labels.Chart}
+          />
+          <p>{modalProductName || 'Vazio'}</p>
         </Box>
       </Modal>
-    </div>
+    </ChartContainer>
   );
 };
 
