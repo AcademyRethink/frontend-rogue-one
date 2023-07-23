@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import axios from '../../axios.config';
+import BarChart from '../../components/salesChart';
 import React from 'react';
 
 import style from './style.module.scss';
 
 import BestSellerChart from '../../components/BestSellerChart';
-import ChartLaboratoriesModal from '../../components/ChartLaboratoriesModal';
 import EvolutionChart from '../../components/graphs/EvolutionChart';
 const Dashboard = () => {
   /*  const [isLoading, setIsLoading] = useState(true);
@@ -41,7 +41,9 @@ const Dashboard = () => {
       <div className={style.graph1}>
         <BestSellerChart />
       </div>
-      <div className={style.graph2}></div>
+      <div className={style.graph2}>
+        <BarChart></BarChart>
+      </div>
       <div className={style.graph3}>gráfico 3</div>
     </div>
   );

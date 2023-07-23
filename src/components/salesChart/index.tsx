@@ -1,8 +1,10 @@
+import { useEffect, useState, ChangeEvent } from 'react';
+import type { ChartData, ChartOptions } from 'chart.js';
+import ChartContainer from '../ChartContainer';
 import styles from './styles.module.scss';
 import theme from './styles.module.scss';
-import ChartContainer from '../ChartContainer';
-import getSalesChartData from '../../services/chartService';
 import SellFilter from '../SellFilters';
+import dayjs from 'dayjs';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -13,7 +15,6 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import type { ChartData, ChartOptions } from 'chart.js';
 
 ChartJS.register(
   CategoryScale,
@@ -23,6 +24,50 @@ ChartJS.register(
   Tooltip,
   Legend
 );
+
+const orderSortData: any = [
+  { label: 'Maiores Vendas', value: 'desc' },
+  { label: 'Menores Vendas', value: 'asc' },
+];
+
+const orderFieldData: any = [
+  { label: 'Ranking mercado', value: 'sale_competitors_month' },
+  { label: 'Ranking loja', value: 'sale_pharmacy_month' },
+];
+
+const [categoriesData, setCategoriesData] = useState<any>();
+const [orderSort, setOrderSort] = useState<ChangeEvent<Element>>(
+  orderSortData[0].value
+);
+const [orderField, setOrderField] = useState<ChangeEvent<Element>>(
+  orderFieldData[0].value
+);
+const [category, setCategory] = useState<ChangeEvent<Element>>();
+const [yearMonth, setYearMonth] = useState<dayjs.Dayjs | null>(
+  dayjs(new Date())
+);
+
+const [bestSellerContent, setBestSellerContent] = useState<any>();
+
+useEffect(() => {
+  setCategory(categoriesData ? categoriesData[0].value : undefined);
+}, [categoriesData]);
+
+const onChangeOrderSort = (orderSort: any) => {
+  setOrderSort(orderSort);
+};
+
+const onChangeOrderField = (orderField: any) => {
+  setOrderField(orderField);
+};
+
+const onChangeCategories = (category: any) => {
+  setCategory(category);
+};
+
+const onChangeDate = (date: any) => {
+  setYearMonth(date);
+};
 
 const options: ChartOptions<'bar'> = {
   responsive: true,
@@ -135,6 +180,23 @@ const BarChart = () => {
         showFilter={true}
         chartTitle="Vendas"
         chartSubTitle="Top produtos do mercado x minha loja"
+        key={1}
+        infoText="Gráfico de maiores vendas"
+        filter={
+          <SellFilter
+            onChangeOrderSort={onChangeOrderSort}
+            onChangeOrderField={onChangeOrderField}
+            onChangeCategories={onChangeCategories}
+            onChangeDate={onChangeDate}
+            yearMonth={yearMonth}
+            orderSort={orderSort}
+            orderField={orderField}
+            category={category}
+            dataCategories={categoriesData}
+            dataOrderField={orderFieldData}
+            dataOrderSort={orderSortData}
+          />
+        }
       >
         <Bar
           aria-label="Gráfico de maiores vendas"

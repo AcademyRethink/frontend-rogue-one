@@ -4,7 +4,7 @@ const getSalesChartData = async (
   startDate: String,
   finishDate: String
   // body: any
-) => {
+): Promise<string[]> => {
   const body = JSON.stringify({
     cnpj: '00111222000133',
     product_name: 'DIPIRONA',
