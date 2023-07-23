@@ -10,12 +10,13 @@ import { useState } from 'react';
 import SidebarRoute from './SidebarRoute/SidebarRoute';
 import styles from './styles.module.scss';
 
-import { NavLink, Navigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import MyProfile from '../../view/myProfile/MyProfile';
 
 const Sidebar = (open: any) => {
   const [opened, setOpened] = useState(open);
   const [display, setDisplay] = useState(false);
+  const navigate = useNavigate();
 
   const handleClosingSidebar = () => {
     setOpened(!opened);
@@ -23,9 +24,9 @@ const Sidebar = (open: any) => {
   };
 
   const logOut = () => {
-    //fazer logica de logOut
+    localStorage.removeItem('session'); 
+    navigate('/');
   };
-
   return (
     <div
       className={`${opened ? styles.opened : styles.closed} ${styles.sidebar} `}
@@ -48,7 +49,7 @@ const Sidebar = (open: any) => {
       <hr className={opened ? styles.sufix : styles.sufixClosed}></hr>
       <div className={styles.sidebarRoutes}>
         <NavLink
-          to="/home"
+          to="/dashboard"
           className={({ isActive }) =>
             isActive ? styles.activeRoute : styles.inactiveRoute
           }
@@ -71,9 +72,7 @@ const Sidebar = (open: any) => {
           to="/my-profile"
           className={({ isActive }) =>
             isActive ? styles.activeRoute : styles.inactiveRoute
-      
           }
-          
         >
           <SidebarRoute title="Meu perfil" icon={pessoa} display={display} />
         </NavLink>

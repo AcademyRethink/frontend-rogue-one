@@ -1,10 +1,14 @@
-import BarChart from '../../components/salesChart/index';
+import { EvolutionChart } from '../../components/graphs/EvolutionChart';
+import './styles.css';
 import './styles.module.scss';
 
-const Playground = (...args: any) => {
+const Playground = () => {
   return (
     <>
-      <div></div>
+      <div>
+        {/* <Sidebar /> */}
+        <EvolutionChart className={''} />
+      </div>
     </>
   );
 };

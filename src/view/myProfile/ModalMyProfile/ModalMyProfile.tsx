@@ -14,7 +14,7 @@ const ModalMyProfile = ({ isOpen, onClose, children }: ModalMyProfileProps) => {
   return (
     <div className={style.modalBackground} onClick={handleModalClick}>
       <div className={style.modalContainer}>
-        <div className={style.closeButtonContainer}>
+         <div className={style.closeButtonContainer}>
           <CloseButton handleClose={onClose} />
         </div>
         <div className={style.formContainer}>{children}</div>

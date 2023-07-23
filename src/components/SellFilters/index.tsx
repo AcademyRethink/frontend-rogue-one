@@ -1,7 +1,12 @@
 import FilterContainer from '../FiltersContainer';
 import { SelectData } from '../../types/types';
 import { CustomSelect, CustomDatePicker } from '../Filter';
-import { MdTrendingUp, MdApartment, MdGridView } from 'react-icons/md';
+import {
+  MdTrendingDown,
+  MdTrendingUp,
+  MdApartment,
+  MdGridView,
+} from 'react-icons/md';
 import { ChangeEvent, ChangeEventHandler, useEffect, useState } from 'react';
 
 import { getCategories } from '../../services/categories';
@@ -63,7 +68,11 @@ const SellFilter = ({
     <>
       <FilterContainer>
         <CustomSelect
-          Icon={MdTrendingUp}
+          Icon={
+            orderSort?.toString().toLowerCase() === 'desc'
+              ? MdTrendingUp
+              : MdTrendingDown
+          }
           data={dataOrderSort}
           onChangeFunction={onChangeOrderSort}
           selectValue={orderSort}

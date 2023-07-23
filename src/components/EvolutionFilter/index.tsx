@@ -12,9 +12,11 @@ const data: SelectData[] = [
 const EvolutionFilter = ({
   onChangeProductName,
   selectedProduct,
+  parentId
 }: {
-  onChangeProductName: ChangeEventHandler;
-  selectedProduct: ChangeEvent<Element>;
+  onChangeProductName: (value: string) => void//ChangeEventHandler;
+  selectedProduct: string//ChangeEvent<Element>;
+  parentId: string
 }) => {
   const [products, setProducts] = useState<SelectData[]>();
 
@@ -41,6 +43,7 @@ const EvolutionFilter = ({
           data={products}
           onChangeFunction={onChangeProductName}
           selectValue={selectedProduct}
+          parentId={parentId}
         />
       </FilterContainer>
     </div>

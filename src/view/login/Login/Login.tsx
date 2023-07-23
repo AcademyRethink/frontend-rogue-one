@@ -92,7 +92,7 @@ const Login = () => {
             <br />
             Entre com seus dados.
           </h2>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} >
             <div className={styles.InputWithLabel}>
               <InputWithLabel
                 title="Email:"
