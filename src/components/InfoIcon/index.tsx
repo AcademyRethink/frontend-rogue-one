@@ -10,11 +10,13 @@ const InfoIcon = ({
   placement: TooltipPlacement;
 }) => {
   return (
-    <div className={styles.infoIcon}>
+   
+      <button className={styles.infoIcon}>
       <Tooltip title={title} color="black" placement={placement}>
         <MdInfoOutline />
       </Tooltip>
-    </div>
+      </button>
+   
   );
 };
 
