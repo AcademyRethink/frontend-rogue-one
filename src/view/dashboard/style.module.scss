@@ -1,6 +1,9 @@
 .dashboardLayout {
   position: absolute;
   display: grid;
+  // flex-wrap: wrap;
+  // row-gap: 21px;
+  // column-gap: 24px;
   grid-template-columns: 1fr 2fr;
   grid-template-rows: calc(50vh - 87px) calc(50vh); /* Definindo a segunda linha */
   grid-template-areas:
@@ -10,20 +13,28 @@
 
 .graph1 {
   position: relative;
-
   background-color: lightblue;
   grid-area: graph1;
+  padding: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .graph2 {
   position: relative;
+  // max-width: 721px;
+  // max-height: 360px;
+  padding: 32px;
   background-color: lightcoral;
   grid-area: graph2;
 }
 
 .graph3 {
   position: relative;
-
+  // max-width: 1248px;
+  // max-height: 488px;
   background-color: lightgreen;
   grid-area: graph3;
+  padding: 32px;
 }
