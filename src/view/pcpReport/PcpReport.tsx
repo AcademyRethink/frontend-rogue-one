@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ModalMyProfile from '../myProfile/ModalMyProfile/ModalMyProfile';
 import style from './style.module.scss';
 import axios from '../../axios.config';
-import {ReportItem} from '../../types/pcpReportTypes'
-
+import { CustomDatePicker, CustomSelect } from '../../components/Filter';
+import { MdGridView } from 'react-icons/md';
+import dayjs from 'dayjs';
+import { getCategories } from '../../services/categories';
+import { getProductsFromReport } from '../../services/report';
+import { ProductsResponse } from '../../types/types';
 
 const truncateMolecule = (molecule: string, numberOfWords: number) => {
   const words = molecule.split('|');
@@ -16,34 +20,65 @@ const formatNumber = (number: number) => {
 
 const PcpReport = () => {
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const [data, setData] = useState<ReportItem[]>([]);
+  const [categoriesData, setCategoriesData] = useState<any>();
+  const [category, setCategory] = useState<ChangeEvent<Element>>();
+  const [yearMonth, setYearMonth] = useState<dayjs.Dayjs | null>(
+    dayjs(new Date())
+  );
+  const [sessionData, setSessionData] = useState(
+    localStorage.getItem('session')
+  );
+
+  useEffect(() => {
+    setSessionData(localStorage.getItem('session'));
+  }, []);
+
+  useEffect(() => {
+    if (sessionData) {
+      console.log(JSON.parse(sessionData).cnpj);
+      getCategories(JSON.parse(sessionData).cnpj)
+        .then((resp) =>
+          resp.map((el) => {
+            return {
+              label: el.category.split('_').join(' '),
+              value: el.category,
+            };
+          })
+        )
+        .then((result) => {
+          return setCategoriesData(result);
+        })
+        .catch((error) => alert(error));
+    }
+  }, [sessionData]);
+
+  useEffect(() => {
+    setCategory(categoriesData ? categoriesData[0].value : undefined);
+  }, [categoriesData]);
+
+  const onChangeCategories = (category: any) => {
+    setCategory(category);
+  };
+
+  const onChangeDate = (date: any) => {
+    setYearMonth(date);
+  };
+
+  const [data, setData] = useState<ProductsResponse[]>([]);
   const navigate = useNavigate();
   useEffect(() => {
-    
-    const fetchData = async () => {
-      try {
-        const response = await axios.get<ReportItem[]>(
-          'http://localhost:8080/dashboard/report',
-          {
-            params: {
-              cnpj: '00111222000133',
-              limit: 100,
-              orderSort: 'desc',
-              orderField: 'sale_competitors_month',
-              category: 'MIP_MARCA',
-              period: '2023-03-01',
-            },
-          }
-        );
-
-        setData(response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
+    if (sessionData && category && yearMonth)
+      getProductsFromReport({
+        limit: 100,
+        cnpj: JSON.parse(sessionData).cnpj,
+        orderSort: 'desc',
+        orderField: 'sale_competitors_month',
+        category: category,
+        period: `${yearMonth?.format('YYYY-MM')}-01`,
+      })
+        .then((res) => setData(res))
+        .catch((error) => alert(error));
+  }, [category, yearMonth]);
 
   return (
     <div>
@@ -57,7 +92,22 @@ const PcpReport = () => {
         <div className={style.pcpReportContainer}>
           <div className={style.pcpReportHeader}>
             <h1>Relatório PCP | IQVIA</h1>
-            <div>FILTROS</div>
+            <div className={style.pcpReportFilterContainer}>
+              <div className={style.pcpReportFilter}>
+                <CustomSelect
+                  Icon={MdGridView}
+                  data={categoriesData}
+                  onChangeFunction={onChangeCategories}
+                  selectValue={category}
+                />
+              </div>
+              <div className={style.pcpReportFilter}>
+                <CustomDatePicker
+                  onChangeFunction={onChangeDate}
+                  yearMonth={yearMonth}
+                />
+              </div>
+            </div>
           </div>
           <div></div>
           <div className={style.pcpReportTable}>
