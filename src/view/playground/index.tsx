@@ -1,7 +1,16 @@
-import styles from './styles.module.scss';
+// import Sidebar from '../../layout/sidebar/index';
+import { EvolutionChart } from '../../components/graphs/EvolutionChart';
+import './styles.css';
 
-const Playground = (...args: any) => {
-  return <></>;
+const Playground = () => {
+  return (
+    <>
+      <div>
+        {/* <Sidebar /> */}
+        <EvolutionChart className={""}/>
+      </div>
+    </>
+  );
 };
 
 export default Playground;

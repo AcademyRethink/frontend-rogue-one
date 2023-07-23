@@ -20,6 +20,8 @@ const ChartContainer = ({
   chartSubTitle,
   children,
   filter,
+  onClickDetails,
+
   infoText,
 }: {
   showInfo: boolean;
@@ -29,6 +31,7 @@ const ChartContainer = ({
   chartSubTitle: string;
   children: Prop;
   filter: Prop;
+  onClickDetails: () => void;
   infoText: string;
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
@@ -139,6 +142,7 @@ const ChartContainer = ({
               Mais detalhes
             </button>
           )}
+          {showDetails && <p onClick={/*toggleModal*/ onClickDetails}>Mais detalhes</p>}
         </div>
       </div>
       <div>{children}</div>
