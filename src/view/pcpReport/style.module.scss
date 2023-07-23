@@ -1,0 +1,91 @@
+@import '../../utils/base.scss';
+
+.pcpReportContainer {
+  width: 90vw;
+  .pcpReportHeader {
+    margin-bottom: 34px;
+    h1 {
+      margin-right: 34px;
+    }
+  }
+
+  .pcpReportTable {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    max-height: 65vh;
+    padding-right: 9px; 
+    &::-webkit-scrollbar {
+        width: 12px; 
+      }
+  
+    &::-webkit-scrollbar-track {
+        background-color: $neutral-color-4;
+        border-radius: 4px;
+      }
+    
+      &::-webkit-scrollbar-thumb {
+        background-color: $primary-color-1;
+        border-radius: 6px;
+      }
+    
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: $primary-color-2;
+      }
+    h5 {
+      @include h5-font;
+    }
+    p {
+      @include normal-text-font;
+    }
+    h4 {
+      @include h4-font;
+      span {
+        color: $neutral-color-3;
+      }
+    }
+  }
+  .pcpReportHeader {
+    display: flex;
+    align-items: center;
+  }
+
+  .pcpReportRow {
+    display: flex;
+    align-items: center;
+    border: 1px solid $neutral-color-4;
+  }
+  .pcpReportTitle {
+    border: 1px solid $neutral-color-4;
+    display: flex;
+    align-items: center;
+    border-radius: 8px 8px 0px 0px;
+    padding: 32px 8px 32px 8px;
+  }
+
+  .grayRow {
+    background-color: $neutral-color-4;
+  }
+
+  .whiteRow {
+    background-color: $neutral-color-5;
+  }
+
+  .centeredCell {
+    flex: 1;
+    text-align: center;
+  }
+
+  .moleculeCell,
+  .laboratoryCell,
+  .demandCell,
+  .valueCell {
+    flex: 1;
+    padding: 4px;
+    
+   
+  }
+  .valueCell{
+    height: 100%;
+  }
+}

@@ -1,0 +1,14 @@
+@import '../../utils/base.scss';
+
+.titleSubtitleContainer{
+    h1{
+        @include h1-font;
+        color: $primary-color-2;
+        margin-bottom: 24px;
+    }
+    h2{
+        @include h2-font;
+        color: $neutral-color-2;
+    }
+
+}

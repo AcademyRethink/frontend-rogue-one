@@ -50,8 +50,13 @@
   border-radius: 4px;
   background: base.$secondary-color-4;
   margin-bottom: 10px;  
-
-  z-index: 1;
+  border: 2px solid transparent;
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+  img{
+    max-width: 20px;
+  }
 }
 
 .sidebarOpenButton:hover{
@@ -137,6 +142,9 @@
   height: 35px;
   border: none;
   border-radius: 5px;
+  .buttonText{
+    @include base.h5-font
+  }
 }
 
 .sidebarButton.logoutButton{

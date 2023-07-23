@@ -7,8 +7,7 @@ import {
 } from 'react-icons/md';
 import 'material-symbols/outlined.css';
 
-import { SelectData } from '../../types/types';
-import { ChangeEvent, ChangeEventHandler, useState } from 'react';
+import { ChangeEvent, ChangeEventHandler } from 'react';
 
 import dayjs, { Dayjs } from 'dayjs';
 import 'dayjs/locale/pt-br';
@@ -64,7 +63,7 @@ const CustomSelect = ({
             placement="bottomRight"
             // onChange={(e) => console.log(e)}
             onChange={onChangeFunction}
-            value={selectValue ? selectValue : data[0]}
+            value={selectValue}
           ></Select>
         </Space>
       )}
@@ -96,7 +95,7 @@ const CustomDatePicker = ({
           popupClassName="datePickerPopUpClass"
           placement="bottomRight"
           value={yearMonth}
-          format={'MMMM YYYY'}
+          format={'MMMM/YYYY'}
           onChange={onChangeFunction}
         />
       </ConfigProvider>
