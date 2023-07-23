@@ -16,25 +16,31 @@
     "@mui/x-data-grid": "^6.10.0",
     "@mui/x-date-pickers": "^6.10.0",
     "antd": "^5.7.0",
+    "@tippyjs/react": "^4.2.6",
     "axios": "^1.4.0",
+    "chart.js": "^3.9.1",
+
+    "date-fns": "^2.30.0",
+
     "dayjs": "^1.11.9",
+    "jsonwebtoken": "^9.0.1",
     "material-symbols": "^0.9.0",
     "prettier": "^2.8.8",
     "react": "^18.2.0",
-    "react-chartjs-2": "^5.2.0",
+    "react-chartjs-2": "^4.3.1",
     "react-dom": "^18.2.0",
-
-    "sass": "^1.63.6",
-    "socket.io": "^4.7.1",
     "socket.io-client": "^4.7.1",
-
+    "react-loader-spinner": "^5.3.4",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.1",
-  
-    "styled-components": "^5.3.11"
+    "styled-components": "^5.3.11",
+    "socket.io": "^4.7.1",
+    "react-tooltip": "^5.18.0",
+    "sass": "^1.63.6"
 
   },
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.2",
     "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@typescript-eslint/eslint-plugin": "^5.60.1",

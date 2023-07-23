@@ -1,7 +1,7 @@
 import FilterContainer from '../FiltersContainer';
 import { SelectData } from '../../types/types';
 import { CustomSelect } from '../Filter';
-import { ChangeEventHandler, useEffect, useState } from 'react';
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from 'react';
 import { getProductsFromInventory } from '../../services/inventory';
 
 const data: SelectData[] = [
@@ -11,8 +11,12 @@ const data: SelectData[] = [
 
 const EvolutionFilter = ({
   onChangeProductName,
+  selectedProduct,
+  parentId
 }: {
-  onChangeProductName: ChangeEventHandler;
+  onChangeProductName: (value: string) => void//ChangeEventHandler;
+  selectedProduct: string//ChangeEvent<Element>;
+  parentId: string
 }) => {
   const [products, setProducts] = useState<SelectData[]>();
 
@@ -38,6 +42,8 @@ const EvolutionFilter = ({
           symbol="pill"
           data={products}
           onChangeFunction={onChangeProductName}
+          selectValue={selectedProduct}
+          parentId={parentId}
         />
       </FilterContainer>
     </div>

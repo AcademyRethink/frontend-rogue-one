@@ -1,11 +1,13 @@
-import Sidebar from '../../layout/sidebar/index';
+// import Sidebar from '../../layout/sidebar/index';
+import { EvolutionChart } from '../../components/graphs/EvolutionChart';
 import './styles.css';
 
-const Playground = (...args: any) => {
+const Playground = () => {
   return (
     <>
       <div>
-        <Sidebar />
+        {/* <Sidebar /> */}
+        <EvolutionChart className={""}/>
       </div>
     </>
   );

@@ -1,20 +1,25 @@
 import FilterContainer from '../FiltersContainer';
 import { SelectData } from '../../types/types';
 import { CustomSelect, CustomDatePicker } from '../Filter';
-import { MdTrendingUp, MdApartment, MdGridView } from 'react-icons/md';
-import { ChangeEventHandler, useEffect, useState } from 'react';
+import {
+  MdTrendingDown,
+  MdTrendingUp,
+  MdApartment,
+  MdGridView,
+} from 'react-icons/md';
+import { ChangeEvent, ChangeEventHandler, useEffect, useState } from 'react';
 
 import { getCategories } from '../../services/categories';
 import dayjs from 'dayjs';
 
-const dataBestSeller: SelectData[] = [
+const dataBestSeller = [
   { label: 'Maiores Vendas', value: 'desc' },
   { label: 'Menores Vendas', value: 'asc' },
 ];
 
-const dataRanking: SelectData[] = [
+const dataRanking = [
   { label: 'Ranking mercado', value: 'sale_competitors_month' },
-  { label: 'Ranking loja', value: 'sale_' },
+  { label: 'Ranking loja', value: 'sale_pharmacy_month' },
 ];
 
 const SellFilter = ({
@@ -22,9 +27,21 @@ const SellFilter = ({
   onChangeOrderSort,
   onChangeCategories,
   onChangeDate,
+  orderSort,
+  orderField,
+  category,
   yearMonth,
+  dataCategories,
+  dataOrderField,
+  dataOrderSort,
 }: {
+  orderSort?: ChangeEvent<Element>;
+  orderField?: ChangeEvent<Element>;
+  category?: ChangeEvent<Element>;
   yearMonth: dayjs.Dayjs | null;
+  dataCategories: any;
+  dataOrderField: any;
+  dataOrderSort: any;
   onChangeOrderSort: ChangeEventHandler;
   onChangeOrderField: ChangeEventHandler;
   onChangeCategories: ChangeEventHandler;
@@ -51,19 +68,26 @@ const SellFilter = ({
     <>
       <FilterContainer>
         <CustomSelect
-          Icon={MdTrendingUp}
-          data={dataBestSeller}
+          Icon={
+            orderSort?.toString().toLowerCase() === 'desc'
+              ? MdTrendingUp
+              : MdTrendingDown
+          }
+          data={dataOrderSort}
           onChangeFunction={onChangeOrderSort}
+          selectValue={orderSort}
         />
         <CustomSelect
           Icon={MdApartment}
-          data={dataRanking}
+          data={dataOrderField}
           onChangeFunction={onChangeOrderField}
+          selectValue={orderField}
         />
         <CustomSelect
           Icon={MdGridView}
-          data={categories}
+          data={dataCategories}
           onChangeFunction={onChangeCategories}
+          selectValue={category}
         />
         <CustomDatePicker
           onChangeFunction={onChangeDate}

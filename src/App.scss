@@ -1,3 +1,5 @@
+@import './utils/base.scss';
+
 * {
   margin: 0px;
   padding: 0px;
@@ -8,3 +10,22 @@
   display: flex;
   width: 100vw;
 }
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $neutral-color-4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $primary-color-1;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $primary-color-2;
+}
+

@@ -1,0 +1,29 @@
+.dashboardLayout {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: calc(50vh - 87px) calc(50vh); /* Definindo a segunda linha */
+  grid-template-areas:
+    'graph1 graph2'
+    'graph3 graph3';
+}
+
+.graph1 {
+  position: relative;
+
+  background-color: lightblue;
+  grid-area: graph1;
+}
+
+.graph2 {
+  position: relative;
+  background-color: lightcoral;
+  grid-area: graph2;
+}
+
+.graph3 {
+  position: relative;
+
+  background-color: lightgreen;
+  grid-area: graph3;
+}

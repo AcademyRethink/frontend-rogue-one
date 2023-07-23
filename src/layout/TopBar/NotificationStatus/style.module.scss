@@ -1,0 +1,65 @@
+@import '../../../utils/base.scss';
+
+.notificationHeader {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  margin-top: 24px;
+  padding-bottom: 25.5px;
+  border-bottom: 2px black;
+  border-bottom: 1px solid $neutral-color-4;
+}
+
+.notificationHeader {
+  button {
+    padding: 8px;
+    margin: 0;
+    margin-right: 21px;
+    border: none;
+    outline:none;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  button:hover{           
+    border-radius: 4px;
+    background: rgba(66, 66, 66, 0.08);
+
+  }
+  button:focus{   
+    border-radius: 4px; 
+    border: 2px solid $neutral-color-2 ;
+  } 
+}
+
+.notificationTitle {
+  margin-left: 21px;
+  display: flex;
+  align-items: center;
+  h3 {
+    color: $neutral-color-2;
+    @include h3-font;
+  }
+
+  img {
+    margin-right: 10px;
+  }
+}
+
+.containerNotificationsCards{
+  height: 280px;
+  margin-top: 21px;
+  margin-right: 9px;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    width: 0px; /* Largura da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.0); /* Cor semitransparente para a barra deslizante */
+  }
+}
