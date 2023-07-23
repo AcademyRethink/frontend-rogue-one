@@ -6,9 +6,19 @@
     background: $neutral-color-4;
     border-radius: 4px;
     position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
 
     p{
         color:$neutral-color-2;
         @include subtitle-bold-font
+    }
+    .cardViewed{
+        margin-right: 8px;
+        height: 12px;
+        width: 12px;
+        background:$primary-color-2;
+        border-radius: 6px;
     }
 }
