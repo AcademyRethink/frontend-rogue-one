@@ -15,18 +15,24 @@ const NotificationStatus = () => {
   useEffect(() => {
     axios
       .get('http://localhost:8080/unresolved-notifications')
-      .then((response) => setNotifications(response.data))
+      .then((response) => {
+        const updatedNotifications = response.data.map((notification: any) => ({
+          ...notification,
+        }));
+        console.log(updatedNotifications)
+        setNotifications(updatedNotifications);
+      })
       .catch((error) => console.error(error));
 
-      if (buttonRef.current) {
-        tippy(buttonRef.current, {
-          content: 'Alerta de produtos mais<br> vendidos pelo mercado que<br> atingiram a quantidade<br> mínima em seu estoque',
-          allowHTML: true,
-          placement: 'right-start', // Posição do tooltip (opcional)
-          // Outras opções de configuração do tooltip (opcional)
-        });
-      }
+    if (buttonRef.current) {
+      tippy(buttonRef.current, {
+        content: 'Alerta de produtos mais<br> vendidos pelo mercado que<br> atingiram a quantidade<br> mínima em seu estoque',
+        allowHTML: true,
+        placement: 'right-start',
+      });
+    }
   }, []);
+
   return (
     <div className={styles.modalContainer}>
       <div className={styles.notificationHeader}>
@@ -42,8 +48,10 @@ const NotificationStatus = () => {
       <div className={styles.containerNotificationsCards}>
         {notifications.map((notification) => (
           <NotificationCard
+            key={notification.notification_id}
             notification_id={notification.notification_id}
             message={notification.message}
+            viewed={notification.viewed}
           />
         ))}
       </div>
