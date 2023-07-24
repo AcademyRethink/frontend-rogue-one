@@ -13,6 +13,7 @@ type Dimensions = {
   yPosition: number;
 };
 const ChartContainer = ({
+  className,
   showInfo,
   showFilter,
   showDetails,
@@ -21,9 +22,9 @@ const ChartContainer = ({
   children,
   filter,
   onClickDetails,
-
   infoText,
 }: {
+  className?: string,
   showInfo: boolean;
   showFilter: boolean;
   showDetails: boolean;
@@ -123,7 +124,7 @@ const ChartContainer = ({
     setIsModalOpen((prev) => !prev);
   };
   return (
-    <div className={styles.chartContainer} ref={chartContainerRef}>
+    <div className={`${styles.chartContainer} ${className ? className : ""}`} ref={chartContainerRef}>
       <div className={styles.chartHeader}>
         <ChartTitle title={chartTitle} subtitle={chartSubTitle} />
         <div className={styles.rightContent}>
@@ -138,11 +139,10 @@ const ChartContainer = ({
             </button>
           )}
           {showDetails && (
-            <button className={styles.showMore} onClick={toggleModal}>
+            <button className={styles.showMore} onClick={onClickDetails}>
               Mais detalhes
             </button>
           )}
-          {showDetails && <p onClick={/*toggleModal*/ onClickDetails}>Mais detalhes</p>}
         </div>
       </div>
       <div>{children}</div>

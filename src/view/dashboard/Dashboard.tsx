@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import axios from '../../axios.config';
 import React from 'react';
 
-import style from './style.module.scss'
-
+import style from './style.module.scss';
 
 import BestSellerChart from '../../components/BestSellerChart';
+import EvolutionChart from '../../components/EvolutionChart';
 const Dashboard = () => {
- /*  const [isLoading, setIsLoading] = useState(true);
+  /*  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchDashboardData = async () => {
@@ -27,27 +27,26 @@ const Dashboard = () => {
         console.log(error);
       }
     }; */
- /*    fetchDashboardData(); */
- /*  }, []);
+  /*    fetchDashboardData(); */
+  /*  }, []);
   console.log('render');
   Check if userData is available and user is logged in
   if (isLoading) {
     return <div>Loading...</div>;
   } else { */
-    return (
-
-      <div className={style.dashboardLayout}>
-        <div className={style.graph1}>gráfico 1</div>
-        <div className={style.graph2}>gráfico 2</div>
-        <div className={style.graph3}>gráfico 3</div>
+  return (
+    <div className={style.dashboardLayout}>
+      <div className={style.graph1}>gráfico 1</div>
+      <div className={style.graph2}>
+        <EvolutionChart />
       </div>
-    );
-  }
+      <div className={style.graph3}>gráfico 3</div>
+    </div>
+  );
+};
 
-     
-  /*   );
+/*   );
   } 
 };*/
-
 
 export default React.memo(Dashboard);
