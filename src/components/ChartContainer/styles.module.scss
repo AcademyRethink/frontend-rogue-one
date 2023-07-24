@@ -57,6 +57,23 @@
   font-size: 24px;
   color: base.$neutral-color-2;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filterIcon:hover {
+  background: rgba(66, 66, 66, 0.08);
+  border: 4px;
+}
+.filterIcon:active {
+  background: rgba(66, 66, 66, 0.08);
+  border: 4px;
+  border-radius: 4px;
+}
+.filterIcon:focus {
+  border-radius: 4px;
+  border: 2px solid base.$neutral-color-2;
 }
 
 .displayNone {

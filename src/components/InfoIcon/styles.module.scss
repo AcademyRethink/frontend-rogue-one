@@ -12,9 +12,15 @@
 }
 .infoIcon:hover {
   border-radius: 4px;
-  background: rgba(66, 66, 66, 0.32);
+  background: rgba(66, 66, 66, 0.08);
 }
-.button:focus {
+.infoIcon:active {
+  border-radius: 4px;
+  background: rgba(66, 66, 66, 0.08);
+}
+.infoIcon:focus {
   border-radius: 4px;
   border: 2px solid base.$neutral-color-1;
 }
+
+
