@@ -277,6 +277,7 @@ const BestSalesChart = () => {
         chartSubTitle="Top produtos do mercado x minha loja"
         infoText="Gráfico de comparação das maiores vendas com as do vendas do mercado."
         onClickDetails={handleClose}
+        positionRelative={true}
         filter={
           <SellFilter
             onChangeOrderSort={onChangeOrderSort}

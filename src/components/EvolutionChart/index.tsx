@@ -145,7 +145,6 @@ export const EvolutionChart = (): JSX.Element => {
         },
         beginAtZero: true,
         grid: {
-
           color: theme.gridLine,
 
           /* borderColor: theme.gridLine, */
@@ -164,7 +163,6 @@ export const EvolutionChart = (): JSX.Element => {
           },
         },
         grid: {
-
           color: theme.gridLine,
 
           /* borderColor: theme.gridLine, */
@@ -199,6 +197,7 @@ export const EvolutionChart = (): JSX.Element => {
       showDetails={true}
       onClickDetails={handleOpen}
       infoText={''}
+      positionRelative={true}
     >
       <div className={styles.chartSubContainerBody}>
         {loading ? (
