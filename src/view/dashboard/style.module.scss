@@ -16,7 +16,6 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-
 }
 
 .graph2 {
@@ -24,6 +23,7 @@
   max-width: 59vw;
   max-height: 45vh;
   padding: 2vh 2vw;
+  padding-left: 0;
   grid-area: graph2;
   display: flex;
   justify-content: center;
@@ -34,6 +34,7 @@
   max-height: 45vh;
   grid-area: graph3;
   padding: 2vh 2vw;
+  padding-top: 0;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
