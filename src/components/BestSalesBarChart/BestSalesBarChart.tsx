@@ -21,7 +21,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
-const SalesChart = () => {
+const BestSalesChart = () => {
   const orderSortData: any = [
     { label: 'Maiores Vendas', value: 'desc' },
     { label: 'Menores Vendas', value: 'asc' },
@@ -306,18 +306,45 @@ const SalesChart = () => {
             data={data}
           />
         </div>
-        <ModalMyProfile isOpen={modalOpen} onClose={handleClose}>
-          <div className={styles.modalChart}>
-            <Bar
-              aria-label="Gráfico de maiores vendas"
-              options={options}
-              data={modaldata}
-            />
-          </div>
-        </ModalMyProfile>
       </ChartContainer>
+      <ModalMyProfile isOpen={modalOpen} onClose={handleClose}>
+        <div className={styles.modalMajorSales}>
+          <ChartContainer
+            showDetails={false}
+            showInfo={true}
+            showFilter={true}
+            chartTitle="Vendas"
+            chartSubTitle="Top produtos do mercado x minha loja"
+            infoText="Gráfico de maiores vendas"
+            onClickDetails={handleClose}
+            filter={
+              <SellFilter
+                onChangeOrderSort={onChangeOrderSort}
+                onChangeOrderField={onChangeOrderField}
+                onChangeCategories={onChangeCategories}
+                onChangeDate={onChangeDate}
+                yearMonth={yearMonth}
+                orderSort={orderSort}
+                orderField={orderField}
+                category={category}
+                dataCategories={categoriesData}
+                dataOrderField={orderFieldData}
+                dataOrderSort={orderSortData}
+              />
+            }
+          >
+            <div className={styles.modalChart}>
+              <Bar
+                aria-label="Gráfico de maiores vendas"
+                options={options}
+                data={modaldata}
+              />
+            </div>
+          </ChartContainer>
+        </div>
+      </ModalMyProfile>
     </div>
   );
 };
 
-export default SalesChart;
+export default BestSalesChart;

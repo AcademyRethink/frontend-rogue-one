@@ -1,4 +1,4 @@
-import BarChart from '../../components/salesChart';
+import BarChart from '../../components/BestSalesBarChart';
 const Home = () => {
   return <></>;
 };
