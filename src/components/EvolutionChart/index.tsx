@@ -1,7 +1,11 @@
+/**
+ * For modal implementation just uncomment the code lines.
+ */
+
 //React related imports
 import { useState, useEffect } from 'react';
 import { LineWave as Loader } from 'react-loader-spinner';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 
 //Chart.JS related imports
 import type { ChartData, ChartOptions } from 'chart.js';
@@ -20,13 +24,13 @@ import { Line as ChartType } from 'react-chartjs-2';
 import theme from './styles.module.scss';
 
 //Modal related imports
-import { Box, Modal, Button } from '@mui/material';
+// import { Box, Modal, Button } from '@mui/material';
 
 //Services
 import { fetchEvolutionGraph } from '../../services/graphServices';
 
 //aria-labels
-import labels from './aria-labels.json';
+import content from './content.json';
 
 //components
 import ChartContainer from '../ChartContainer';
@@ -43,9 +47,9 @@ ChartJS.register(
 
 import styles from './styles.module.scss';
 
-import ChartTitle from '../ChartTitle';
-
-import CloseButton from '../CloseButton';
+// import CloseButton from '../CloseButton';
+// import { getProductsFromInventory } from '../../services/inventory';
+// import InfoIcon from '../InfoIcon';
 
 const addColorConfig = (data: any) => {
   return {
@@ -69,29 +73,29 @@ export const EvolutionChart = (): JSX.Element => {
     unknown
   >);
 
-  const [modalData, setModalData] = useState({
-    labels: [],
-    datasets: [],
-  } as ChartData<'line', number[], unknown>);
+  // const [modalData, setModalData] = useState({
+  //   labels: [],
+  //   datasets: [],
+  // } as ChartData<'line', number[], unknown>);
 
   const [productName, setProductName] = useState<any>();
-  const [modalProductName, setModalProductName] = useState<any>();
+  // const [modalProductName, setModalProductName] = useState<any>();
 
   const [loading, setLoading] = useState(true);
-  const [loadingModal, setLoadingModal] = useState(true);
+  // const [loadingModal, setLoadingModal] = useState(true);
 
   //Modal related states
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  // const [open, setOpen] = useState(false);
+  // const handleOpen = () => setOpen(true);
+  // const handleClose = () => setOpen(false);
 
   const handleChange = (value: any) => {
     setProductName(value);
   };
 
-  const handleModalChange = (value: any) => {
-    setModalProductName(value);
-  };
+  // const handleModalChange = (value: any) => {
+  //   setModalProductName(value);
+  // };
 
   useEffect(() => {
     fetchEvolutionGraph(productName, 6)
@@ -99,19 +103,19 @@ export const EvolutionChart = (): JSX.Element => {
       .catch(console.error);
   }, [productName]);
 
-  useEffect(() => {
-    fetchEvolutionGraph(modalProductName) //modalProductName
-      .then((json) => setModalData(addColorConfig(json)))
-      .catch(console.error);
-  }, [modalProductName]);
+  // useEffect(() => {
+  //   fetchEvolutionGraph(modalProductName, undefined, true) //modalProductName
+  //     .then((json) => setModalData(addColorConfig(json)))
+  //     .catch(console.error);
+  // }, [modalProductName]);
 
   useEffect(() => {
     if (data.datasets.length) setLoading(false);
   }, [data]);
 
-  useEffect(() => {
-    if (modalData.datasets.length) setLoadingModal(false);
-  }, [modalData]);
+  // useEffect(() => {
+  //   if (modalData.datasets.length) setLoadingModal(false);
+  // }, [modalData]);
 
   const options: ChartOptions<'line'> = {
     responsive: true,
@@ -153,6 +157,10 @@ export const EvolutionChart = (): JSX.Element => {
 
           tickColor: 'white',
         },
+        border: {
+          color: theme.gridLine,
+          width: 2.175,
+        },
       },
       x: {
         offset: true,
@@ -163,7 +171,7 @@ export const EvolutionChart = (): JSX.Element => {
           },
         },
         grid: {
-          color: theme.gridLine,
+          // color: theme.gridLine,
 
           /* borderColor: theme.gridLine, */
 
@@ -171,18 +179,22 @@ export const EvolutionChart = (): JSX.Element => {
 
           tickColor: 'white',
         },
+        border: {
+          color: theme.gridLine,
+          width: 2.175,
+        },
       },
     },
   };
 
-  const modalBoxId = 'evolution-chart-modal-box';
-  const navigate = useNavigate();
+  // const modalBoxId = 'evolution-chart-modal-box';
+  // const navigate = useNavigate();
 
   return (
     <ChartContainer
       className={styles.evolutionChart}
-      chartTitle="Evolução"
-      chartSubTitle="Vendas e estoque"
+      chartTitle={content.title}
+      chartSubTitle={content.subtitle}
       showFilter={true}
       key={1}
       filter={
@@ -190,14 +202,13 @@ export const EvolutionChart = (): JSX.Element => {
           onChangeProductName={handleChange}
           key={1}
           selectedProduct={productName}
-          parentId=""
         />
       }
       showInfo={false}
-      showDetails={true}
-      onClickDetails={handleOpen}
-      infoText={''}
+      showDetails={false}
+      // onClickDetails={handleOpen}
       positionRelative={true}
+      infoText={''}
     >
       <div className={styles.chartSubContainerBody}>
         {loading ? (
@@ -217,10 +228,10 @@ export const EvolutionChart = (): JSX.Element => {
         )}
       </div>
 
-      <Modal
+      {/* <Modal
         open={open}
         onClose={handleClose}
-        aria-label={labels.Chart}
+        aria-label={content.chart}
         style={{ backdropFilter: 'blur(5px)' }}
       >
         <Box
@@ -238,53 +249,56 @@ export const EvolutionChart = (): JSX.Element => {
             padding: 4,
           }}
         >
-          <div className={styles.modalHeader}>
-            <EvolutionFilter
-              onChangeProductName={handleModalChange}
-              key={1}
-              selectedProduct={modalProductName}
-              parentId={modalBoxId}
-            />
-            <Button
-              style={{
-                backgroundColor: theme.button_color,
-              }}
-              variant="contained"
-              onClick={() => navigate('/report')}
-            >
-              Relatório PCP
-            </Button>
-            {/* <div className={styles.infoIconContainer}>
-
-            <InfoIcon placement="right" title="Teste" />
-            </div> */}
-            <div className={styles.closeButtonContainer}>
-              <CloseButton handleClose={handleClose} key={6} />
+            <div className={styles.modalHeader}>
+              <EvolutionFilter
+                onChangeProductName={handleModalChange}
+                key={1}
+                selectedProduct={modalProductName}
+                parentId={modalBoxId}
+                backgroundColor={"white"}
+              />
+              <Button
+                style={{
+                  backgroundColor: theme.button_color,
+                }}
+                variant="contained"
+                onClick={() => navigate('/report')}
+              >
+                Relatório PCP
+              </Button>
+              <InfoIcon title={content.chart} placement={'right'} ></InfoIcon>
+          <div className={styles.closeButtonContainer}>
+            <CloseButton handleClose={handleClose} key={6} />
+          </div>
             </div>
-          </div>
+          <ChartContainer
+            showInfo={false}
+            showFilter={false}
+            showDetails={false}
+            chartTitle={content.title}
+            chartSubTitle={content.subtitle}
+          >
 
-          <div className={styles.chartTitleModal}>
-            <ChartTitle subtitle="Vendas e evolução" title="Evolução" key={2} />
-          </div>
-          <div className={styles.chartSubContainerModal}>
-            {loadingModal ? (
-              <Loader
-                height="100"
-                width="100"
-                wrapperClass={styles.chartSubContainerModal}
-                color={theme.color_2}
-                ariaLabel="Carregando"
-              />
-            ) : (
-              <ChartType
-                options={options}
-                data={modalData}
-                aria-label={labels.Chart}
-              />
-            )}
-          </div>
+            <div className={styles.chartSubContainerModal}>
+              {loadingModal ? (
+                <Loader
+                  height="20"
+                  width="20"
+                  wrapperClass={styles.chartSubContainerModal}
+                  color={theme.color_2}
+                  ariaLabel="Carregando"
+                />
+              ) : (
+                <ChartType
+                  options={options}
+                  data={modalData}
+                  aria-label={content.chart}
+                />
+              )}
+            </div>
+          </ChartContainer>
         </Box>
-      </Modal>
+      </Modal> */}
     </ChartContainer>
   );
 };

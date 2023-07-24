@@ -19,7 +19,7 @@ const InfoIcon = ({
       onFocus={() => setIsTooltipVisible(true)}
       onBlur={() => setIsTooltipVisible(false)}
      >
-      <Tooltip title={isTooltipVisible ? title : ''} color="black" placement={placement}>
+      <Tooltip title={isTooltipVisible ? title : ''} color="black" placement={placement} zIndex={10000}>
         <MdInfoOutline />
       </Tooltip>
       </button>

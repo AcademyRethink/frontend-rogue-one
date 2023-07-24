@@ -62,7 +62,7 @@ const CustomSelect = ({
             popupMatchSelectWidth={false}
             placement="bottomRight"
             onChange={onChangeFunction}
-            value={selectValue}
+            value={selectValue || data[0]}
           ></Select>
         </Space>
       )}
