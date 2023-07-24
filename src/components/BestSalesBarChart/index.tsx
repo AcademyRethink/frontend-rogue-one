@@ -1,4 +1,4 @@
-import ModalMyProfile from '../../view/myProfile/ModalMyProfile/ModalMyProfile';
+import ModalMyProfile from '../../view/myProfile/ModalMyProfile';
 import { getProductsFromReport } from '../../services/report';
 import { getCategories } from '../../services/categories';
 import { useEffect, useState, ChangeEvent } from 'react';

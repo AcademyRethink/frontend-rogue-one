@@ -6,7 +6,11 @@ interface PrivateRouteProps {
   path: string;
 }
 
-const PrivateRoute: React.FC<PrivateRouteProps> = ({ element, path, ...rest }) => {
+const PrivateRoute: React.FC<PrivateRouteProps> = ({
+  element,
+  path,
+  ...rest
+}) => {
   const token = localStorage.getItem('token');
 
   return token ? (

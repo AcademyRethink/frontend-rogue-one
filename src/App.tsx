@@ -1,14 +1,13 @@
 import './App.scss';
-import Login from './view/login/Login/Login';
+import Login from './view/login/Login';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import ForgotPassword from './view/login/ForgotPassword/ForgotPassword';
-import WarningSendPassword from './view/login/WarningSendPassword/WarningSendPassword';
-import ResetPassword from './view/login/ResetPassword/ResetPassword';
-import Dashboard from './view/dashboard/Dashboard';
+import ForgotPassword from './view/login/ForgotPassword';
+import WarningSendPassword from './view/login/WarningSendPassword';
+import ResetPassword from './view/login/ResetPassword';
+import Dashboard from './view/dashboard';
 import DashboardLayout from './layout/DashboardLayout';
-import MyProfile from './view/myProfile/MyProfile';
-import PcpReport from './view/pcpReport/PcpReport';
-
+import MyProfile from './view/myProfile';
+import PcpReport from './view/pcpReport';
 
 function App() {
   return (

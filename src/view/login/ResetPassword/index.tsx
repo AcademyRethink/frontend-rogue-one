@@ -3,8 +3,8 @@ import { useState, ChangeEvent, FormEvent } from 'react';
 import axios from 'axios';
 import logoInline from '../../../assets/logoInline.svg';
 import styles from './style.module.scss';
-import InputWithLabel from '../../../components/InputWithLabel/InputWithLabel';
-import ButtonLogin from '../../../components/ButtonLogin/ButtonLogin';
+import InputWithLabel from '../../../components/InputWithLabel';
+import ButtonLogin from '../../../components/ButtonLogin';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import eyeShowPassword from '../../../assets/login/eyeShowPassword.svg';
@@ -74,10 +74,17 @@ const ResetPassword: React.FC = () => {
 
   return (
     <div className={styles.resetPasswordContainer}>
-      <div className={styles.leftResetPassword}  aria-label="Imagem de remédios, pílulas e ampolas"></div>
+      <div
+        className={styles.leftResetPassword}
+        aria-label="Imagem de remédios, pílulas e ampolas"
+      ></div>
       <div className={styles.rightResetPassword}>
         <div className={styles.formResetPassword}>
-          <img src={logoInline} alt="Logomarca Farma View" className={styles.LogoResetPassword} />
+          <img
+            src={logoInline}
+            alt="Logomarca Farma View"
+            className={styles.LogoResetPassword}
+          />
           <form onSubmit={handleSubmit}>
             <div className={styles.titleSubtitle}>
               <h2>Nova senha</h2>
@@ -109,7 +116,8 @@ const ResetPassword: React.FC = () => {
             {passwordError && (
               <div className={styles.errorMessage}>
                 {' '}
-                <img src={infoError} alt="Imagem indicando erro" /> {passwordError}
+                <img src={infoError} alt="Imagem indicando erro" />{' '}
+                {passwordError}
               </div>
             )}
 
@@ -141,11 +149,16 @@ const ResetPassword: React.FC = () => {
             {passwordConfirmError && (
               <div className={styles.errorMessage}>
                 {' '}
-                <img src={infoError} alt="Imagem indicando erro" /> {passwordConfirmError}
+                <img src={infoError} alt="Imagem indicando erro" />{' '}
+                {passwordConfirmError}
               </div>
             )}
 
-            <ButtonLogin type="submit" title="Confirmar" disabled={!password || !confirmPassword}/>
+            <ButtonLogin
+              type="submit"
+              title="Confirmar"
+              disabled={!password || !confirmPassword}
+            />
           </form>
         </div>
       </div>

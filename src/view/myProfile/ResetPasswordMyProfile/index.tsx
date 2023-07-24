@@ -1,11 +1,11 @@
-import InputWithLabel from '../../../components/InputWithLabel/InputWithLabel';
-import TitleSubtitleLogin from '../../../components/TitleSubtitleLogin/TitleSubtitleLogin';
+import InputWithLabel from '../../../components/InputWithLabel';
+import TitleSubtitleLogin from '../../../components/TitleSubtitleLogin';
 import infoError from '../../../assets/login/infoError.svg';
 import style from './style.module.scss';
 import axios from '../../../axios.config';
 import { useState, useEffect, ChangeEvent } from 'react';
-import ModalMyProfile from '../ModalMyProfile/ModalMyProfile';
-import SuccessMessage from '../SuccessMessage/SuccessMessage';
+import ModalMyProfile from '../ModalMyProfile';
+import SuccessMessage from '../SuccessMessage';
 import eyeShowPassword from '../../../assets/login/eyeShowPassword.svg';
 import eyeHidePassword from '../../../assets/login/eyeHidePassword.svg';
 import Password from 'antd/es/input/Password';
@@ -22,9 +22,11 @@ const ResetPasswordMyProfile = () => {
   const [newPasswordError, setNewPasswordError] = useState('');
   const [confirmNewPasswordError, setConfirmNewPasswordError] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isCurrentPasswordNotEmpty, setIsCurrentPasswordNotEmpty] = useState(false);
+  const [isCurrentPasswordNotEmpty, setIsCurrentPasswordNotEmpty] =
+    useState(false);
   const [isNewPasswordNotEmpty, setIsNewPasswordNotEmpty] = useState(false);
-  const [isConfirmNewPasswordNotEmpty, setIsConfirmNewPasswordNotEmpty] = useState(false);
+  const [isConfirmNewPasswordNotEmpty, setIsConfirmNewPasswordNotEmpty] =
+    useState(false);
 
   const handleShowCurrentPassword = () => {
     setCurrentShowPassword((prevState) => !prevState);
@@ -33,10 +35,9 @@ const ResetPasswordMyProfile = () => {
     setShowNewPassword((prevState) => !prevState);
   };
 
-   const handleShowConfirmNewPassword = () => {
+  const handleShowConfirmNewPassword = () => {
     setShowConfirmNewPassword((prevState) => !prevState);
   };
-
 
   useEffect(() => {
     // Recuperar os dados do usuário do localStorage
@@ -45,9 +46,11 @@ const ResetPasswordMyProfile = () => {
     if (sessionData) {
       const { email } = JSON.parse(sessionData);
       setEmail(email);
-    } 
+    }
   }, []);
-  const handleCurrentPasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleCurrentPasswordChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
     setCurrentPassword(event.target.value);
     setIsCurrentPasswordNotEmpty(event.target.value.trim().length > 0);
   };
@@ -55,7 +58,9 @@ const ResetPasswordMyProfile = () => {
     setNewPassword(event.target.value);
     setIsNewPasswordNotEmpty(event.target.value.trim().length > 0);
   };
-  const handleConfirmNewPasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleConfirmNewPasswordChange = (
+    event: ChangeEvent<HTMLInputElement>
+  ) => {
     setConfirmNewPassword(event.target.value);
     setIsConfirmNewPasswordNotEmpty(event.target.value.trim().length > 0);
   };
@@ -107,30 +112,34 @@ const ResetPasswordMyProfile = () => {
   return (
     <div className={style.resetPasswordMyProfileContainer}>
       <TitleSubtitleLogin title="Redefinição de senha" />
-        <div className={style.inputWithLabel}>
-          <InputWithLabel
-            title="Senha atual"
-            type={showCurrentPassword ? 'text' : 'password'}
-            placeholder="Insira aqui a sua senha atual"
-            value={currentPassword}
-            onChange={handleCurrentPasswordChange}
-          />
-          {isCurrentPasswordNotEmpty && (
-            <div className={style.passwordToggle} onClick={handleShowCurrentPassword}>
-              <img
-                src={showCurrentPassword ? eyeHidePassword : eyeShowPassword}
-                alt="Ícone de olho, indicando ação de esconder/mostrar senha"
-              />
-            </div>
-          )}
+      <div className={style.inputWithLabel}>
+        <InputWithLabel
+          title="Senha atual"
+          type={showCurrentPassword ? 'text' : 'password'}
+          placeholder="Insira aqui a sua senha atual"
+          value={currentPassword}
+          onChange={handleCurrentPasswordChange}
+        />
+        {isCurrentPasswordNotEmpty && (
+          <div
+            className={style.passwordToggle}
+            onClick={handleShowCurrentPassword}
+          >
+            <img
+              src={showCurrentPassword ? eyeHidePassword : eyeShowPassword}
+              alt="Ícone de olho, indicando ação de esconder/mostrar senha"
+            />
+          </div>
+        )}
+      </div>
+      {currentPasswordError && (
+        <div className={style.errorMessage}>
+          {' '}
+          <img src={infoError} alt="Imagem indicando erro" />{' '}
+          {currentPasswordError}
         </div>
-          {currentPasswordError && (
-            <div className={style.errorMessage}>
-              {' '}
-              <img src={infoError} alt="Imagem indicando erro" /> {currentPasswordError}
-            </div>
-          )}
-     
+      )}
+
       <div className={style.inputWithLabel}>
         <InputWithLabel
           title="Nova senha"
@@ -140,20 +149,20 @@ const ResetPasswordMyProfile = () => {
           onChange={handleNewPasswordChange}
         />
         {isNewPasswordNotEmpty && (
-            <div className={style.passwordToggle} onClick={handleShowNewPassword}>
-              <img
-                src={showNewPassword ? eyeHidePassword : eyeShowPassword}
-                alt="Ícone de olho, indicando ação de esconder/mostrar senha"
-              />
-            </div>
-          )}
-      </div>
-        {newPasswordError && (
-          <div className={style.errorMessage}>
-            {' '}
-            <img src={infoError} alt="Imagem indicando erro" /> {newPasswordError}
+          <div className={style.passwordToggle} onClick={handleShowNewPassword}>
+            <img
+              src={showNewPassword ? eyeHidePassword : eyeShowPassword}
+              alt="Ícone de olho, indicando ação de esconder/mostrar senha"
+            />
           </div>
         )}
+      </div>
+      {newPasswordError && (
+        <div className={style.errorMessage}>
+          {' '}
+          <img src={infoError} alt="Imagem indicando erro" /> {newPasswordError}
+        </div>
+      )}
       <div className={style.inputWithLabel}>
         <InputWithLabel
           title="Confirmar nova senha"
@@ -163,20 +172,24 @@ const ResetPasswordMyProfile = () => {
           onChange={handleConfirmNewPasswordChange}
         />
         {isConfirmNewPasswordNotEmpty && (
-            <div className={style.passwordToggle} onClick={handleShowConfirmNewPassword}>
-              <img
-                src={showConfirmNewPassword ? eyeHidePassword : eyeShowPassword}
-                alt="Imagem indicando erro"
-              />
-            </div>
-          )}
-      </div>
-        {confirmNewPasswordError && (
-          <div className={style.errorMessage}>
-            {' '}
-            <img src={infoError} alt="Imagem indicando erro" /> {confirmNewPasswordError}
+          <div
+            className={style.passwordToggle}
+            onClick={handleShowConfirmNewPassword}
+          >
+            <img
+              src={showConfirmNewPassword ? eyeHidePassword : eyeShowPassword}
+              alt="Imagem indicando erro"
+            />
           </div>
         )}
+      </div>
+      {confirmNewPasswordError && (
+        <div className={style.errorMessage}>
+          {' '}
+          <img src={infoError} alt="Imagem indicando erro" />{' '}
+          {confirmNewPasswordError}
+        </div>
+      )}
 
       <button
         className={style.resetPasswordMyProfileButton}

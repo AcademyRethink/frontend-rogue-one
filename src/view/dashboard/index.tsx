@@ -6,7 +6,7 @@ import style from './style.module.scss';
 
 import BestSellerChart from '../../components/BestSellerChart';
 import EvolutionChart from '../../components/EvolutionChart';
-import BestSalesBarChart from '../../components/BestSalesBarChart/BestSalesBarChart';
+import BestSalesBarChart from '../../components/BestSalesBarChart';
 
 const Dashboard = () => {
   return (

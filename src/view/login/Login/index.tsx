@@ -8,8 +8,8 @@ import eyeShowPassword from '../../../assets/login/eyeShowPassword.svg';
 import eyeHidePassword from '../../../assets/login/eyeHidePassword.svg';
 import infoError from '../../../assets/login/infoError.svg';
 import logoInline from '../../../assets/logoInline.svg';
-import InputWithLabel from '../../../components/InputWithLabel/InputWithLabel';
-import ButtonLogin from '../../../components/ButtonLogin/ButtonLogin';
+import InputWithLabel from '../../../components/InputWithLabel';
+import ButtonLogin from '../../../components/ButtonLogin';
 
 const Login = () => {
   const [email, setEmail] = useState('');

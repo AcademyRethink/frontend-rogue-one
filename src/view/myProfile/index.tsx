@@ -1,9 +1,9 @@
-import LineTable from './LineTable/LineTable';
+import LineTable from './LineTable';
 import style from './style.module.scss';
 import { useEffect, useState } from 'react';
 import { format } from 'date-fns';
-import ResetPasswordMyProfile from './ResetPasswordMyProfile/ResetPasswordMyProfile';
-import ModalMyProfile from './ModalMyProfile/ModalMyProfile';
+import ResetPasswordMyProfile from './ResetPasswordMyProfile';
+import ModalMyProfile from './ModalMyProfile';
 import { UserData } from '../../types/myProfileTypes';
 
 const MyProfile = () => {
@@ -54,11 +54,15 @@ const MyProfile = () => {
         <LineTable title="E-mail" value={profileData.email} />
       </div>
       <div className={style.buttonResetPasswordContainer}>
-      <button className={style.buttonResetPassword} onClick={openModalResetPassword}>Redefinir senha</button>
-      <ModalMyProfile isOpen={isModalOpen} onClose={closeModal}>
-        <ResetPasswordMyProfile />
-      </ModalMyProfile>
-
+        <button
+          className={style.buttonResetPassword}
+          onClick={openModalResetPassword}
+        >
+          Redefinir senha
+        </button>
+        <ModalMyProfile isOpen={isModalOpen} onClose={closeModal}>
+          <ResetPasswordMyProfile />
+        </ModalMyProfile>
       </div>
     </div>
   );
