@@ -8,7 +8,8 @@
     position: relative;
     cursor: pointer;
     display: flex;
-    align-items: center;
+    position: relatives;
+    
 
     p{
         color:$neutral-color-2;
@@ -16,9 +17,12 @@
     }
     .cardViewed{
         margin-right: 8px;
-        height: 12px;
-        width: 12px;
-        background:$primary-color-2;
+        height: 7.5px;
+        width: 7.5px;
+        background:$error-color;
         border-radius: 6px;
+        position: absolute;
+        top: -2.5px;
+        left: -1.5px;
     }
 }
