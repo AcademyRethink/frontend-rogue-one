@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from '../../axios.config';
+import BarChart from '../../components/SalesChart/SalesChart';
 import React from 'react';
 
 import style from './style.module.scss';
@@ -36,11 +37,16 @@ const Dashboard = () => {
   } else { */
   return (
     <div className={style.dashboardLayout}>
-      <div className={style.graph1}>gráfico 1</div>
-      <div className={style.graph2}>
+      {/* <ChartLaboratoriesModal /> */}
+      <div className={style.graph1}>
+        <BestSellerChart />
+      </div>
+            <div className={style.graph2}>
         <EvolutionChart />
       </div>
-      <div className={style.graph3}>gráfico 3</div>
+        <div className={style.graph3}>
+        <BarChart></BarChart>
+      </div>
     </div>
   );
 };

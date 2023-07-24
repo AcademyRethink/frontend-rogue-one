@@ -32,8 +32,8 @@ const ChartContainer = ({
   chartSubTitle: string;
   children: Prop;
   filter: Prop;
-  onClickDetails: () => void;
-  infoText: string;
+  onClickDetails?: () => void;
+  infoText?: string;
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -128,7 +128,7 @@ const ChartContainer = ({
       <div className={styles.chartHeader}>
         <ChartTitle title={chartTitle} subtitle={chartSubTitle} />
         <div className={styles.rightContent}>
-          {showInfo && <InfoIcon title={infoText} placement="right" />}
+          {showInfo && <InfoIcon title={infoText ?? ''} placement="right" />}
           {showFilter && (
             <button
               className={styles.filterIcon}

@@ -21,6 +21,9 @@ const BestSellerChart = () => {
     { label: 'Ranking loja', value: 'sale_pharmacy_month' },
   ];
 
+  const [sessionData, setSessionData] = useState(
+    localStorage.getItem('session')
+  );
   const [categoriesData, setCategoriesData] = useState<any>();
   const [orderSort, setOrderSort] = useState<ChangeEvent<Element>>(
     orderSortData[0].value
@@ -37,20 +40,27 @@ const BestSellerChart = () => {
     useState<ProductsResponse[]>();
 
   useEffect(() => {
-    getCategories()
-      .then((resp) =>
-        resp.map((el) => {
-          return {
-            label: el.category.split('_').join(' '),
-            value: el.category,
-          };
-        })
-      )
-      .then((result) => {
-        return setCategoriesData(result);
-      })
-      .catch((error) => alert(error));
+    setSessionData(localStorage.getItem('session'));
   }, []);
+
+  useEffect(() => {
+    if (sessionData) {
+      console.log(JSON.parse(sessionData).cnpj);
+      getCategories(JSON.parse(sessionData).cnpj)
+        .then((resp) =>
+          resp.map((el) => {
+            return {
+              label: el.category.split('_').join(' '),
+              value: el.category,
+            };
+          })
+        )
+        .then((result) => {
+          return setCategoriesData(result);
+        })
+        .catch((error) => alert(error));
+    }
+  }, [sessionData]);
 
   useEffect(() => {
     setCategory(categoriesData ? categoriesData[0].value : undefined);
@@ -73,9 +83,10 @@ const BestSellerChart = () => {
   };
 
   useEffect(() => {
-    if (orderSort && orderField && category && yearMonth)
+    if (sessionData && orderSort && orderField && category && yearMonth)
       getProductsFromReport({
         limit: 10,
+        cnpj: JSON.parse(sessionData).cnpj,
         orderSort: orderSort,
         orderField: orderField,
         category: category,

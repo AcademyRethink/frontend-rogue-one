@@ -30,9 +30,9 @@ const CustomSelect = ({
   symbolClass?: string;
   widthMin?: number;
   data?: any;
-  onChangeFunction?: (value: string) => void; // ChangeEventHandler;
-  selectValue?: string; //ChangeEvent<Element>;
-  parentId: string;
+  onChangeFunction?: /*(value: string) => void;*/ ChangeEventHandler;
+  selectValue?: /*string;*/ ChangeEvent<Element>;
+  parentId?: string;
 }) => {
   return (
     <div>
