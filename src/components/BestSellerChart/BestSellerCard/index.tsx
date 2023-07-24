@@ -1,15 +1,4 @@
-const mock = {
-  report_id: 102223,
-  cnpj: '00111222000133',
-  molecule: 'CAFEINA| DIPIRONA SODICA| ORFENADRINA CITRATO',
-  laboratory: 'SANOFI',
-  ean: '7891058017507',
-  product_name: 'DORFLEX CPR x 36',
-  category: 'MIP_MARCA',
-  sale_pharmacy_month: 0,
-  sale_competitors_month: 30,
-  month_year: '2023-03-01T03:00:00.000Z',
-};
+
 
 import { ChangeEvent } from 'react';
 import styles from './styles.module.scss';
