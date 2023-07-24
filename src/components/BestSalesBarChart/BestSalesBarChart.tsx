@@ -57,8 +57,6 @@ const BestSalesChart = () => {
   const [bestSellerContent, setBestSellerContent] =
     useState<ProductsResponse[]>();
 
-  const [bestSellerLabel, setBestSellerLabel] = useState<ProductsResponse[]>();
-
   useEffect(() => {
     setSessionData(localStorage.getItem('session'));
   }, []);
@@ -203,19 +201,6 @@ const BestSalesChart = () => {
     const itemArr = item.product_name.split(' ');
     return `${itemArr[0]} ${itemArr[1]}`;
   });
-
- /*  const teste = (sliceSize: number) => {
-
-  /* const teste = (sliceSize: number) => {
-
-    const slicedData = bestSellerContent?.slice(0, sliceSize);
-
-    slicedData?.map((item) => {
-      const itemArr = item.product_name.split(' ');
-
-      return `${itemArr[0]} ${itemArr[1]}`;
-    });
-  }; */
 
   const info = {
     labels: bestSellerData?.slice(0, 7),
