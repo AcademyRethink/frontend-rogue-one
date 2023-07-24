@@ -82,11 +82,11 @@ const Login = () => {
   return (
     <div className={styles.loginContainer}>
       <div className={styles.leftLogin}>
-        <img src={pharmaceuticalWoman} alt="" />
+        <img src={pharmaceuticalWoman} alt="Mulher farmacêutica, segurando um tablet e sorrindo, ao fundo prateleiras de remédios." />
       </div>
       <div className={styles.rightLogin}>
         <div className={styles.formLogin}>
-          <img src={logoInline} alt="" />
+          <img src={logoInline} alt="Logomarca Farma View" />
           <h2>
             Boas vindas!
             <br />
@@ -106,7 +106,7 @@ const Login = () => {
             {emailError && (
               <div className={styles.errorMessage}>
                 {' '}
-                <img src={infoError} alt="" /> {emailError}
+                <img src={infoError} alt="Imagem indicando erro" /> {emailError}
               </div>
             )}
             <div className={styles.inputTypePasswordIfError}>
@@ -128,7 +128,7 @@ const Login = () => {
                   >
                     <img
                       src={showPassword ? eyeHidePassword : eyeShowPassword}
-                      alt=""
+                      alt="Ícone de olho, indicando ação de esconder/mostrar senha"
                     />
                   </div>
                 )}
@@ -136,7 +136,7 @@ const Login = () => {
               {passwordError && (
                 <div className={styles.errorMessage}>
                   {' '}
-                  <img src={infoError} alt="" /> {passwordError}
+                  <img src={infoError} alt="Imagem indicando erro" /> {passwordError}
                 </div>
               )}
             </div>

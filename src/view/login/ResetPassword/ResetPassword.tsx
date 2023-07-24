@@ -74,10 +74,10 @@ const ResetPassword: React.FC = () => {
 
   return (
     <div className={styles.resetPasswordContainer}>
-      <div className={styles.leftResetPassword}></div>
+      <div className={styles.leftResetPassword}  aria-label="Imagem de remédios, pílulas e ampolas"></div>
       <div className={styles.rightResetPassword}>
         <div className={styles.formResetPassword}>
-          <img src={logoInline} alt="" className={styles.LogoResetPassword} />
+          <img src={logoInline} alt="Logomarca Farma View" className={styles.LogoResetPassword} />
           <form onSubmit={handleSubmit}>
             <div className={styles.titleSubtitle}>
               <h2>Nova senha</h2>
@@ -100,7 +100,7 @@ const ResetPassword: React.FC = () => {
                   >
                     <img
                       src={showPassword ? eyeHidePassword : eyeShowPassword}
-                      alt=""
+                      alt="Ícone de olho, indicando ação de esconder/mostrar senha"
                     />
                   </div>
                 )}
@@ -109,7 +109,7 @@ const ResetPassword: React.FC = () => {
             {passwordError && (
               <div className={styles.errorMessage}>
                 {' '}
-                <img src={infoError} alt="" /> {passwordError}
+                <img src={infoError} alt="Imagem indicando erro" /> {passwordError}
               </div>
             )}
 
@@ -132,7 +132,7 @@ const ResetPassword: React.FC = () => {
                       src={
                         showConfirmPassword ? eyeHidePassword : eyeShowPassword
                       }
-                      alt=""
+                      alt="Ícone de olho, indicando ação de esconder/mostrar senha"
                     />
                   </div>
                 )}
@@ -141,7 +141,7 @@ const ResetPassword: React.FC = () => {
             {passwordConfirmError && (
               <div className={styles.errorMessage}>
                 {' '}
-                <img src={infoError} alt="" /> {passwordConfirmError}
+                <img src={infoError} alt="Imagem indicando erro" /> {passwordConfirmError}
               </div>
             )}
 

@@ -17,12 +17,12 @@ const TopBar = (props: TopBarProps) => {
     <div className={styles.topBarContainer}>
       <div className={styles.leftMenu}>
         <h1>Visão geral</h1>
-        <img src={dividerTopBar} alt="" />
+        <img src={dividerTopBar} alt="Linha horizontal, com função de ser um divisor de conteúdo" />
         <p>Dados de mercado atualizados em: {updateDate}</p>
       </div>
       
       <button onClick={toggleModal}>
-        <img src={notification} alt="Botão para exibir todas as notificações" />
+        <img src={notification} alt="Ícone de sino, função de exibir todas as notificações" />
       </button>
       {showModal && (
         <div className={styles.modalWrapper}>

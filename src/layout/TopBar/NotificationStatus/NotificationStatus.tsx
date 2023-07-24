@@ -37,7 +37,7 @@ const NotificationStatus = () => {
     <div className={styles.modalContainer}>
       <div className={styles.notificationHeader}>
         <div className={styles.notificationTitle}>
-          <img src={notification} alt="ícone de sino, indicando notificação" />
+          <img src={notification} alt="Ícone de sino, indicando notificação" />
           <h3>Notificações</h3>
         </div>
 

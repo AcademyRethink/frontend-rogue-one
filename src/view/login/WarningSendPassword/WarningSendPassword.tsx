@@ -11,7 +11,7 @@ const ForgotPassword = () => {
 
   return (
     <div className={styles.warningSendPasswordContainer}>
-      <div className={styles.leftWarningSendPassword}></div>
+      <div className={styles.leftWarningSendPassword}  aria-label="Imagem de remédios, pílulas e ampolas"></div>
 
       <div className={styles.rightWarningSendPassword}>
         <div className={styles.formWarningSendPassword}>
@@ -20,10 +20,10 @@ const ForgotPassword = () => {
             onClick={handleBackClick}
             className={styles.backLogin}
           >
-            <img src={backLogin} alt="" />
+            <img src={backLogin} alt="Seta para esquerda, indicando a ação de voltar a página anterior" />
           </button>
           <div className={styles.formWarningSendMasterPassword}>
-            <img className={styles.logoInline} src={logoInline} alt="" />
+            <img className={styles.logoInline} src={logoInline} alt="Logomarca Farma View" />
             <TitleSubtitleLogin
               title="Redefinição de senha"
               subtitle={

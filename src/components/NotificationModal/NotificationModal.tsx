@@ -56,12 +56,12 @@ const NotificationModal = () => {
           <div className={style.modalContent}>
             <div className={style.buttonCloseContainer}>
               <button className={style.buttonClose} onClick={handleClose}>
-                <img src={closeIcon} alt="" />
+                <img src={closeIcon} alt="Ícone de X, possui ação de fechar a janela" />
               </button>
             </div>
             <div className={style.headerWithMessage}>
               <div className={style.notificationHeader}>
-                <img src={alert} alt="" />
+                <img src={alert} alt="ícone para exibição de mais informações sobre as notificações" />
                 <h3>Alerta</h3>
                 <div className={style.InfoIconContainer}>
                 <InfoIcon title="A quantidade mínima foi estabelecida no sistema padrão da sua farmácia." placement='leftTop'/>

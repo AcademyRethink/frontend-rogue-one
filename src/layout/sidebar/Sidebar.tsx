@@ -38,13 +38,13 @@ const Sidebar = (open: any) => {
         onClick={handleClosingSidebar}
       >
         {opened ? (
-          <img className={styles.black} src={closeButton}></img>
+          <img className={styles.black} src={closeButton} alt="Seta para esquerda, com função de recolher o menu lateral" ></img>
         ) : (
-          <img src={openButton}></img>
+          <img src={openButton} alt="Seta para direita, com função de expandir o menu lateral"></img>
         )}
       </button>
       <div className={styles.sidebarTitles}>
-        <img className={display ? styles.logo : ''} src={logo}></img>
+        <img className={display ? styles.logo : ''} src={logo} alt="Logo Farma View"></img>
       </div>
       <hr className={opened ? styles.sufix : styles.sufixClosed}></hr>
       <div className={styles.sidebarRoutes}>
@@ -58,6 +58,7 @@ const Sidebar = (open: any) => {
             title="Visão geral"
             icon={insert_chart}
             display={display}
+          
           />
         </NavLink>
         <NavLink
@@ -86,7 +87,7 @@ const Sidebar = (open: any) => {
           className={`${styles.sidebarButton} ${styles.logoutButton} ${styles.sidebarButtonText}`}
           onClick={logOut}
         >
-          <img src={sair}></img>
+          <img src={sair}  alt="Botão de sair do Dashboard"></img>
           <span className={styles.buttonText}>Sair da conta</span>
         </button>
       </div>

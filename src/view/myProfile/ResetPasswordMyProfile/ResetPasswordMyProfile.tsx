@@ -118,7 +118,7 @@ const ResetPasswordMyProfile = () => {
             <div className={style.passwordToggle} onClick={handleShowCurrentPassword}>
               <img
                 src={showCurrentPassword ? eyeHidePassword : eyeShowPassword}
-                alt=""
+                alt="Ícone de olho, indicando ação de esconder/mostrar senha"
               />
             </div>
           )}
@@ -126,7 +126,7 @@ const ResetPasswordMyProfile = () => {
           {currentPasswordError && (
             <div className={style.errorMessage}>
               {' '}
-              <img src={infoError} alt="" /> {currentPasswordError}
+              <img src={infoError} alt="Imagem indicando erro" /> {currentPasswordError}
             </div>
           )}
      
@@ -142,7 +142,7 @@ const ResetPasswordMyProfile = () => {
             <div className={style.passwordToggle} onClick={handleShowNewPassword}>
               <img
                 src={showNewPassword ? eyeHidePassword : eyeShowPassword}
-                alt=""
+                alt="Ícone de olho, indicando ação de esconder/mostrar senha"
               />
             </div>
           )}
@@ -150,7 +150,7 @@ const ResetPasswordMyProfile = () => {
         {newPasswordError && (
           <div className={style.errorMessage}>
             {' '}
-            <img src={infoError} alt="" /> {newPasswordError}
+            <img src={infoError} alt="Imagem indicando erro" /> {newPasswordError}
           </div>
         )}
       <div className={style.inputWithLabel}>
@@ -165,7 +165,7 @@ const ResetPasswordMyProfile = () => {
             <div className={style.passwordToggle} onClick={handleShowConfirmNewPassword}>
               <img
                 src={showConfirmNewPassword ? eyeHidePassword : eyeShowPassword}
-                alt=""
+                alt="Imagem indicando erro"
               />
             </div>
           )}
@@ -173,7 +173,7 @@ const ResetPasswordMyProfile = () => {
         {confirmNewPasswordError && (
           <div className={style.errorMessage}>
             {' '}
-            <img src={infoError} alt="" /> {confirmNewPasswordError}
+            <img src={infoError} alt="Imagem indicando erro" /> {confirmNewPasswordError}
           </div>
         )}
 
