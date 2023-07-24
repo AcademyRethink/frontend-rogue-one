@@ -54,3 +54,16 @@ export async function getLaboratories({
   );
   return response.data;
 }
+
+export async function getLastDate(cnpj: string) {
+  let config = {
+    headers: {
+      Authorization: 'Bearer ' + validToken(),
+    },
+  };
+  const response = await api.get(
+    `dashboard/report/lastDate?cnpj=${cnpj}`,
+    config
+  );
+  return response.data;
+}
