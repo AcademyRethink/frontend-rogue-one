@@ -62,7 +62,6 @@ const SalesChart = () => {
 
   useEffect(() => {
     if (sessionData) {
-      console.log(JSON.parse(sessionData).cnpj);
       getCategories(JSON.parse(sessionData).cnpj)
         .then((resp) =>
           resp.map((el) => {
@@ -109,7 +108,6 @@ const SalesChart = () => {
         category: category,
         period: `${yearMonth?.format('YYYY-MM')}-01`,
       })
-        .then((res) => res.slice(0, 7))
         .then((res) => setBestSellerContent(res))
         .catch((error) => alert(error));
   }, [orderSort, orderField, category, yearMonth]);
@@ -189,29 +187,63 @@ const SalesChart = () => {
     },
   };
 
-  const labelsInfo = bestSellerContent?.map((item) => {
+  const dataCompetitors = (sliceSize: number) => {
+    const contentSliced = bestSellerContent?.slice(0, sliceSize);
+    return contentSliced?.map((item) => item.sale_competitors_month);
+  };
+
+  const dataPharmacy = (sliceSize: number) => {
+    const contentSliced = bestSellerContent?.slice(0, sliceSize);
+    return contentSliced?.map((item) => item.sale_pharmacy_month);
+  };
+
+  const bestSellerData = bestSellerContent?.map((item) => {
     const itemArr = item.product_name.split(' ');
     return `${itemArr[0]} ${itemArr[1]}`;
   });
 
+  const teste = (sliceSize: number) => {
+    const slicedData = bestSellerContent?.slice(0, sliceSize);
+    console.log(slicedData);
+
+    slicedData?.map((item) => {
+      const itemArr = item.product_name.split(' ');
+
+      return `${itemArr[0]} ${itemArr[1]}`;
+    });
+  };
+
+  // console.log(teste(7));
+
   const info = {
-    labels: labelsInfo,
+    labels: bestSellerData?.slice(0, 7),
     datasets: [
       {
         label: 'Vendas Mercado',
-        data: bestSellerContent?.map((item) => item.sale_competitors_month),
+        data: dataCompetitors(7),
       },
       {
         label: 'Minhas vendas',
-        data: bestSellerContent?.map((item) => item.sale_pharmacy_month),
+        data: dataPharmacy(7),
+      },
+    ],
+  };
+  const infoModal = {
+    labels: bestSellerData?.slice(0, 9),
+    datasets: [
+      {
+        label: 'Vendas Mercado',
+        data: dataCompetitors(9),
+      },
+      {
+        label: 'Minhas vendas',
+        data: dataPharmacy(9),
       },
     ],
   };
 
-  const labels = info.labels;
-
   const data = {
-    labels,
+    labels: bestSellerData?.slice(0, 7),
     datasets: [
       {
         label: info.datasets[0].label,
@@ -221,6 +253,21 @@ const SalesChart = () => {
       {
         label: info.datasets[1].label,
         data: info.datasets[1].data,
+        backgroundColor: '#26C6DA',
+      },
+    ],
+  };
+  const modaldata = {
+    labels: bestSellerData?.slice(0, 9),
+    datasets: [
+      {
+        label: infoModal.datasets[0].label,
+        data: infoModal.datasets[0].data,
+        backgroundColor: '#FF7043',
+      },
+      {
+        label: infoModal.datasets[1].label,
+        data: infoModal.datasets[1].data,
         backgroundColor: '#26C6DA',
       },
     ],
@@ -264,7 +311,7 @@ const SalesChart = () => {
             <Bar
               aria-label="Gráfico de maiores vendas"
               options={options}
-              data={data}
+              data={modaldata}
             />
           </div>
         </ModalMyProfile>
