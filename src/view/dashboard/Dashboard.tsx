@@ -6,7 +6,7 @@ import React from 'react';
 import style from './style.module.scss';
 
 import BestSellerChart from '../../components/BestSellerChart';
-import EvolutionChart from '../../components/graphs/EvolutionChart';
+import EvolutionChart from '../../components/EvolutionChart';
 const Dashboard = () => {
   /*  const [isLoading, setIsLoading] = useState(true);
 
@@ -41,8 +41,10 @@ const Dashboard = () => {
       <div className={style.graph1}>
         <BestSellerChart />
       </div>
-      <div className={style.graph2}>Gráfico 2</div>
-      <div className={style.graph3}>
+            <div className={style.graph2}>
+        <EvolutionChart />
+      </div>
+        <div className={style.graph3}>
         <BarChart></BarChart>
       </div>
     </div>

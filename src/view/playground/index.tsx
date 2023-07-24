@@ -1,4 +1,5 @@
-import { EvolutionChart } from '../../components/graphs/EvolutionChart';
+// import Sidebar from '../../layout/sidebar/index';
+import { EvolutionChart } from '../../components/EvolutionChart';
 import './styles.css';
 import './styles.module.scss';
 

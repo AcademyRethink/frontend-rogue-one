@@ -8,6 +8,7 @@ import Dashboard from './view/dashboard/Dashboard';
 import DashboardLayout from './layout/DashboardLayout';
 import MyProfile from './view/myProfile/MyProfile';
 import PcpReport from './view/pcpReport/PcpReport';
+import EvolutionChart from './components/EvolutionChart';
 
 function App() {
   return (

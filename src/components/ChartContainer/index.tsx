@@ -13,6 +13,7 @@ type Dimensions = {
   yPosition: number;
 };
 const ChartContainer = ({
+  className,
   showInfo,
   showFilter,
   showDetails,
@@ -23,6 +24,7 @@ const ChartContainer = ({
   onClickDetails,
   infoText,
 }: {
+  className?: string,
   showInfo: boolean;
   showFilter: boolean;
   showDetails: boolean;
@@ -122,7 +124,7 @@ const ChartContainer = ({
     setIsModalOpen((prev) => !prev);
   };
   return (
-    <div className={styles.chartContainer} ref={chartContainerRef}>
+    <div className={`${styles.chartContainer} ${className ? className : ""}`} ref={chartContainerRef}>
       <div className={styles.chartHeader}>
         <ChartTitle title={chartTitle} subtitle={chartSubTitle} />
         <div className={styles.rightContent}>
