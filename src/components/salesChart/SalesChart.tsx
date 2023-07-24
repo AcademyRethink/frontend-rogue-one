@@ -21,7 +21,7 @@ import {
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
-const BarChart = () => {
+const SalesChart = () => {
   const orderSortData: any = [
     { label: 'Maiores Vendas', value: 'desc' },
     { label: 'Menores Vendas', value: 'asc' },
@@ -36,6 +36,7 @@ const BarChart = () => {
     localStorage.getItem('session')
   );
   const [categoriesData, setCategoriesData] = useState<any>();
+  const [modalOpen, setModalOpen] = useState<any>(false);
   const [orderSort, setOrderSort] = useState<ChangeEvent<Element>>(
     orderSortData[0].value
   );
@@ -46,6 +47,10 @@ const BarChart = () => {
   const [yearMonth, setYearMonth] = useState<dayjs.Dayjs | null>(
     dayjs(new Date())
   );
+
+  const handleClose = () => {
+    setModalOpen(!modalOpen);
+  };
 
   const [bestSellerContent, setBestSellerContent] =
     useState<ProductsResponse[]>();
@@ -193,7 +198,6 @@ const BarChart = () => {
     labels: labelsInfo,
     datasets: [
       {
-        Title: 'tesaaaaaaaaa',
         label: 'Vendas Mercado',
         data: bestSellerContent?.map((item) => item.sale_competitors_month),
       },
@@ -222,8 +226,6 @@ const BarChart = () => {
     ],
   };
 
-  const handleModalClose = () => {};
-
   return (
     <div className={styles.barChart}>
       <ChartContainer
@@ -233,6 +235,7 @@ const BarChart = () => {
         chartTitle="Vendas"
         chartSubTitle="Top produtos do mercado x minha loja"
         infoText="Gráfico de maiores vendas"
+        onClickDetails={handleClose}
         filter={
           <SellFilter
             onChangeOrderSort={onChangeOrderSort}
@@ -256,8 +259,8 @@ const BarChart = () => {
             data={data}
           />
         </div>
-        <ModalMyProfile isOpen={true} onClose={handleModalClose}>
-          <div className={styles.teste}>
+        <ModalMyProfile isOpen={modalOpen} onClose={handleClose}>
+          <div className={styles.modalChart}>
             <Bar
               aria-label="Gráfico de maiores vendas"
               options={options}
@@ -270,4 +273,4 @@ const BarChart = () => {
   );
 };
 
-export default BarChart;
+export default SalesChart;
