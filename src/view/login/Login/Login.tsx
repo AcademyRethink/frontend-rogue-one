@@ -1,7 +1,4 @@
-
-
-
-import { useState, ChangeEvent} from 'react';
+import { useState, ChangeEvent } from 'react';
 
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
@@ -22,20 +19,15 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState('');
   const [isPasswordNotEmpty, setIsPasswordNotEmpty] = useState(false);
 
-  
-
   const navigate = useNavigate();
-  
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
-   
   };
 
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     setIsPasswordNotEmpty(event.target.value.trim().length > 0);
-   
   };
 
   const handleShowPassword = () => {
@@ -55,19 +47,14 @@ const Login = () => {
       return;
     }
 
-    
-
     axios
       .post('http://localhost:8080/auth/login', { email, password })
       .then((response) => {
-    
         const token = response.data.token;
-        
 
         localStorage.setItem('session', JSON.stringify(response.data));
-        console.log(response.data.token)
         // Navegar para a rota "/dashboard" após o login bem-sucedido
-        if(token){
+        if (token) {
           navigate('/dashboard');
         }
       })
@@ -89,11 +76,13 @@ const Login = () => {
       });
   };
 
-
   return (
     <div className={styles.loginContainer}>
       <div className={styles.leftLogin}>
-        <img src={pharmaceuticalWoman} alt="Mulher farmacêutica, segurando um tablet e sorrindo, ao fundo prateleiras de remédios." />
+        <img
+          src={pharmaceuticalWoman}
+          alt="Mulher farmacêutica, segurando um tablet e sorrindo, ao fundo prateleiras de remédios."
+        />
       </div>
       <div className={styles.rightLogin}>
         <div className={styles.formLogin}>
@@ -103,7 +92,7 @@ const Login = () => {
             <br />
             Entre com seus dados.
           </h2>
-          <form onSubmit={handleSubmit} >
+          <form onSubmit={handleSubmit}>
             <div className={styles.InputWithLabel}>
               <InputWithLabel
                 title="Email:"
@@ -147,7 +136,8 @@ const Login = () => {
               {passwordError && (
                 <div className={styles.errorMessage}>
                   {' '}
-                  <img src={infoError} alt="Imagem indicando erro" /> {passwordError}
+                  <img src={infoError} alt="Imagem indicando erro" />{' '}
+                  {passwordError}
                 </div>
               )}
             </div>
@@ -156,9 +146,12 @@ const Login = () => {
                 Esqueci minha senha
               </Link>
             </div>
-            <ButtonLogin type="submit" title="Entrar" disabled={!email || !password}/>
+            <ButtonLogin
+              type="submit"
+              title="Entrar"
+              disabled={!email || !password}
+            />
           </form>
-          
         </div>
       </div>
     </div>

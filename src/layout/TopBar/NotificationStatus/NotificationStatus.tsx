@@ -1,4 +1,4 @@
-import { useState, useEffect} from 'react';
+import { useState, useEffect } from 'react';
 import styles from './style.module.scss';
 import notification from '../../../assets/notificationMenu.svg';
 import NotificationCard from './NotificationCard/NotificationCard';
@@ -16,7 +16,6 @@ const NotificationStatus = () => {
         const updatedNotifications = response.data.map((notification: any) => ({
           ...notification,
         }));
-        // console.log(updatedNotifications)
         setNotifications(updatedNotifications);
       })
       .catch((error) => console.error(error));
@@ -29,7 +28,12 @@ const NotificationStatus = () => {
           <img src={notification} alt="Ícone de sino, indicando notificação" />
           <h3>Notificações</h3>
         </div>
-        <InfoIcon title={"Alerta de produtos mais vendidos pelo mercado que atingiram a quantidade mínima em seu estoque."} placement="leftTop"/>
+        <InfoIcon
+          title={
+            'Alerta de produtos mais vendidos pelo mercado que atingiram a quantidade mínima em seu estoque.'
+          }
+          placement="leftTop"
+        />
       </div>
       <div className={styles.containerNotificationsCards}>
         {notifications.map((notification) => (

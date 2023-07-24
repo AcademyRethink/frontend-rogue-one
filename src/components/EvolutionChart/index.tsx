@@ -216,7 +216,6 @@ export const EvolutionChart = (): JSX.Element => {
           />
         )}
       </div>
-      {/* <Button title="Relatorio PCP" onClick={() => console.log('Teste')} /> */}
 
       <Modal
         open={open}

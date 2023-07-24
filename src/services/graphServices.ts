@@ -1,6 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
-export const fetchEvolutionGraph = async (productName?: string, limit? : number) => {
+export const fetchEvolutionGraph = async (
+  productName?: string,
+  limit?: number
+) => {
   const session = localStorage.getItem('session');
   const token = session ? JSON.parse(session).token : '';
   const response = await axios
@@ -12,7 +15,7 @@ export const fetchEvolutionGraph = async (productName?: string, limit? : number)
       },
       {
         headers: {
-          'Authorization': `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
           'Content-Type': 'application/json',
           'Access-Control-Allow-Origin': '*',
         },
@@ -23,4 +26,4 @@ export const fetchEvolutionGraph = async (productName?: string, limit? : number)
   return response;
 };
 
-fetchEvolutionGraph().then(console.log);
+fetchEvolutionGraph();

@@ -9,9 +9,8 @@ const NotificationCard = ({
   viewed,
 }: Notification) => {
   const [localViewed, setLocalViewed] = useState<boolean>(viewed);
-  console.log(localViewed); 
 
-   useEffect(() => {
+  useEffect(() => {
     setLocalViewed(viewed);
   }, [viewed]);
 
@@ -20,7 +19,7 @@ const NotificationCard = ({
       try {
         await updateNotificationViewed(notification_id);
 
-       setLocalViewed(true);
+        setLocalViewed(true);
       } catch (error) {
         console.error('Erro ao atualizar a coluna "viewed":', error);
       }

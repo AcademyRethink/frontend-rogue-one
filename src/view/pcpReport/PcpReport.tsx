@@ -34,7 +34,6 @@ const PcpReport = () => {
 
   useEffect(() => {
     if (sessionData) {
-      console.log(JSON.parse(sessionData).cnpj);
       getCategories(JSON.parse(sessionData).cnpj)
         .then((resp) =>
           resp.map((el) => {

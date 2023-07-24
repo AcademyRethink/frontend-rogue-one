@@ -61,9 +61,7 @@ const ChartLaboratoriesModal = ({
         .catch((error) => alert(error));
   }, [category, period, molecule, productName]);
 
-  useEffect(() => {
-    // console.log(laboratoriesData);
-  }, [laboratoriesData]);
+  useEffect(() => {}, [laboratoriesData]);
 
   const data = {
     labels: ['A', 'B', 'C', 'D'],

@@ -15,7 +15,6 @@ const NotificationModal = () => {
 
   useEffect(() => {
     socket.on('productNotification', (data: any) => {
-      // console.log('Evento productNotification recebido:', data);
       setMessage(data.message);
       setnotificationId(data.notification_id);
       setIsOpen(true);
@@ -32,7 +31,6 @@ const NotificationModal = () => {
 
     try {
       await updateNotificationViewed(notificationId);
-      // console.log('Coluna "viewed" atualizada com sucesso');
     } catch (error) {
       console.error('Erro ao atualizar a coluna "viewed":', error);
     }
@@ -55,21 +53,30 @@ const NotificationModal = () => {
           <div className={style.modalContent}>
             <div className={style.buttonCloseContainer}>
               <button className={style.buttonClose} onClick={handleClose}>
-                <img src={closeIcon} alt="Ícone de X, possui ação de fechar a janela" />
+                <img
+                  src={closeIcon}
+                  alt="Ícone de X, possui ação de fechar a janela"
+                />
               </button>
             </div>
             <div className={style.headerWithMessage}>
               <div className={style.notificationHeader}>
-                <img src={alert} alt="ícone para exibição de mais informações sobre as notificações" />
+                <img
+                  src={alert}
+                  alt="ícone para exibição de mais informações sobre as notificações"
+                />
                 <h3>Alerta</h3>
                 <div className={style.InfoIconContainer}>
-                <InfoIcon title="A quantidade mínima foi estabelecida no sistema padrão da sua farmácia." placement='leftTop'/>
-
+                  <InfoIcon
+                    title="A quantidade mínima foi estabelecida no sistema padrão da sua farmácia."
+                    placement="leftTop"
+                  />
                 </div>
               </div>
 
               <p>
-                {message}{/* “Dipirona sódica Gotas 500mg 20ml x 1ml Neo
+                {message}
+                {/* “Dipirona sódica Gotas 500mg 20ml x 1ml Neo
                 Química”, produto que está entre os mais vendidos no mercado de
                 acordo com a ultima atualização, atingiu a quantidade mínima pré
                 estabelecida em seu estoque. */}
