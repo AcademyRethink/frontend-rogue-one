@@ -8,7 +8,7 @@
   // row-gap: 21px;
   // column-gap: 24px;
   display: grid;
-  grid-template-columns: 30% 1fr;
+  grid-template-columns: 38% 62%;
   grid-template-rows: calc(50vh - 43px) calc(50vh - 44px); /* Definindo a segunda linha */
   grid-template-areas:
     'graph1 graph2'
@@ -42,7 +42,6 @@
 
 .graph3 {
   // position: relative;
-  
   max-height: 45vh;
   background-color: lightgreen;
   grid-area: graph3;
