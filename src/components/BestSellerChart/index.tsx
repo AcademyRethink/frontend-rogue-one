@@ -45,7 +45,6 @@ const BestSellerChart = () => {
 
   useEffect(() => {
     if (sessionData) {
-      console.log(JSON.parse(sessionData).cnpj);
       getCategories(JSON.parse(sessionData).cnpj)
         .then((resp) =>
           resp.map((el) => {
@@ -97,7 +96,7 @@ const BestSellerChart = () => {
   }, [orderSort, orderField, category, yearMonth]);
 
   return (
-    <div>
+    <div className={styles.bestSellerContainer}>
       <ChartContainer
         showDetails={false}
         showFilter={true}

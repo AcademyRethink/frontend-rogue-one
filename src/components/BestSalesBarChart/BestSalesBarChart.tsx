@@ -54,7 +54,7 @@ const BestSalesChart = () => {
 
   const [bestSellerContent, setBestSellerContent] =
     useState<ProductsResponse[]>();
-  console.log(bestSellerContent);
+  // console.log(bestSellerContent);
 
   useEffect(() => {
     setSessionData(localStorage.getItem('session'));
@@ -204,7 +204,7 @@ const BestSalesChart = () => {
 
   const teste = (sliceSize: number) => {
     const slicedData = bestSellerContent?.slice(0, sliceSize);
-    console.log(slicedData);
+    // console.log(slicedData);
 
     slicedData?.map((item) => {
       const itemArr = item.product_name.split(' ');

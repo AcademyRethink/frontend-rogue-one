@@ -19,7 +19,7 @@ const NotificationStatus = () => {
         const updatedNotifications = response.data.map((notification: any) => ({
           ...notification,
         }));
-        console.log(updatedNotifications)
+        // console.log(updatedNotifications)
         setNotifications(updatedNotifications);
       })
       .catch((error) => console.error(error));

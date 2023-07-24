@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from '../../axios.config';
-import BestSalesBarChart from '../../components/BestSalesBarChart/BestSalesBarChart';
 import React from 'react';
 
 import style from './style.module.scss';
 
 import BestSellerChart from '../../components/BestSellerChart';
 import EvolutionChart from '../../components/EvolutionChart';
+import BestSalesBarChart from '../../components/BestSalesBarChart/BestSalesBarChart';
+
 const Dashboard = () => {
   /*  const [isLoading, setIsLoading] = useState(true);
 
@@ -37,7 +38,13 @@ const Dashboard = () => {
   } else { */
   return (
     <div className={style.dashboardLayout}>
-      {/* <ChartLaboratoriesModal /> */}
+      {/* <ChartLaboratoriesModal
+        category="MIP_MARCA"
+        period="2023-03-01"
+        molecule="DIPIRONA SODICA"
+        productName="DIPIRONA SODICA MG GOTAS 500MG 20ML x 1 /ML"
+        onClose={() => {}}
+      /> */}
       <div className={style.graph1}>
         <BestSellerChart />
       </div>
@@ -50,9 +57,5 @@ const Dashboard = () => {
     </div>
   );
 };
-
-/*   );
-  } 
-};*/
 
 export default React.memo(Dashboard);

@@ -61,7 +61,6 @@ const CustomSelect = ({
             }
             popupMatchSelectWidth={false}
             placement="bottomRight"
-            // onChange={(e) => console.log(e)}
             onChange={onChangeFunction}
             value={selectValue}
           ></Select>

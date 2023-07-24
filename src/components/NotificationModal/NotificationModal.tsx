@@ -16,7 +16,7 @@ const NotificationModal = () => {
 
   useEffect(() => {
     socket.on('productNotification', (data: any) => {
-      console.log('Evento productNotification recebido:', data);
+      // console.log('Evento productNotification recebido:', data);
       setMessage(data.message);
       setnotificationId(data.notification_id);
       setIsOpen(true);
@@ -33,7 +33,7 @@ const NotificationModal = () => {
 
     try {
       await updateNotificationViewed(notificationId);
-      console.log('Coluna "viewed" atualizada com sucesso');
+      // console.log('Coluna "viewed" atualizada com sucesso');
     } catch (error) {
       console.error('Erro ao atualizar a coluna "viewed":', error);
     }

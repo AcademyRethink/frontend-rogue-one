@@ -14,10 +14,10 @@
     "@mui/material": "^5.14.0",
     "@mui/styled-engine-sc": "^5.12.0",
     "@mui/x-data-grid": "^6.10.0",
-    "@mui/x-date-pickers": "^6.10.0",
-    "antd": "^5.7.0",
     "@tippyjs/react": "^4.2.6",
+    "antd": "^5.7.0",
     "axios": "^1.4.0",
+    "chart.js": "^4.3.0",
     "date-fns": "^2.30.0",
     "dayjs": "^1.11.9",
     "jsonwebtoken": "^9.0.1",
@@ -27,11 +27,12 @@
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
+    "react-loader-spinner": "^5.3.4",
     "react-router-dom": "^6.14.1",
-    "styled-components": "^5.3.11",
-    "socket.io": "^4.7.1",
     "react-tooltip": "^5.18.0",
-    "sass": "^1.63.6"
+    "sass": "^1.63.6",
+    "socket.io": "^4.7.1",
+    "styled-components": "^5.3.11"
   },
   "devDependencies": {
     "@types/jsonwebtoken": "^9.0.2",

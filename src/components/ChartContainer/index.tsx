@@ -31,7 +31,7 @@ const ChartContainer = ({
   chartTitle: string;
   chartSubTitle: string;
   children: Prop;
-  filter: Prop;
+  filter?: Prop;
   onClickDetails?: () => void;
   infoText?: string;
 }) => {
@@ -150,20 +150,12 @@ const ChartContainer = ({
         ref={filterContainerRef}
         style={
           isFilterOpen
-            ? containerXPosition > screenSize.width / 2
-              ? {
-                  display: 'block',
-                  position: 'absolute',
-                  top:
-                    filterDimensions?.yPosition + filterDimensions?.height - 12,
-                  right: filterDimensions.width,
-                }
-              : {
-                  display: 'block',
-                  position: 'absolute',
-                  top:
-                    filterDimensions?.yPosition + filterDimensions?.height - 12,
-                }
+            ? {
+                display: 'block',
+                position: 'absolute',
+                top: filterDimensions?.yPosition + filterDimensions?.height,
+                right: filterDimensions.width,
+              }
             : { display: 'none' }
         }
       >
