@@ -23,8 +23,9 @@ const ChartContainer = ({
   filter,
   onClickDetails,
   infoText,
+  positionRelative,
 }: {
-  className?: string,
+  className?: string;
   showInfo: boolean;
   showFilter: boolean;
   showDetails: boolean;
@@ -34,6 +35,7 @@ const ChartContainer = ({
   filter?: Prop;
   onClickDetails?: () => void;
   infoText?: string;
+  positionRelative?: boolean;
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const chartContainerRef = useRef<HTMLInputElement>(null);
@@ -78,7 +80,6 @@ const ChartContainer = ({
     }
   }, []);
 
-
   const toggleFilter = () => {
     setIsFilterOpen((prev) => !prev);
   };
@@ -112,9 +113,12 @@ const ChartContainer = ({
     };
   }, []);
 
-
   return (
-    <div className={`${styles.chartContainer} ${className ? className : ""}`} ref={chartContainerRef}>
+    <div
+      className={`${styles.chartContainer} ${className ? className : ''}`}
+      ref={chartContainerRef}
+      style={positionRelative ? { position: 'relative' } : undefined}
+    >
       <div className={styles.chartHeader}>
         <ChartTitle title={chartTitle} subtitle={chartSubTitle} />
         <div className={styles.rightContent}>
@@ -140,12 +144,20 @@ const ChartContainer = ({
         ref={filterContainerRef}
         style={
           isFilterOpen
-            ? {
-                display: 'block',
-                position: 'absolute',
-                top: filterDimensions?.yPosition + filterDimensions?.height,
-                right: filterDimensions.width,
-              }
+            ? positionRelative
+              ? {
+                  display: 'block',
+                  position: 'absolute',
+                  top: filterDimensions?.yPosition + filterDimensions?.height,
+                  right: filterDimensions.width * 3,
+                  zIndex: 20,
+                }
+              : {
+                  display: 'block',
+                  position: 'absolute',
+                  top: filterDimensions?.yPosition + filterDimensions?.height,
+                  zIndex: 20,
+                }
             : { display: 'none' }
         }
       >

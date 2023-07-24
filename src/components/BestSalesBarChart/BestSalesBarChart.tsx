@@ -202,7 +202,7 @@ const BestSalesChart = () => {
     return `${itemArr[0]} ${itemArr[1]}`;
   });
 
- /*  const teste = (sliceSize: number) => {
+  /*  const teste = (sliceSize: number) => {
 
   /* const teste = (sliceSize: number) => {
 
@@ -286,6 +286,7 @@ const BestSalesChart = () => {
         chartSubTitle="Top produtos do mercado x minha loja"
         infoText="Gráfico de maiores vendas"
         onClickDetails={handleClose}
+        positionRelative={true}
         filter={
           <SellFilter
             onChangeOrderSort={onChangeOrderSort}

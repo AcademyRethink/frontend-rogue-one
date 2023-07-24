@@ -8,8 +8,9 @@
 
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
-  gap: 24px;
+  gap: 2%;
   background-color: base.$background-color;
   @mixin productRanking {
     @include base.h2-font;
