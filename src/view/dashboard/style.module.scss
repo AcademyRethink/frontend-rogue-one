@@ -17,6 +17,7 @@
 
 .graph1 {
   // position: relative;
+  width: fit-content;
   max-height: 45vh;
   background-color: lightblue;
   grid-area: graph1;
@@ -31,6 +32,7 @@
 .graph2 {
   // position: relative;
   width: auto;
+  max-width: 59vw;
   max-height: 45vh;
   padding: 2vh 2vw;
   background-color: lightcoral;
