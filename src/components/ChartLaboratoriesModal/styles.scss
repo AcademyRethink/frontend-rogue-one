@@ -1,0 +1,59 @@
+@use '../../utils/base.scss';
+
+.laboratoriesModalBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: rgba(18, 18, 18, 0.75);
+  backdrop-filter: blur(5px);
+}
+
+.laboratoriesModalContainer {
+  width: fit-content;
+  height: fit-content;
+
+  border-radius: 4px;
+  background-color: base.$neutral-color-5;
+  box-shadow: 0px 4px 64px 0px rgba(0, 0, 0, 0.2);
+  .laboratoriesModalHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 8px;
+    height: 15vh;
+    width: 60vw;
+    .laboratoriesModalHeaderContent {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 24px;
+
+      @include base.h1-font;
+      color: base.$neutral-color-2;
+      .laboratoriesModalSymbol {
+        width: 40px;
+        height: 40px;
+        padding: 8px;
+        border-radius: 4px;
+        background-color: base.$primary-color-1;
+        color: base.$neutral-color-5;
+      }
+    }
+  }
+  hr {
+    stroke-width: 1px;
+    width: 100%;
+    stroke: var(base.$neutral-color-3);
+  }
+  .laboratoriesModalContent {
+    padding: 77px 38px;
+  }
+}

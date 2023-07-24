@@ -1,0 +1,52 @@
+.dashboardLayout {
+  // padding: 1%;
+  width: 100%;
+  // position: absolute;
+  // display: flex;
+  // flex-direction: row;
+  // flex-wrap: wrap;
+  // row-gap: 21px;
+  // column-gap: 24px;
+  display: grid;
+  grid-template-columns: 38% 62%;
+  grid-template-rows: calc(50vh - 43px) calc(50vh - 44px); /* Definindo a segunda linha */
+  grid-template-areas:
+    'graph1 graph2'
+    'graph3 graph3';
+}
+
+.graph1 {
+  // position: relative;
+  max-height: 45vh;
+  background-color: lightblue;
+  grid-area: graph1;
+  padding: 2vh 2vw;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  // height: fit-content;
+  // padding-bottom: 8px;
+}
+
+.graph2 {
+  // position: relative;
+  width: auto;
+  max-height: 45vh;
+  padding: 2vh 2vw;
+  background-color: lightcoral;
+  grid-area: graph2;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.graph3 {
+  // position: relative;
+  max-height: 45vh;
+  background-color: lightgreen;
+  grid-area: graph3;
+  padding: 2vh 2vw;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}

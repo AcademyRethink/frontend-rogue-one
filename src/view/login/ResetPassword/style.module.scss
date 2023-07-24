@@ -1,0 +1,93 @@
+@import '../../../utils/base.scss';
+.resetPasswordContainer {
+  background-image: url(../../../assets/login/login-pills.jpg);
+  background-size: 100%;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden; //Encontrar solução
+}
+.leftResetPassword {
+  width: 50vw;
+  img {
+    height: 100%;
+  }
+}
+.rightResetPassword {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  background: $neutral-color-5;
+}
+.formResetPassword {
+  margin-top: 18vh;
+  height: 519px;
+  .LogoResetPassword {
+    margin-bottom: 11.91vh;
+  }
+  h2 {
+    margin: 0;
+    padding: 0;
+    @include h1-font;
+    color: $primary-color-2;
+   
+  }
+  .InputWithLabel {
+    margin-top: 5.47vh;
+  }
+
+  button {
+    margin-top: 4.30vh;
+  }
+}
+
+.inputTypeConfirmPassword {
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+  .passwordToggle {
+    margin: 0;
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    right: 15px;
+    bottom: 70px;
+  }
+}
+
+.inputTypePassword {
+  position: relative;
+  .passwordToggle {
+    margin: 0;
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    right: 15px;
+    bottom: 16px;
+  }
+}
+
+.inputTypeConfirmPassword {
+  position: relative;
+  .passwordToggle {
+    margin: 0;
+    height: 18px;
+    width: 18px;
+    position: absolute;
+    right: 15px;
+    bottom: 16px;
+  }
+}
+.errorMessage {
+  display: flex;
+  margin: auto;
+  padding: auto;
+  img {
+    margin: 0;
+    padding: 0;
+    margin-right: 4px;
+  }
+  margin-top: 8px;
+  color: $error-color;
+  @include subtitle-font;
+}
