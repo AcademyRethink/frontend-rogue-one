@@ -1,5 +1,4 @@
 import style from './style.module.scss';
-import dividerMyProfile from '../../../assets/dividerMyProfile.svg';
 import { MyProfileData } from '../../../types/myProfileTypes';
 const LineTable = (props: MyProfileData) => {
   const { title, value } = props;

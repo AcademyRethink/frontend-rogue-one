@@ -2,7 +2,7 @@ import ModalMyProfile from '../../view/myProfile/ModalMyProfile/ModalMyProfile';
 import { getProductsFromReport } from '../../services/report';
 import { getCategories } from '../../services/categories';
 import { useEffect, useState, ChangeEvent } from 'react';
-import type { ChartData, ChartOptions } from 'chart.js';
+import type { ChartOptions } from 'chart.js';
 import { ProductsResponse } from '../../types/types';
 import { useNavigate } from 'react-router-dom';
 import ChartContainer from '../ChartContainer';
@@ -204,7 +204,10 @@ const BestSalesChart = () => {
     return `${itemArr[0]} ${itemArr[1]}`;
   });
 
-  const teste = (sliceSize: number) => {
+ /*  const teste = (sliceSize: number) => {
+
+  /* const teste = (sliceSize: number) => {
+
     const slicedData = bestSellerContent?.slice(0, sliceSize);
 
     slicedData?.map((item) => {
@@ -212,7 +215,7 @@ const BestSalesChart = () => {
 
       return `${itemArr[0]} ${itemArr[1]}`;
     });
-  };
+  }; */
 
   const info = {
     labels: bestSellerData?.slice(0, 7),

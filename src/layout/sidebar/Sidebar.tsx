@@ -11,7 +11,7 @@ import SidebarRoute from './SidebarRoute/SidebarRoute';
 import styles from './styles.module.scss';
 
 import { NavLink, useNavigate } from 'react-router-dom';
-import MyProfile from '../../view/myProfile/MyProfile';
+
 
 const Sidebar = (open: any) => {
   const [opened, setOpened] = useState(open);

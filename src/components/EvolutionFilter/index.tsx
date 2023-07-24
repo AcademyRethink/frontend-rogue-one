@@ -4,18 +4,13 @@ import { CustomSelect } from '../Filter';
 import { ChangeEvent, ChangeEventHandler, useEffect, useState } from 'react';
 import { getProductsFromInventory } from '../../services/inventory';
 
-const data: SelectData[] = [
-  { label: 'Maiores Vendas', value: 'desc' },
-  { label: 'Menores Vendas', value: 'asc' },
-];
-
 const EvolutionFilter = ({
   onChangeProductName,
   selectedProduct,
   parentId,
 }: {
-  onChangeProductName: (value: string) => void; //ChangeEventHandler;
-  selectedProduct: string; //ChangeEvent<Element>;
+  onChangeProductName: ChangeEventHandler;
+  selectedProduct: ChangeEvent<Element>;
   parentId: string;
 }) => {
   const [products, setProducts] = useState<SelectData[]>();

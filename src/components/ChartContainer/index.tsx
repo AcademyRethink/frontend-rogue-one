@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import { Prop } from '../../types/types';
 
@@ -36,9 +36,6 @@ const ChartContainer = ({
   infoText?: string;
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [containerXPosition, setContainerXPosition] = useState(0);
   const chartContainerRef = useRef<HTMLInputElement>(null);
   const filterContainerRef = useRef<HTMLDivElement>(null);
 
@@ -78,12 +75,6 @@ const ChartContainer = ({
         xPosition: filterRef.current.offsetLeft,
         yPosition: filterRef.current.offsetTop,
       });
-    }
-  }, []);
-
-  useEffect(() => {
-    if (chartContainerRef.current) {
-      setContainerXPosition(chartContainerRef.current.offsetLeft);
     }
   }, []);
 

@@ -3,7 +3,6 @@ import socketIOClient from 'socket.io-client';
 import axios from 'axios';
 import style from './styles.module.scss';
 import alert from '../../assets/alert.svg';
-import info from '../../assets/info.svg';
 import closeIcon from '../../assets/close.svg';
 import InfoIcon from '../InfoIcon';
 
@@ -70,10 +69,10 @@ const NotificationModal = () => {
               </div>
 
               <p>
-                {/* {message} */}“Dipirona sódica Gotas 500mg 20ml x 1ml Neo
+                {message}{/* “Dipirona sódica Gotas 500mg 20ml x 1ml Neo
                 Química”, produto que está entre os mais vendidos no mercado de
                 acordo com a ultima atualização, atingiu a quantidade mínima pré
-                estabelecida em seu estoque.
+                estabelecida em seu estoque. */}
               </p>
             </div>
 
