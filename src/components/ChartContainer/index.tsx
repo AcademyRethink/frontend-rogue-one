@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from './styles.module.scss';
 import { Prop } from '../../types/types';
 
@@ -36,9 +36,6 @@ const ChartContainer = ({
   infoText?: string;
 }) => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [containerXPosition, setContainerXPosition] = useState(0);
   const chartContainerRef = useRef<HTMLInputElement>(null);
   const filterContainerRef = useRef<HTMLDivElement>(null);
 
@@ -81,11 +78,6 @@ const ChartContainer = ({
     }
   }, []);
 
-  useEffect(() => {
-    if (chartContainerRef.current) {
-      setContainerXPosition(chartContainerRef.current.offsetLeft);
-    }
-  }, []);
 
   const toggleFilter = () => {
     setIsFilterOpen((prev) => !prev);
@@ -120,9 +112,7 @@ const ChartContainer = ({
     };
   }, []);
 
-  const toggleModal = () => {
-    setIsModalOpen((prev) => !prev);
-  };
+
   return (
     <div className={`${styles.chartContainer} ${className ? className : ""}`} ref={chartContainerRef}>
       <div className={styles.chartHeader}>

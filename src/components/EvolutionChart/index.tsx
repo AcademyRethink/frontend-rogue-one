@@ -42,9 +42,7 @@ ChartJS.register(
 );
 
 import styles from './styles.module.scss';
-import InfoIcon from '../InfoIcon';
 import ChartTitle from '../ChartTitle';
-import ModalMyProfile from '../../view/myProfile/ModalMyProfile/ModalMyProfile';
 import CloseButton from '../CloseButton';
 
 const addColorConfig = (data: any) => {
@@ -74,8 +72,8 @@ export const EvolutionChart = (): JSX.Element => {
     datasets: [],
   } as ChartData<'line', number[], unknown>);
 
-  const [productName, setProductName] = useState('');
-  const [modalProductName, setModalProductName] = useState('');
+  const [productName, setProductName] = useState<any>();
+  const [modalProductName, setModalProductName] = useState<any>();
 
   const [loading, setLoading] = useState(true);
   const [loadingModal, setLoadingModal] = useState(true);
@@ -85,11 +83,11 @@ export const EvolutionChart = (): JSX.Element => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const handleChange = (value: string) => {
+  const handleChange = (value: any) => {
     setProductName(value);
   };
 
-  const handleModalChange = (value: string) => {
+  const handleModalChange = (value: any) => {
     setModalProductName(value);
   };
 
@@ -145,7 +143,7 @@ export const EvolutionChart = (): JSX.Element => {
         },
         beginAtZero: true,
         grid: {
-          borderColor: theme.gridLine,
+          /* borderColor: theme.gridLine, */
           tickColor: 'white',
         },
       },
@@ -158,7 +156,7 @@ export const EvolutionChart = (): JSX.Element => {
           },
         },
         grid: {
-          borderColor: theme.gridLine,
+          /* borderColor: theme.gridLine, */
           tickColor: 'white',
         },
       },
