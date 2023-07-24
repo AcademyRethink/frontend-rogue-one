@@ -1,14 +1,16 @@
+import ModalMyProfile from '../../view/myProfile/ModalMyProfile/ModalMyProfile';
 import { getProductsFromReport } from '../../services/report';
 import { getCategories } from '../../services/categories';
 import { useEffect, useState, ChangeEvent } from 'react';
 import type { ChartData, ChartOptions } from 'chart.js';
 import { ProductsResponse } from '../../types/types';
-import ModalMyProfile from '../../view/myProfile/ModalMyProfile/ModalMyProfile';
+import { useNavigate } from 'react-router-dom';
 import ChartContainer from '../ChartContainer';
 import styles from './styles.module.scss';
-
 import theme from './styles.module.scss';
 import SellFilter from '../SellFilters';
+import { Button } from '@mui/material';
+import InfoIcon from '../InfoIcon';
 import dayjs from 'dayjs';
 import {
   Chart as ChartJS,
@@ -54,7 +56,8 @@ const BestSalesChart = () => {
 
   const [bestSellerContent, setBestSellerContent] =
     useState<ProductsResponse[]>();
-  // console.log(bestSellerContent);
+
+  const [bestSellerLabel, setBestSellerLabel] = useState<ProductsResponse[]>();
 
   useEffect(() => {
     setSessionData(localStorage.getItem('session'));
@@ -167,11 +170,10 @@ const BestSalesChart = () => {
           width: 3,
           color: '#9E9E9E',
         },
-
         ticks: {
-          // callback: function (value, index, ticks) {
-          //   return '$' + value;
-          // },
+          callback: function (value, index, ticks) {
+            return bestSellerData[index];
+          },
           font: {
             family: theme.fontFamily,
             weight: '500',
@@ -204,7 +206,6 @@ const BestSalesChart = () => {
 
   const teste = (sliceSize: number) => {
     const slicedData = bestSellerContent?.slice(0, sliceSize);
-    // console.log(slicedData);
 
     slicedData?.map((item) => {
       const itemArr = item.product_name.split(' ');
@@ -212,8 +213,6 @@ const BestSalesChart = () => {
       return `${itemArr[0]} ${itemArr[1]}`;
     });
   };
-
-  // console.log(teste(7));
 
   const info = {
     labels: bestSellerData?.slice(0, 7),
@@ -243,7 +242,12 @@ const BestSalesChart = () => {
   };
 
   const data = {
-    labels: bestSellerData?.slice(0, 7),
+    // labels: bestSellerData?.slice(0, 7),
+    labels: bestSellerContent
+      ?.map((item) => {
+        return item.product_name;
+      })
+      .slice(0, 7),
     datasets: [
       {
         label: info.datasets[0].label,
@@ -258,7 +262,9 @@ const BestSalesChart = () => {
     ],
   };
   const modaldata = {
-    labels: bestSellerData?.slice(0, 9),
+    labels: bestSellerContent?.map((item) => {
+      return item.product_name;
+    }),
     datasets: [
       {
         label: infoModal.datasets[0].label,
@@ -272,7 +278,7 @@ const BestSalesChart = () => {
       },
     ],
   };
-
+  const navigate = useNavigate();
   return (
     <div className={styles.barChart}>
       <ChartContainer
@@ -281,7 +287,7 @@ const BestSalesChart = () => {
         showFilter={true}
         chartTitle="Vendas"
         chartSubTitle="Top produtos do mercado x minha loja"
-        infoText="Gráfico de maiores vendas"
+        infoText="Gráfico de comparação das maiores vendas com as do vendas do mercado."
         onClickDetails={handleClose}
         filter={
           <SellFilter
@@ -309,38 +315,41 @@ const BestSalesChart = () => {
       </ChartContainer>
       <ModalMyProfile isOpen={modalOpen} onClose={handleClose}>
         <div className={styles.modalMajorSales}>
-          <ChartContainer
-            showDetails={false}
-            showInfo={true}
-            showFilter={true}
-            chartTitle="Vendas"
-            chartSubTitle="Top produtos do mercado x minha loja"
-            infoText="Gráfico de maiores vendas"
-            onClickDetails={handleClose}
-            filter={
-              <SellFilter
-                onChangeOrderSort={onChangeOrderSort}
-                onChangeOrderField={onChangeOrderField}
-                onChangeCategories={onChangeCategories}
-                onChangeDate={onChangeDate}
-                yearMonth={yearMonth}
-                orderSort={orderSort}
-                orderField={orderField}
-                category={category}
-                dataCategories={categoriesData}
-                dataOrderField={orderFieldData}
-                dataOrderSort={orderSortData}
-              />
-            }
-          >
-            <div className={styles.modalChart}>
-              <Bar
-                aria-label="Gráfico de maiores vendas"
-                options={options}
-                data={modaldata}
-              />
-            </div>
-          </ChartContainer>
+          <div className={styles.modalChartHeader}>
+            <SellFilter
+              onChangeOrderSort={onChangeOrderSort}
+              onChangeOrderField={onChangeOrderField}
+              onChangeCategories={onChangeCategories}
+              onChangeDate={onChangeDate}
+              yearMonth={yearMonth}
+              orderSort={orderSort}
+              orderField={orderField}
+              category={category}
+              dataCategories={categoriesData}
+              dataOrderField={orderFieldData}
+              dataOrderSort={orderSortData}
+            />
+            <Button
+              style={{
+                backgroundColor: theme.button_color,
+              }}
+              variant="contained"
+              onClick={() => navigate('/report')}
+            >
+              Relatório PCP
+            </Button>
+            <InfoIcon
+              placement="bottom"
+              title="Gráfico de comparação das maiores vendas com as do vendas do mercado."
+            ></InfoIcon>
+          </div>
+          <div className={styles.modalChart}>
+            <Bar
+              aria-label="Gráfico de maiores vendas"
+              options={options}
+              data={modaldata}
+            />
+          </div>
         </div>
       </ModalMyProfile>
     </div>

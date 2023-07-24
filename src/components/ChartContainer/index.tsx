@@ -24,7 +24,7 @@ const ChartContainer = ({
   onClickDetails,
   infoText,
 }: {
-  className?: string,
+  className?: string;
   showInfo: boolean;
   showFilter: boolean;
   showDetails: boolean;
@@ -123,8 +123,12 @@ const ChartContainer = ({
   const toggleModal = () => {
     setIsModalOpen((prev) => !prev);
   };
+  console.log(className, styles.chartContainer);
   return (
-    <div className={`${styles.chartContainer} ${className ? className : ""}`} ref={chartContainerRef}>
+    <div
+      className={`${styles.chartContainer} ${className ? className : ''}`}
+      ref={chartContainerRef}
+    >
       <div className={styles.chartHeader}>
         <ChartTitle title={chartTitle} subtitle={chartSubTitle} />
         <div className={styles.rightContent}>
