@@ -42,7 +42,9 @@ ChartJS.register(
 );
 
 import styles from './styles.module.scss';
+
 import ChartTitle from '../ChartTitle';
+
 import CloseButton from '../CloseButton';
 
 const addColorConfig = (data: any) => {
@@ -143,11 +145,13 @@ export const EvolutionChart = (): JSX.Element => {
         },
         beginAtZero: true,
         grid: {
-<<<<<<< HEAD
+
           color: theme.gridLine,
-=======
+
           /* borderColor: theme.gridLine, */
->>>>>>> dev
+
+          /* borderColor: theme.gridLine, */
+
           tickColor: 'white',
         },
       },
@@ -160,11 +164,13 @@ export const EvolutionChart = (): JSX.Element => {
           },
         },
         grid: {
-<<<<<<< HEAD
+
           color: theme.gridLine,
-=======
+
           /* borderColor: theme.gridLine, */
->>>>>>> dev
+
+          /* borderColor: theme.gridLine, */
+
           tickColor: 'white',
         },
       },

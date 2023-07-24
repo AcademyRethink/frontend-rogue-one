@@ -19,7 +19,7 @@
   // position: relative;
   width: fit-content;
   max-height: 45vh;
-  background-color: lightblue;
+  // background-color: lightblue;
   grid-area: graph1;
   padding: 2vh 2vw;
   display: flex;
@@ -35,7 +35,8 @@
   max-width: 59vw;
   max-height: 45vh;
   padding: 2vh 2vw;
-  background-color: lightcoral;
+  // padding-left: 0;
+  // background-color: lightcoral;
   grid-area: graph2;
   display: flex;
   justify-content: center;
@@ -45,7 +46,7 @@
 .graph3 {
   // position: relative;
   max-height: 45vh;
-  background-color: lightgreen;
+  // background-color: lightgreen;
   grid-area: graph3;
   padding: 2vh 2vw;
   display: flex;

@@ -203,6 +203,9 @@ const BestSalesChart = () => {
   });
 
  /*  const teste = (sliceSize: number) => {
+
+  /* const teste = (sliceSize: number) => {
+
     const slicedData = bestSellerContent?.slice(0, sliceSize);
     // console.log(slicedData);
 

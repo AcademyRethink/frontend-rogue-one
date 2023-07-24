@@ -12,6 +12,7 @@ import styles from './styles.module.scss';
 
 import { NavLink, useNavigate } from 'react-router-dom';
 
+
 const Sidebar = (open: any) => {
   const [opened, setOpened] = useState(open);
   const [display, setDisplay] = useState(false);
