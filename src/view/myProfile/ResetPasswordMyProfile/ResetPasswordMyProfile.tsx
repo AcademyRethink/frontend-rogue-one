@@ -8,6 +8,7 @@ import ModalMyProfile from '../ModalMyProfile/ModalMyProfile';
 import SuccessMessage from '../SuccessMessage/SuccessMessage';
 import eyeShowPassword from '../../../assets/login/eyeShowPassword.svg';
 import eyeHidePassword from '../../../assets/login/eyeHidePassword.svg';
+import Password from 'antd/es/input/Password';
 
 const ResetPasswordMyProfile = () => {
   const [currentPassword, setCurrentPassword] = useState('');
@@ -180,6 +181,7 @@ const ResetPasswordMyProfile = () => {
       <button
         className={style.resetPasswordMyProfileButton}
         onClick={handleResetPassword}
+        disabled={!Password || !newPassword || !confirmNewPassword}
       >
         Redefinir senha
       </button>

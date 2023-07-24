@@ -28,6 +28,11 @@
   .resetPasswordMyProfileButton:focus {
     border: 2px solid $neutral-color-2;
   }
+  .resetPasswordMyProfileButton:disabled {
+    background: $background-color;
+    color:$neutral-color-2;
+    border: 2px solid $neutral-color-2;
+  }
   .inputWithLabel {
     margin-top: 2.47vh;
     display: flex;

@@ -18,15 +18,20 @@ const Login = () => {
   const [passwordError, setPasswordError] = useState('');
   const [isPasswordNotEmpty, setIsPasswordNotEmpty] = useState(false);
 
+  
+
   const navigate = useNavigate();
+  
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     setEmail(event.target.value);
+   
   };
 
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
     setIsPasswordNotEmpty(event.target.value.trim().length > 0);
+   
   };
 
   const handleShowPassword = () => {
@@ -45,6 +50,8 @@ const Login = () => {
       setPasswordError('Senha é obrigatória');
       return;
     }
+
+    
 
     axios
       .post('http://localhost:8080/auth/login', { email, password })
@@ -145,8 +152,7 @@ const Login = () => {
                 Esqueci minha senha
               </Link>
             </div>
-            
-            <ButtonLogin type="submit" title="Entrar" />
+            <ButtonLogin type="submit" title="Entrar" disabled={!email || !password}/>
           </form>
           
         </div>

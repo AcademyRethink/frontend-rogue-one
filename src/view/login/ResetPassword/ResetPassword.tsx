@@ -145,7 +145,7 @@ const ResetPassword: React.FC = () => {
               </div>
             )}
 
-            <ButtonLogin type="submit" title="Confirmar" />
+            <ButtonLogin type="submit" title="Confirmar" disabled={!password || !confirmPassword}/>
           </form>
         </div>
       </div>

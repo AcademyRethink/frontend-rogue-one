@@ -14,6 +14,12 @@
   background: $primary-color-2;
 }
 
+.buttonContainer:disabled {
+  background: $background-color;
+  color:$neutral-color-2;
+  border: 2px solid $neutral-color-2;
+}
+
 .buttonContainer:focus {
   background: $primary-color-1;
   border: 2px solid $neutral-color-2;

@@ -78,7 +78,7 @@ const ForgotPassword = () => {
                   </div>
                 )}
               </div>
-              <ButtonLogin type="submit" title="Enviar" />
+              <ButtonLogin type="submit" title="Enviar" disabled={!email}/>
             </form>
           </div>
         </div>
