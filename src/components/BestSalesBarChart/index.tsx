@@ -38,7 +38,7 @@ const BestSalesChart = () => {
     localStorage.getItem('session')
   );
   const [categoriesData, setCategoriesData] = useState<any>();
-  const [modalOpen, setModalOpen] = useState<any>(false);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
   const [orderSort, setOrderSort] = useState<ChangeEvent<Element>>(
     orderSortData[0].value
   );
@@ -121,6 +121,21 @@ const BestSalesChart = () => {
     Legend
   );
 
+  const dataCompetitors = (sliceSize: number) => {
+    const contentSliced = bestSellerContent?.slice(0, sliceSize);
+    return contentSliced?.map((item) => item.sale_competitors_month);
+  };
+
+  const dataPharmacy = (sliceSize: number) => {
+    const contentSliced = bestSellerContent?.slice(0, sliceSize);
+    return contentSliced?.map((item) => item.sale_pharmacy_month);
+  };
+
+  const bestSellerData = bestSellerContent?.map((item) => {
+    const itemArr = item.product_name.split(' ');
+    return `${itemArr[0]} ${itemArr[1]}`;
+  });
+
   const options: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
@@ -169,8 +184,9 @@ const BestSalesChart = () => {
           color: '#9E9E9E',
         },
         ticks: {
-          callback: function (value, index, ticks) {
-            return bestSellerData[index];
+          callback: function (_, index) {
+            if (bestSellerData) return bestSellerData[index];
+            return [''];
           },
           font: {
             family: theme.fontFamily,
@@ -186,21 +202,6 @@ const BestSalesChart = () => {
       },
     },
   };
-
-  const dataCompetitors = (sliceSize: number) => {
-    const contentSliced = bestSellerContent?.slice(0, sliceSize);
-    return contentSliced?.map((item) => item.sale_competitors_month);
-  };
-
-  const dataPharmacy = (sliceSize: number) => {
-    const contentSliced = bestSellerContent?.slice(0, sliceSize);
-    return contentSliced?.map((item) => item.sale_pharmacy_month);
-  };
-
-  const bestSellerData = bestSellerContent?.map((item) => {
-    const itemArr = item.product_name.split(' ');
-    return `${itemArr[0]} ${itemArr[1]}`;
-  });
 
   const info = {
     labels: bestSellerData?.slice(0, 7),
