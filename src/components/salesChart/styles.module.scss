@@ -11,11 +11,12 @@
     font-config: h1;
 }
 
+.chartStyle{
+    height: 340px;    
+    background-color: white;    
+}
+
 .barChart{
     display: flex;
     flex-direction: column;
-    max-width: 1250px;   
-    max-height: 450px;
-    background-color: white;
-    font-weight: bold;
 }

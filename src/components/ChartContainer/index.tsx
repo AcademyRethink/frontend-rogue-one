@@ -137,12 +137,9 @@ const ChartContainer = ({
             </button>
           )}
           {showDetails && (
-            <button className={styles.showMore} onClick={toggleModal}>
+            <button className={styles.showMore} onClick={onClickDetails}>
               Mais detalhes
             </button>
-          )}
-          {showDetails && (
-            <p onClick={/*toggleModal*/ onClickDetails}>Mais detalhes</p>
           )}
         </div>
       </div>
