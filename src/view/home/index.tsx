@@ -1,9 +1,6 @@
+import BarChart from '../../components/salesChart';
 const Home = () => {
-  return (
-    <>
-      
-    </>
-  );
+  return <></>;
 };
 
 export default Home;

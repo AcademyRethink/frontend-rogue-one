@@ -1,13 +1,13 @@
-// import Sidebar from '../../layout/sidebar/index';
 import { EvolutionChart } from '../../components/graphs/EvolutionChart';
 import './styles.css';
+import './styles.module.scss';
 
 const Playground = () => {
   return (
     <>
       <div>
         {/* <Sidebar /> */}
-        <EvolutionChart className={""}/>
+        <EvolutionChart className={''} />
       </div>
     </>
   );

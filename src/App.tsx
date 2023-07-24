@@ -13,16 +13,15 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} /> 
-       
+        <Route path="/" element={<Login />} />
+
         <Route element={<DashboardLayout />}>
           <Route path="/dashboard" index element={<Dashboard />} />
           <Route path="/home" index element={<Dashboard />} />
-          <Route path="/report" index element={<PcpReport/>} />
+          <Route path="/report" index element={<PcpReport />} />
           <Route path="/my-profile" index element={<MyProfile />} />
         </Route>
 
-       
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route
           path="/warning-send-password"
@@ -33,6 +32,5 @@ function App() {
     </BrowserRouter>
   );
 }
-
 
 export default App;
