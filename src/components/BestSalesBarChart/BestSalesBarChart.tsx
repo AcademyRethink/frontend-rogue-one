@@ -1,7 +1,7 @@
 import { getProductsFromReport } from '../../services/report';
 import { getCategories } from '../../services/categories';
 import { useEffect, useState, ChangeEvent } from 'react';
-import type { ChartData, ChartOptions } from 'chart.js';
+import type { ChartOptions } from 'chart.js';
 import { ProductsResponse } from '../../types/types';
 import ModalMyProfile from '../../view/myProfile/ModalMyProfile/ModalMyProfile';
 import ChartContainer from '../ChartContainer';
@@ -202,7 +202,7 @@ const BestSalesChart = () => {
     return `${itemArr[0]} ${itemArr[1]}`;
   });
 
-  const teste = (sliceSize: number) => {
+ /*  const teste = (sliceSize: number) => {
     const slicedData = bestSellerContent?.slice(0, sliceSize);
     // console.log(slicedData);
 
@@ -211,7 +211,7 @@ const BestSalesChart = () => {
 
       return `${itemArr[0]} ${itemArr[1]}`;
     });
-  };
+  }; */
 
   // console.log(teste(7));
 

@@ -2,7 +2,6 @@ import { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ModalMyProfile from '../myProfile/ModalMyProfile/ModalMyProfile';
 import style from './style.module.scss';
-import axios from '../../axios.config';
 import { CustomDatePicker, CustomSelect } from '../../components/Filter';
 import { MdGridView } from 'react-icons/md';
 import dayjs from 'dayjs';
