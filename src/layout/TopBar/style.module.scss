@@ -4,7 +4,7 @@
   background-color: $primary-color-2;
   height: 87px;
   display: flex;
-  flex:1;
+  flex: 1;
   align-items: center;
   justify-content: space-between;
   position: relative;
@@ -70,4 +70,5 @@
   background-color: $neutral-color-5;
   width: 100%;
   border-radius: 4px;
+  z-index: 20;
 }
