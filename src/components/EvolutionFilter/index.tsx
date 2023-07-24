@@ -8,15 +8,17 @@ const EvolutionFilter = ({
   onChangeProductName,
   selectedProduct,
   parentId,
+  backgroundColor
 }: {
   onChangeProductName: ChangeEventHandler;
   selectedProduct: ChangeEvent<Element>;
-  parentId: string;
+  parentId?: string;
+  backgroundColor?: string;
 }) => {
   const [products, setProducts] = useState<SelectData[]>();
 
   useEffect(() => {
-    getProductsFromInventory({ cnpj: '00111222000133' })
+    getProductsFromInventory()
       .then((resp) =>
         resp.map((el) => {
           return {
@@ -31,7 +33,9 @@ const EvolutionFilter = ({
 
   return (
     <div>
-      <FilterContainer>
+      <FilterContainer
+        backgroundColor={backgroundColor}
+      >
         <CustomSelect
           symbolClass="material-symbols-outlined"
           symbol="pill"
