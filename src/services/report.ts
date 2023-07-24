@@ -28,7 +28,6 @@ export async function getProductsFromReport({
   return response.data;
 }
 
-
 export async function getLaboratories({
   limit,
   category,
@@ -37,7 +36,7 @@ export async function getLaboratories({
   product_name,
   cnpj,
 }: {
-  limit: string | undefined;
+  limit: number;
   category: string | undefined;
   period: string | undefined;
   molecule: string | undefined;
@@ -50,7 +49,7 @@ export async function getLaboratories({
     },
   };
   const response = await api.get(
-    `dashboard/report?cnpj=${cnpj}&limit=${limit}&category=${category}&period=${period}&molecule=${molecule}&product_name=${product_name}`,
+    `dashboard/report/laboratories?cnpj=${cnpj}&limit=${limit}&category=${category}&period=${period}&molecule=${molecule}&product_name=${product_name}`,
     config
   );
   return response.data;
