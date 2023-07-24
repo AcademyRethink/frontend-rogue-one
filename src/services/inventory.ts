@@ -1,4 +1,3 @@
-import { categoriesResponse } from '../types/types';
 import api, { validToken } from './api';
 
 export async function getProductsFromInventory(data: any): Promise<string[]> {
