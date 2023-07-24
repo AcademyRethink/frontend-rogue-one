@@ -42,9 +42,7 @@ ChartJS.register(
 );
 
 import styles from './styles.module.scss';
-import InfoIcon from '../InfoIcon';
 import ChartTitle from '../ChartTitle';
-import ModalMyProfile from '../../view/myProfile/ModalMyProfile/ModalMyProfile';
 import CloseButton from '../CloseButton';
 
 const addColorConfig = (data: any) => {
@@ -94,7 +92,7 @@ export const EvolutionChart = (): JSX.Element => {
   };
 
   useEffect(() => {
-    fetchEvolutionGraph(productName)
+    fetchEvolutionGraph(productName, 6)
       .then((json) => setData(addColorConfig(json)))
       .catch(console.error);
   }, [productName]);
@@ -145,7 +143,7 @@ export const EvolutionChart = (): JSX.Element => {
         },
         beginAtZero: true,
         grid: {
-          borderColor: theme.gridLine,
+          color: theme.gridLine,
           tickColor: 'white',
         },
       },
@@ -158,7 +156,7 @@ export const EvolutionChart = (): JSX.Element => {
           },
         },
         grid: {
-          borderColor: theme.gridLine,
+          color: theme.gridLine,
           tickColor: 'white',
         },
       },

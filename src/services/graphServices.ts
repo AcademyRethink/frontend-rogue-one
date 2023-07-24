@@ -1,11 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
 
-export const fetchEvolutionGraph = async (productName?: string) => {
+export const fetchEvolutionGraph = async (productName?: string, limit? : number) => {
   const session = localStorage.getItem('session');
   const token = session ? JSON.parse(session).token : '';
   const response = await axios
     .post(
-      'http://localhost:8080/dashboard/graphs/2/2023-01/2023-12',
+      `http://localhost:8080/dashboard/graphs/2/${limit}`,
       {
         cnpj: '00111222000133',
         product_name: productName,
