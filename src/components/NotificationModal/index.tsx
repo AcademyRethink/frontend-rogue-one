@@ -11,7 +11,7 @@ const socket = socketIOClient('https://farma-view-393823.rj.r.appspot.com');
 const NotificationModal = () => {
   const [message, setMessage] = useState('');
   const [notificationId, setnotificationId] = useState('');
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     socket.on('productNotification', (data: any) => {
