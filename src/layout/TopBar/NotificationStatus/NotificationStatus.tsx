@@ -5,9 +5,12 @@ import NotificationCard from './NotificationCard/NotificationCard';
 import axios from 'axios';
 import { Notification } from '../../../types/notificationsTypes';
 import InfoIcon from '../../../components/InfoIcon';
+import socketIOClient from 'socket.io-client';
 
 const NotificationStatus = () => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
+
+  const socket = socketIOClient('http://localhost:8080');
 
   useEffect(() => {
     axios
@@ -19,8 +22,17 @@ const NotificationStatus = () => {
         setNotifications(updatedNotifications);
       })
       .catch((error) => console.error(error));
+      socket.on('productNotification', (data: any) => {
+        setNotifications(prevState=> [...prevState, {message: data.message, notification_id: data.notification_id, viewed: false }]);
+      });
+      
+      return () => {
+        socket.off('productNotification');
+      };
   }, []);
 
+
+  
   return (
     <div className={styles.modalContainer}>
       <div className={styles.notificationHeader}>

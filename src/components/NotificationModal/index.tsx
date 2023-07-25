@@ -3,8 +3,8 @@ import socketIOClient from 'socket.io-client';
 import axios from 'axios';
 import style from './styles.module.scss';
 import alert from '../../assets/alert.svg';
-import closeIcon from '../../assets/close.svg';
 import InfoIcon from '../InfoIcon';
+import ModalMyProfile from '../../view/myProfile/ModalMyProfile';
 
 const socket = socketIOClient('https://farma-view-393823.rj.r.appspot.com');
 
@@ -48,16 +48,12 @@ const NotificationModal = () => {
   };
   return (
     <>
+  
       {isOpen && (
+        <ModalMyProfile isOpen={isOpen} onClose={handleClose}>
         <div className={style.modalContainer}>
           <div className={style.modalContent}>
             <div className={style.buttonCloseContainer}>
-              <button className={style.buttonClose} onClick={handleClose}>
-                <img
-                  src={closeIcon}
-                  alt="Ícone de X, possui ação de fechar a janela"
-                />
-              </button>
             </div>
             <div className={style.headerWithMessage}>
               <div className={style.notificationHeader}>
@@ -76,10 +72,6 @@ const NotificationModal = () => {
 
               <p>
                 {message}
-                {/* “Dipirona sódica Gotas 500mg 20ml x 1ml Neo
-                Química”, produto que está entre os mais vendidos no mercado de
-                acordo com a ultima atualização, atingiu a quantidade mínima pré
-                estabelecida em seu estoque. */}
               </p>
             </div>
 
@@ -90,6 +82,7 @@ const NotificationModal = () => {
             </div>
           </div>
         </div>
+        </ModalMyProfile>
       )}
     </>
   );

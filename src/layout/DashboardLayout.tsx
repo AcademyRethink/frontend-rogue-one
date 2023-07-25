@@ -5,6 +5,8 @@ import style from './style.module.scss';
 import { useEffect, useState } from 'react';
 import { getLastDate } from '../services/report';
 import dayjs from 'dayjs';
+import NotificationModal from '../components/NotificationModal';
+
 
 const DashboardLayout = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -36,7 +38,10 @@ const DashboardLayout = () => {
           </aside>
           <main className={style.dashboardContent}>
             <Outlet />
+              <NotificationModal/>
           </main>
+
+          
         </>
       ) : null}
     </div>
