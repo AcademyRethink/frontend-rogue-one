@@ -149,7 +149,7 @@ const ChartContainer = ({
                   display: 'block',
                   position: 'absolute',
                   top: filterDimensions?.yPosition + filterDimensions?.height,
-                  right: filterDimensions.width,
+                  right: 24,
                   zIndex: 20,
                 }
               : {
