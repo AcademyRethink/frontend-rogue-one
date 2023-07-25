@@ -328,10 +328,15 @@ const BestSalesChart = () => {
             >
               Relatório PCP
             </Button>
+
             <InfoIcon
               placement="bottom"
               title="Gráfico de comparação das maiores vendas com as do vendas do mercado."
             ></InfoIcon>
+          </div>
+          <div className={styles.modalChartInfo}>
+            <h1>Vendas</h1>
+            <h2>Top produtos do mercado x minha loja</h2>
           </div>
           <div className={styles.modalChart}>
             <Bar
