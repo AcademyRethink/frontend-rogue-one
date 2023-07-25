@@ -3,7 +3,7 @@ import { useState, ChangeEvent } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './style.module.scss';
-import pharmaceuticalWoman from '../../../assets/login/pharmaceutical-woman.png';
+import pharmaceuticalWoman from '../../../assets/login/pharmaceutical-woman.webp';
 import eyeShowPassword from '../../../assets/login/eyeShowPassword.svg';
 import eyeHidePassword from '../../../assets/login/eyeHidePassword.svg';
 import infoError from '../../../assets/login/infoError.svg';
