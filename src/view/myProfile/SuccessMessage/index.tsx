@@ -1,11 +1,15 @@
 import style from './style.module.scss';
-const SuccessMessage = () => {
+
+interface SuccessMessageProps {
+  onClose: () => void;
+}
+const SuccessMessage:React.FC<SuccessMessageProps> = ({onClose}) => {
   return (
     <div className={style.successMessageContainer}>
       <div>
         <h1>Senha redefinida com sucesso!</h1>
       </div>
-      <button>Ok</button>
+      <button onClick={onClose}>Ok</button>
     </div>
   );
 };

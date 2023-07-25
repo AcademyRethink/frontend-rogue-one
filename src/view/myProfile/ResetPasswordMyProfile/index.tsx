@@ -203,7 +203,7 @@ const ResetPasswordMyProfile = () => {
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
         >
-          <SuccessMessage />
+          <SuccessMessage onClose={() => setIsModalOpen(false)} />
         </ModalMyProfile>
       )}
     </div>
