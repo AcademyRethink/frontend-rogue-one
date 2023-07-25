@@ -84,7 +84,7 @@ const ResetPasswordMyProfile = () => {
     }
 
     axios
-      .post('http://farma-view-393823.rj.r.appspot.com/reset-password-logged', {
+      .post('https://farma-view-393823.rj.r.appspot.com/reset-password-logged', {
         currentPassword,
         newPassword,
         email,

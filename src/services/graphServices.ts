@@ -10,7 +10,7 @@ export const fetchEvolutionGraph = async (
   const { cnpj } = JSON.parse(session!);
   const response = await axios
     .post(
-      `http://farma-view-393823.rj.r.appspot.com/dashboard/graphs/2/${limit}`,
+      `https://farma-view-393823.rj.r.appspot.com/dashboard/graphs/2/${limit}`,
       {
         cnpj,
         product_name: productName,

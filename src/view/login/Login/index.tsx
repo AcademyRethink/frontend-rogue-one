@@ -48,7 +48,7 @@ const Login = () => {
     }
 
     axios
-      .post('http://farma-view-393823.rj.r.appspot.com/auth/login', { email, password })
+      .post('https://farma-view-393823.rj.r.appspot.com/auth/login', { email, password })
       .then((response) => {
         const token = response.data.token;
 
