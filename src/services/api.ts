@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:8080',
+  baseURL: 'http://farma-view-393823.rj.r.appspot.com',
 });
 
 export const validToken = () => {

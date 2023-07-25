@@ -10,7 +10,7 @@ export async function getProductsFromInventory(data?: any): Promise<string[]> {
     },
   };
   const response = await api.post(
-    'http://localhost:8080/dashboard/inventory/products',
+    'http://farma-view-393823.rj.r.appspot.com/dashboard/inventory/products',
     { cnpj, ...data },
     config
   );

@@ -11,7 +11,7 @@ const NotificationStatus = () => {
 
   useEffect(() => {
     axios
-      .get('http://localhost:8080/unresolved-notifications')
+      .get('http://farma-view-393823.rj.r.appspot.com/unresolved-notifications')
       .then((response) => {
         const updatedNotifications = response.data.map((notification: any) => ({
           ...notification,

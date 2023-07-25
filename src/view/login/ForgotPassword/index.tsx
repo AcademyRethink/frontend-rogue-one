@@ -24,7 +24,7 @@ const ForgotPassword = () => {
       return;
     }
     try {
-      await axios.post('http://localhost:8080/auth/forgot-password', { email });
+      await axios.post('http://farma-view-393823.rj.r.appspot.com/auth/forgot-password', { email });
       navigate('/warning-send-password');
     } catch (error) {
       console.error('Erro ao enviar email de recuperação de senha:', error);

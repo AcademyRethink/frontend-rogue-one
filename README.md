@@ -22,7 +22,6 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:<br>
 <img src="https://img.shields.io/static/v1?label=LIB&message=Chart js&color=007E84&style=for-the-badge"/><br>
 <img src="https://img.shields.io/static/v1?label=LIB&message=Ant design&color=007E84&style=for-the-badge"/><br>
 <img src="https://img.shields.io/static/v1?label=LIB&message=SASS&color=007E84&style=for-the-badge"/><br>
-<img src="https://img.shields.io/static/v1?label=LIB&message=Tippy&color=007E84&style=for-the-badge"/><br>
 <img src="https://img.shields.io/static/v1?label=LIB&message=Axios&color=007E84&style=for-the-badge"/><br>
 <img src="https://img.shields.io/static/v1?label=Runtime&message=Node.js&color=007E84&style=for-the-badge"/><br>
 
@@ -35,7 +34,6 @@ O projeto foi desenvolvido utilizando as seguintes tecnologias:<br>
   Chart.js é uma biblioteca JavaScript de código aberto que permite criar gráficos interativos e visualmente atraentes para exibir dados em aplicativos web.
 - [Ant Design](https://ant.design/): Ant Design é uma biblioteca de componentes de interface de usuário (UI) modernos e estilizados, baseada em React, que facilita o desenvolvimento de aplicativos web com um design elegante e responsivo.
 - [Sass](https://sass-lang.com/documentation/): Sass é uma linguagem de extensão CSS que permite escrever estilos de forma mais eficiente e organizada, com recursos como variáveis, aninhamento e mixins, tornando o desenvolvimento de folhas de estilo mais poderoso e flexível.
-- [Tippy](https://tippyjs.bootcss.com/): Tippy.js é uma biblioteca JavaScript leve e altamente personalizável para a criação de tooltips modernos e interativos em páginas da web.
 - [Axios](https://axios-http.com/ptbr/docs/intro):
   Axios é uma biblioteca JavaScript baseada em promessas, que permite fazer requisições HTTP de forma fácil e eficiente em aplicações front-end e back-end.
 - [Node.js](https://nodejs.org/): um ambiente de execução JavaScript do lado do servidor.

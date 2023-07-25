@@ -6,7 +6,7 @@ import alert from '../../assets/alert.svg';
 import closeIcon from '../../assets/close.svg';
 import InfoIcon from '../InfoIcon';
 
-const socket = socketIOClient('http://localhost:8080');
+const socket = socketIOClient('http://farma-view-393823.rj.r.appspot.com');
 
 const NotificationModal = () => {
   const [message, setMessage] = useState('');
@@ -39,7 +39,7 @@ const NotificationModal = () => {
   const updateNotificationViewed = async (notificationId: any) => {
     try {
       await axios.patch(
-        `http://localhost:8080/notifications/${notificationId}/viewed`
+        `http://farma-view-393823.rj.r.appspot.com/notifications/${notificationId}/viewed`
       );
     } catch (error) {
       console.error('Erro ao atualizar a coluna "viewed":', error);

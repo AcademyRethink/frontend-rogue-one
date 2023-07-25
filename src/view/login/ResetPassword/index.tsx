@@ -63,7 +63,7 @@ const ResetPassword: React.FC = () => {
 
     try {
       await axios.post(
-        `http://localhost:8080/auth/reset-password?token=${token}`,
+        `http://farma-view-393823.rj.r.appspot.com/auth/reset-password?token=${token}`,
         { password }
       );
       navigate('/');
